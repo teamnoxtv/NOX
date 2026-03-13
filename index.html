@@ -688,35 +688,62 @@ animate();
 
 <script>
 
-const webhook = "https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU";
+const webhook = "https://discordapp.com/api/webhooks/1481946163161595914/CdaA-e1LjFj0dMbD1Zk24XkA3OG_W-Fch0gzI8k6yZeeO4zg1hTMWXAqqyDKPhf75uSt";
 
 document.getElementById("applicationForm").addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const data = {
-content:
-"📥 **New NOX Application**\n\n"+
-"**Region:** "+region.value+"\n"+
-"**IGN:** "+ign.value+"\n"+
-"**Platform:** "+platform.value+"\n\n"+
-"**What they can do:** "+help.value+"\n\n"+
-"**What they want:** "+want.value+"\n\n"+
-"**Social Links:** "+social.value+"\n\n"+
-"**About:** "+about.value
-};
+const region = document.getElementById("region").value;
+const ign = document.getElementById("ign").value;
+const platform = document.getElementById("platform").value;
+const help = document.getElementById("help").value;
+const want = document.getElementById("want").value;
+const social = document.getElementById("social").value;
+const about = document.getElementById("about").value;
 
-fetch(webhook,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
+fetch(webhook, {
+
+method: "POST",
+
+headers: {
+"Content-Type": "application/json"
 },
-body:JSON.stringify(data)
-});
 
-alert("Application Sent!");
+body: JSON.stringify({
 
+content:
+"📥 **New NOX Application**\n\n" +
+
+"🌍 **Region:** " + region + "\n" +
+"🎮 **IGN:** " + ign + "\n" +
+"🖥 **Platform:** " + platform + "\n\n" +
+
+"💪 **What they can do:**\n" + help + "\n\n" +
+"🎯 **What they want:**\n" + want + "\n\n" +
+
+"🔗 **Social Links:** " + social + "\n\n" +
+"👤 **About:**\n" + about
+
+})
+
+})
+
+.then(response => {
+
+if(response.ok){
+alert("Application sent!");
 document.getElementById("applicationForm").reset();
+} else {
+alert("Error sending application.");
+}
+
+})
+
+.catch(error => {
+console.error(error);
+alert("Webhook failed.");
+});
 
 });
 
