@@ -107,39 +107,7 @@ margin:10px;
 .hero-buttons a:hover{
 box-shadow:0 0 20px #a855f7;
 }
-.hero-title{
-font-size:70px;
-letter-spacing:6px;
-}
 
-.hero-title span{
-opacity:0;
-display:inline-block;
-animation:heroIntro 0.6s forwards;
-}
-
-.hero-title span:nth-child(1){animation-delay:0.1s;}
-.hero-title span:nth-child(2){animation-delay:0.2s;}
-.hero-title span:nth-child(3){animation-delay:0.3s;}
-.hero-title span:nth-child(4){animation-delay:0.4s;}
-.hero-title span:nth-child(6){animation-delay:0.6s;}
-.hero-title span:nth-child(7){animation-delay:0.7s;}
-.hero-title span:nth-child(8){animation-delay:0.8s;}
-
-@keyframes heroIntro{
-0%{
-opacity:0;
-transform:translateY(40px);
-text-shadow:none;
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-text-shadow:0 0 25px #a855f7;
-}
-}
-  
 /* SECTIONS */
 
 section{
@@ -165,36 +133,25 @@ margin:auto;
 .player-card{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 border-radius:15px;
 overflow:hidden;
-transition:0.35s;
-position:relative;
+transition:0.3s;
 }
 
 .player-card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:
-0 0 10px #a855f7,
-0 0 25px #a855f7,
-0 0 50px #a855f7;
+transform:translateY(-8px);
+box-shadow:0 0 20px #a855f7;
 }
 
-/* neon border */
-
-.player-card::before{
-content:"";
-position:absolute;
-inset:-2px;
-border-radius:15px;
-background:linear-gradient(45deg,#a855f7,transparent,#a855f7);
-opacity:0;
-transition:0.3s;
-z-index:-1;
+.player-card img{
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
-.player-card:hover::before{
-opacity:1;
+.player-info{
+padding:15px;
 }
 
 /* VIDEO */
@@ -256,30 +213,6 @@ border-radius:6px;
 color:white;
 cursor:pointer;
 }
-  #bg-video{
-position:fixed;
-right:0;
-bottom:0;
-min-width:100%;
-min-height:100%;
-width:auto;
-height:auto;
-z-index:-2;
-object-fit:cover;
-}
-
-/* dark overlay so text stays readable */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-z-index:-1;
-}
 
 /* FOOTER */
 
@@ -289,15 +222,11 @@ text-align:center;
 background:#050505;
 }
 
-
 </style>
 
 </head>
 
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-<source src="teamvideo.mp4" type="video/mp4">
-</video>
 
 <canvas id="particles"></canvas>
 
@@ -320,11 +249,7 @@ background:#050505;
 
 <!-- HERO -->
 
-<h1 class="hero-title">
-<span>T</span><span>E</span><span>A</span><span>M</span>
-<span>&nbsp;</span>
-<span>N</span><span>O</span><span>X</span>
-</h1>
+<section id="home" class="hero">
 
 <h1>TEAM NOX</h1>
 
