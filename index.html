@@ -213,6 +213,30 @@ border-radius:6px;
 color:white;
 cursor:pointer;
 }
+  #bg-video{
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+width:auto;
+height:auto;
+z-index:-2;
+object-fit:cover;
+}
+
+/* dark overlay so text stays readable */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
+}
 
 /* FOOTER */
 
@@ -227,6 +251,9 @@ background:#050505;
 </head>
 
 <body>
+  <video autoplay muted loop playsinline id="bg-video">
+<source src="teamvideo.mp4" type="video/mp4">
+</video>
 
 <canvas id="particles"></canvas>
 
