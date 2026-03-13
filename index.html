@@ -132,21 +132,16 @@ margin:auto;
 
 .player-card{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
 border-radius:15px;
 overflow:hidden;
-cursor:pointer;
-position:relative;
-transition:0.35s;
-border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
 }
 
 .player-card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:
-0 0 10px #a855f7,
-0 0 30px #a855f7,
-0 0 60px #a855f7;
+transform:translateY(-8px);
+box-shadow:0 0 20px #a855f7;
 }
 
 .player-card img{
@@ -158,25 +153,18 @@ object-fit:cover;
 .player-info{
 padding:15px;
 }
-  .player-overlay{
-position:absolute;
-top:0;
-left:0;
+
+/* VIDEO */
+
+.video-container{
+max-width:900px;
+margin:60px auto;
+}
+
+.video-container video{
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-opacity:0;
-transition:0.3s;
+border-radius:10px;
 }
-
-.player-card:hover .player-overlay{
-opacity:1;
-}
-
 
 /* TOURNAMENT BRACKET */
 
@@ -225,29 +213,19 @@ border-radius:6px;
 color:white;
 cursor:pointer;
 }
-
-/* FOOTER */
-
-footer{
-padding:30px;
-text-align:center;
-background:#050505;
-}
-
-  /* video background */
-
-#bg-video{
+  #bg-video{
 position:fixed;
-top:0;
-left:0;
-width:100vw;
-height:100vh;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+width:auto;
+height:auto;
+z-index:-2;
 object-fit:cover;
-z-index:-10;
-pointer-events:none;
 }
 
-/* dark overlay */
+/* dark overlay so text stays readable */
 
 body::before{
 content:"";
@@ -257,66 +235,27 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.65);
-z-index:-5;
-}
-  main, nav, section, footer{
-position:relative;
-z-index:10;
-}
-.popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-z-index:999;
+z-index:-1;
 }
 
-.popup-content{
-background:#111;
-padding:40px;
-border-radius:10px;
+/* FOOTER */
+
+footer{
+padding:30px;
 text-align:center;
-box-shadow:0 0 25px #a855f7;
+background:#050505;
 }
 
-.close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:30px;
-cursor:pointer;
-}
-  
 </style>
 
 </head>
 
 <body>
-
-<video autoplay muted loop playsinline id="bg-video">
-  <source src="teamvideo.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline id="bg-video">
+<source src="teamvideo.mp4" type="video/mp4">
 </video>
 
-<nav>...</nav>
-
-<section id="home">...</section>
-
-<section id="roster">...</section>
-
-<section id="about">...</section>
-
-<section id="join">...</section>
-
-<section id="tournaments">...</section>
-
-<footer>...</footer>
-
-</body>
+<canvas id="particles"></canvas>
 
 <nav>
 
@@ -359,51 +298,19 @@ cursor:pointer;
 
 <!-- 22 GLASS CARDS -->
 
-<div class="roster">
-
-<div class="player-card"><img src="players/bipolar.png"><div class="player-info"><h3>NOX Bipolar</h3><p>bi28</p></div></div>
-
-<div class="player-card"><img src="players/bloodhunter.png"><div class="player-info"><h3>NOX BloodHunter</h3><p>bloodhuntertae</p></div></div>
-
-<div class="player-card"><img src="players/celestial.png"><div class="player-info"><h3>NOX Celestial</h3><p>celestialnightz</p></div></div>
-
-<div class="player-card"><img src="players/chloe.png"><div class="player-info"><h3>NOX Chloe</h3><p>chlo_0105</p></div></div>
-
-<div class="player-card"><img src="players/chrizzz.png"><div class="player-info"><h3>NOX Chrizzz</h3><p>chrizzz02</p></div></div>
-
-<div class="player-card"><img src="players/grey.png"><div class="player-info"><h3>NOX Grey</h3><p>greylonewolf78</p></div></div>
-
-<div class="player-card"><img src="players/hero.png"><div class="player-info"><h3>NOX Hero</h3><p>xmrcyheroo</p></div></div>
-
-<div class="player-card"><img src="players/jess.png"><div class="player-info"><h3>NOX Jess</h3><p>mynameisjess19</p></div></div>
-
-<div class="player-card"><img src="players/kjc.png"><div class="player-info"><h3>NOX KJC</h3><p>its_kjc</p></div></div>
-
-<div class="player-card"><img src="players/krispy.png"><div class="player-info"><h3>NOX Krispy</h3><p>friedkrispyyy</p></div></div>
-
-<div class="player-card"><img src="players/luvwrk.png"><div class="player-info"><h3>NOX Luvxrk</h3><p>botanantonela</p></div></div>
-
-<div class="player-card"><img src="players/milo.png"><div class="player-info"><h3>NOX Milo</h3><p>milogfox</p></div></div>
-
-<div class="player-card"><img src="players/nordica.png"><div class="player-info"><h3>NOX Nordica Dropz</h3><p>nordicadropz</p></div></div>
-
-<div class="player-card"><img src="players/peanut.png"><div class="player-info"><h3>NOX Peanut</h3><p>thatboytecca</p></div></div>
-
-<div class="player-card"><img src="players/radiant.png"><div class="player-info"><h3>NOX Radiant</h3><p>soulreviv3</p></div></div>
-
-<div class="player-card"><img src="players/raeanne.png"><div class="player-info"><h3>NOX Raeanne</h3><p>raeanne1998</p></div></div>
-
-<div class="player-card"><img src="players/shadow.png"><div class="player-info"><h3>NOX Shadow</h3><p>shadow2007_</p></div></div>
-
-<div class="player-card"><img src="players/shy.png"><div class="player-info"><h3>NOX Shy</h3><p>nox_shy</p></div></div>
-
-<div class="player-card"><img src="players/silence.png"><div class="player-info"><h3>NOX Silence</h3><p>mejustsilent</p></div></div>
-
-<div class="player-card"><img src="players/slappin.png"><div class="player-info"><h3>NOX Slappin</h3><p>noxslappin</p></div></div>
-
-<div class="player-card"><img src="players/travis.png"><div class="player-info"><h3>NOX Travis</h3><p>travisplant1994</p></div></div>
-
-<div class="player-card"><img src="players/zyn.png"><div class="player-info"><h3>NOX Zyn</h3><p>over2nite</p></div></div>
+<script>
+for(let i=1;i<=22;i++){
+document.write(`
+<div class="player-card">
+<img src="player${i}.jpg">
+<div class="player-info">
+<h3>Player ${i}</h3>
+<p>Role</p>
+</div>
+</div>
+`)
+}
+</script>
 
 </div>
 
@@ -530,7 +437,7 @@ document.getElementById("joinForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-const webhook="https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU";
+const webhook="PASTE_WEBHOOK";
 
 const data={
 content:
