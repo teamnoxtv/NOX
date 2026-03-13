@@ -361,7 +361,94 @@ box-shadow:0 0 15px #a855f7;
 transform:scale(1.04);
 
 }  
+.glass-application{
 
+max-width:520px;
+margin:auto;
+padding:28px;
+
+background:rgba(255,255,255,0.05);
+border-radius:16px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(16px);
+
+box-shadow:
+0 0 12px rgba(168,85,247,0.5),
+0 0 40px rgba(168,85,247,0.25);
+
+transition:0.3s;
+
+}
+
+.glass-application:hover{
+
+box-shadow:
+0 0 20px #a855f7,
+0 0 60px rgba(168,85,247,0.4);
+
+transform:translateY(-4px);
+
+}
+
+.glass-application form{
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+}
+
+.glass-application input,
+.glass-application textarea{
+
+background:rgba(0,0,0,0.45);
+border:none;
+
+border-radius:8px;
+
+padding:11px;
+
+color:white;
+font-size:14px;
+
+}
+
+.glass-application textarea{
+
+min-height:70px;
+resize:none;
+
+}
+
+.glass-application button{
+
+margin-top:8px;
+
+background:#a855f7;
+border:none;
+
+border-radius:10px;
+
+padding:13px;
+
+font-weight:bold;
+color:white;
+
+cursor:pointer;
+
+transition:0.25s;
+
+}
+
+.glass-application button:hover{
+
+box-shadow:0 0 20px #a855f7;
+transform:scale(1.05);
+
+}
+  
 </style>
 
 </head>
@@ -489,9 +576,11 @@ transform:scale(1.04);
 
 <!-- JOIN -->
 
-<section id="join">
+<section id="join" class="reveal">
 
-<h2>Team Application</h2>
+<h2>Join Team NOX</h2>
+
+<div class="glass-application">
 
 <form id="applicationForm">
 
@@ -499,19 +588,11 @@ transform:scale(1.04);
 
 <input type="text" id="ign" placeholder="In-Game Name" required>
 
-<input type="text" id="gadget" placeholder="Gadget">
-
 <input type="text" id="platform" placeholder="Platform (PC / Console / Mobile)">
 
-<textarea id="practice" placeholder="Weekly Practice Availability"></textarea>
+<textarea id="help" placeholder="What can you do for NOX"></textarea>
 
-<textarea id="content" placeholder="Content Experience"></textarea>
-
-<textarea id="teams" placeholder="Previous Teams"></textarea>
-
-<textarea id="help" placeholder="What Can You Do For Us"></textarea>
-
-<textarea id="want" placeholder="What Do You Want From Us"></textarea>
+<textarea id="want" placeholder="What do you want from NOX"></textarea>
 
 <input type="text" id="social" placeholder="Social Links">
 
@@ -520,8 +601,6 @@ transform:scale(1.04);
 <button type="submit">Submit Application</button>
 
 </form>
-
-</section>
 
 </div>
 
@@ -607,28 +686,37 @@ animate();
 
 /* DISCORD WEBHOOK */
 
-document.getElementById("joinForm").addEventListener("submit",function(e){
+<script>
+
+const webhook = "https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU";
+
+document.getElementById("applicationForm").addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const webhook="https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU";
-
-const data={
+const data = {
 content:
-"New Team Nox Application\n"+
-"Username: "+username.value+
-"\nAge: "+age.value+
-"\nGame: "+game.value+
-"\nReason: "+reason.value
+"📥 **New NOX Application**\n\n"+
+"**Region:** "+region.value+"\n"+
+"**IGN:** "+ign.value+"\n"+
+"**Platform:** "+platform.value+"\n\n"+
+"**What they can do:** "+help.value+"\n\n"+
+"**What they want:** "+want.value+"\n\n"+
+"**Social Links:** "+social.value+"\n\n"+
+"**About:** "+about.value
 };
 
 fetch(webhook,{
 method:"POST",
-headers:{"Content-Type":"application/json"},
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify(data)
 });
 
-alert("Application sent!");
+alert("Application Sent!");
+
+document.getElementById("applicationForm").reset();
 
 });
 
