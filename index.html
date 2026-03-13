@@ -1,38 +1,48 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Team Nox</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
 
 html{
 scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:Arial;
-background:#0f0f0f;
+background:#0b0b0b;
 color:white;
 }
+
+/* NAVBAR */
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#111;
-padding:10px 30px;
+padding:15px 40px;
+background:#050505;
 position:sticky;
 top:0;
+z-index:1000;
+border-bottom:1px solid #111;
 }
 
 .logo{
 display:flex;
 align-items:center;
-font-size:22px;
 font-weight:bold;
+font-size:22px;
 }
 
 .logo img{
@@ -41,56 +51,133 @@ margin-right:10px;
 }
 
 .nav-links a{
-color:white;
-text-decoration:none;
 margin:0 15px;
+text-decoration:none;
+color:white;
 font-weight:bold;
+transition:0.3s;
 }
 
 .nav-links a:hover{
-color:#00c3ff;
+color:#a855f7;
+text-shadow:0 0 10px #a855f7;
 }
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle,#111,#050505);
+}
+
+.hero h1{
+font-size:70px;
+letter-spacing:4px;
+text-shadow:0 0 20px #a855f7;
+animation:glow 3s infinite alternate;
+}
+
+.hero p{
+margin-top:15px;
+color:#bbb;
+font-size:18px;
+}
+
+.hero-buttons{
+margin-top:40px;
+}
+
+.hero-buttons a{
+padding:15px 35px;
+background:#a855f7;
+color:white;
+text-decoration:none;
+border-radius:6px;
+margin:10px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.hero-buttons a:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #a855f7;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #a855f7;}
+to{text-shadow:0 0 35px #a855f7;}
+}
+
+/* SECTIONS */
 
 section{
 padding:80px 20px;
 text-align:center;
 }
 
-.hero{
-padding:150px 20px;
+h2{
+margin-bottom:40px;
+font-size:36px;
 }
 
-.hero h1{
-font-size:50px;
-}
+/* ROSTER */
 
-.buttons a{
-background:#00c3ff;
-padding:15px 25px;
-margin:10px;
-display:inline-block;
-color:black;
-text-decoration:none;
-border-radius:6px;
-}
-
-.roster-grid{
+.roster{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-padding:40px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:1200px;
+margin:auto;
 }
 
-.player{
-background:#1b1b1b;
-padding:15px;
-border-radius:8px;
+.player-card{
+background:#111;
+border-radius:10px;
+overflow:hidden;
+transition:0.3s;
+position:relative;
 }
 
-.player img{
+.player-card img{
 width:100%;
-border-radius:6px;
+height:200px;
+object-fit:cover;
 }
+
+.player-info{
+padding:15px;
+}
+
+.player-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 20px #a855f7;
+}
+
+.player-stats{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+opacity:0;
+transition:0.3s;
+}
+
+.player-card:hover .player-stats{
+opacity:1;
+}
+
+/* TIMELINE */
 
 .timeline{
 max-width:700px;
@@ -98,11 +185,13 @@ margin:auto;
 }
 
 .timeline div{
-background:#1b1b1b;
+background:#111;
+padding:20px;
 margin:20px 0;
-padding:15px;
-border-radius:6px;
+border-left:4px solid #a855f7;
 }
+
+/* FORM */
 
 form{
 max-width:500px;
@@ -112,27 +201,83 @@ flex-direction:column;
 gap:15px;
 }
 
-input,textarea{
-padding:10px;
+input, textarea{
+padding:12px;
 border:none;
-border-radius:5px;
+border-radius:6px;
+background:#111;
+color:white;
 }
 
 button{
-background:#00c3ff;
-padding:12px;
+padding:14px;
+background:#a855f7;
 border:none;
 font-weight:bold;
 cursor:pointer;
+border-radius:6px;
 }
 
-footer{
+/* TOURNAMENTS */
+
+.tournaments{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.tournament-card{
 background:#111;
-padding:20px;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.tournament-card:hover{
+box-shadow:0 0 20px #a855f7;
+transform:translateY(-5px);
+}
+
+/* SHOP */
+
+.shop{
+font-size:24px;
+color:#aaa;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#050505;
+margin-top:60px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:40px;
+}
+
+nav{
+flex-direction:column;
+gap:10px;
+}
+
+.nav-links{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -155,17 +300,16 @@ Team Nox
 
 </nav>
 
-<!-- HOME -->
+<!-- HERO -->
 
 <section id="home" class="hero">
 
-<h1>Welcome To Team Nox</h1>
+<h1>TEAM NOX</h1>
+<p>Competitive Esports Organization</p>
 
-<p>Competitive gaming team built for champions.</p>
-
-<div class="buttons">
+<div class="hero-buttons">
 <a href="#roster">Roster</a>
-<a href="#about">About Us</a>
+<a href="#join">Join Us</a>
 <a href="#tournaments">Tournaments</a>
 </div>
 
@@ -175,32 +319,26 @@ Team Nox
 
 <section id="roster">
 
-<h1>Team Roster</h1>
+<h2>Team Roster</h2>
 
-<div class="roster-grid">
+<div class="roster">
 
-<div class="player"><img src="player1.jpg"><h3>Player 1</h3></div>
-<div class="player"><img src="player2.jpg"><h3>Player 2</h3></div>
-<div class="player"><img src="player3.jpg"><h3>Player 3</h3></div>
-<div class="player"><img src="player4.jpg"><h3>Player 4</h3></div>
-<div class="player"><img src="player5.jpg"><h3>Player 5</h3></div>
-<div class="player"><img src="player6.jpg"><h3>Player 6</h3></div>
-<div class="player"><img src="player7.jpg"><h3>Player 7</h3></div>
-<div class="player"><img src="player8.jpg"><h3>Player 8</h3></div>
-<div class="player"><img src="player9.jpg"><h3>Player 9</h3></div>
-<div class="player"><img src="player10.jpg"><h3>Player 10</h3></div>
-<div class="player"><img src="player11.jpg"><h3>Player 11</h3></div>
-<div class="player"><img src="player12.jpg"><h3>Player 12</h3></div>
-<div class="player"><img src="player13.jpg"><h3>Player 13</h3></div>
-<div class="player"><img src="player14.jpg"><h3>Player 14</h3></div>
-<div class="player"><img src="player15.jpg"><h3>Player 15</h3></div>
-<div class="player"><img src="player16.jpg"><h3>Player 16</h3></div>
-<div class="player"><img src="player17.jpg"><h3>Player 17</h3></div>
-<div class="player"><img src="player18.jpg"><h3>Player 18</h3></div>
-<div class="player"><img src="player19.jpg"><h3>Player 19</h3></div>
-<div class="player"><img src="player20.jpg"><h3>Player 20</h3></div>
-<div class="player"><img src="player21.jpg"><h3>Player 21</h3></div>
-<div class="player"><img src="player22.jpg"><h3>Player 22</h3></div>
+<!-- PLAYER CARD TEMPLATE -->
+
+<div class="player-card">
+<img src="player1.jpg">
+<div class="player-info">
+<h3>Player 1</h3>
+<p>Role</p>
+</div>
+<div class="player-stats">
+<p>KD: 2.1</p>
+<p>Wins: 45</p>
+<p>Main Game</p>
+</div>
+</div>
+
+<!-- duplicate this card for up to 22 players -->
 
 </div>
 
@@ -210,25 +348,23 @@ Team Nox
 
 <section id="about">
 
-<h1>About Team Nox</h1>
-
-<p>Team Nox is a competitive esports organization focused on teamwork and winning.</p>
+<h2>About Team Nox</h2>
 
 <div class="timeline">
 
 <div>
 <h3>2023</h3>
-<p>Team Nox was founded.</p>
+<p>Team Nox founded.</p>
 </div>
 
 <div>
 <h3>2024</h3>
-<p>First tournaments played.</p>
+<p>First tournaments entered.</p>
 </div>
 
 <div>
 <h3>2025</h3>
-<p>Expanded roster to 22 members.</p>
+<p>Expanded to 22 competitive players.</p>
 </div>
 
 </div>
@@ -239,19 +375,16 @@ Team Nox
 
 <section id="join">
 
-<h1>Join Team Nox</h1>
+<h2>Join Team Nox</h2>
 
-<form>
+<form id="joinForm">
 
-<input type="text" placeholder="Username" required>
+<input type="text" id="username" placeholder="Username" required>
+<input type="text" id="age" placeholder="Age">
+<input type="text" id="game" placeholder="Game">
+<textarea id="reason" placeholder="Why do you want to join?"></textarea>
 
-<input type="text" placeholder="Age">
-
-<input type="text" placeholder="Game">
-
-<textarea placeholder="Why do you want to join?"></textarea>
-
-<button type="submit">Submit</button>
+<button type="submit">Send Application</button>
 
 </form>
 
@@ -261,13 +394,23 @@ Team Nox
 
 <section id="tournaments">
 
-<h1>Upcoming Tournaments</h1>
+<h2>Tournaments</h2>
 
-<p>No tournaments announced yet.</p>
+<div class="tournaments">
 
-<h2>Played Tournaments</h2>
+<div class="tournament-card">
+<h3>Winter Cup</h3>
+<p>Date: Dec 2026</p>
+<p>Status: Upcoming</p>
+</div>
 
-<p>Coming soon...</p>
+<div class="tournament-card">
+<h3>Pro League</h3>
+<p>Placement: Top 8</p>
+<p>Year: 2025</p>
+</div>
+
+</div>
 
 </section>
 
@@ -275,20 +418,45 @@ Team Nox
 
 <section id="shop">
 
-<h1>Shop</h1>
-
-<h2>Coming Soon</h2>
-
-<p>Team Nox merchandise will appear here.</p>
+<h2>Shop</h2>
+<p class="shop">Merch Coming Soon</p>
 
 </section>
 
 <footer>
-
-<p>Team Nox © 2026</p>
-
+<p>© 2026 Team Nox</p>
 </footer>
 
-</body>
+<script>
 
+/* DISCORD WEBHOOK */
+
+document.getElementById("joinForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const webhook="PASTE_DISCORD_WEBHOOK_HERE";
+
+const data={
+content:
+"New Team Nox Application\n"+
+"Username: "+document.getElementById("username").value+
+"\nAge: "+document.getElementById("age").value+
+"\nGame: "+document.getElementById("game").value+
+"\nReason: "+document.getElementById("reason").value
+};
+
+fetch(webhook,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+
+alert("Application sent!");
+
+});
+
+</script>
+
+</body>
 </html>
