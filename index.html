@@ -286,6 +286,81 @@ margin-top:10px;
 font-size:13px;
 opacity:0.7;
 }
+.glass-form{
+
+max-width:520px;
+margin:auto;
+padding:25px;
+
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+
+border-radius:15px;
+
+backdrop-filter:blur(14px);
+
+box-shadow:
+0 0 10px rgba(168,85,247,0.4),
+0 0 30px rgba(168,85,247,0.2);
+
+}
+
+.glass-form form{
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+.glass-form input,
+.glass-form textarea{
+
+background:rgba(0,0,0,0.45);
+border:none;
+
+border-radius:8px;
+
+padding:10px;
+
+color:white;
+font-size:13px;
+
+}
+
+.glass-form textarea{
+
+min-height:60px;
+resize:none;
+
+}
+
+.glass-form button{
+
+margin-top:10px;
+
+background:#a855f7;
+border:none;
+
+border-radius:8px;
+
+padding:12px;
+
+font-weight:bold;
+color:white;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.glass-form button:hover{
+
+box-shadow:0 0 15px #a855f7;
+transform:scale(1.04);
+
+}  
 
 </style>
 
