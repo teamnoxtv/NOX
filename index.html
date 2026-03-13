@@ -255,200 +255,7 @@ padding:30px;
 text-align:center;
 background:#050505;
 }
-  .application-box{
-max-width:700px;
-margin:auto;
-padding:30px;
 
-background:linear-gradient(135deg,#1b0f2a,#0c2230);
-
-border-radius:10px;
-
-box-shadow:
-0 0 10px #a855f7,
-0 0 40px rgba(168,85,247,0.3);
-
-text-align:left;
-}
-
-.application-box p{
-margin:8px 0;
-font-size:15px;
-}
-
-.application-note{
-font-style:italic;
-opacity:0.9;
-}
-
-.application-footer{
-margin-top:10px;
-font-size:13px;
-opacity:0.7;
-}
-.glass-form{
-
-max-width:520px;
-margin:auto;
-padding:25px;
-
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-
-border-radius:15px;
-
-backdrop-filter:blur(14px);
-
-box-shadow:
-0 0 10px rgba(168,85,247,0.4),
-0 0 30px rgba(168,85,247,0.2);
-
-}
-
-.glass-form form{
-
-display:flex;
-flex-direction:column;
-gap:10px;
-
-}
-
-.glass-form input,
-.glass-form textarea{
-
-background:rgba(0,0,0,0.45);
-border:none;
-
-border-radius:8px;
-
-padding:10px;
-
-color:white;
-font-size:13px;
-
-}
-
-.glass-form textarea{
-
-min-height:60px;
-resize:none;
-
-}
-
-.glass-form button{
-
-margin-top:10px;
-
-background:#a855f7;
-border:none;
-
-border-radius:8px;
-
-padding:12px;
-
-font-weight:bold;
-color:white;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.glass-form button:hover{
-
-box-shadow:0 0 15px #a855f7;
-transform:scale(1.04);
-
-}  
-.glass-application{
-
-max-width:520px;
-margin:auto;
-padding:28px;
-
-background:rgba(255,255,255,0.05);
-border-radius:16px;
-
-border:1px solid rgba(255,255,255,0.08);
-
-backdrop-filter:blur(16px);
-
-box-shadow:
-0 0 12px rgba(168,85,247,0.5),
-0 0 40px rgba(168,85,247,0.25);
-
-transition:0.3s;
-
-}
-
-.glass-application:hover{
-
-box-shadow:
-0 0 20px #a855f7,
-0 0 60px rgba(168,85,247,0.4);
-
-transform:translateY(-4px);
-
-}
-
-.glass-application form{
-
-display:flex;
-flex-direction:column;
-gap:12px;
-
-}
-
-.glass-application input,
-.glass-application textarea{
-
-background:rgba(0,0,0,0.45);
-border:none;
-
-border-radius:8px;
-
-padding:11px;
-
-color:white;
-font-size:14px;
-
-}
-
-.glass-application textarea{
-
-min-height:70px;
-resize:none;
-
-}
-
-.glass-application button{
-
-margin-top:8px;
-
-background:#a855f7;
-border:none;
-
-border-radius:10px;
-
-padding:13px;
-
-font-weight:bold;
-color:white;
-
-cursor:pointer;
-
-transition:0.25s;
-
-}
-
-.glass-application button:hover{
-
-box-shadow:0 0 20px #a855f7;
-transform:scale(1.05);
-
-}
-  
 </style>
 
 </head>
@@ -576,33 +383,20 @@ transform:scale(1.05);
 
 <!-- JOIN -->
 
-<section id="join" class="reveal">
+<section id="join">
 
-<h2>Join Team NOX</h2>
+<h2>Join Team Nox</h2>
 
-<div class="glass-application">
+<form id="joinForm">
 
-<form id="applicationForm">
+<input type="text" id="username" placeholder="Username" required>
+<input type="text" id="age" placeholder="Age">
+<input type="text" id="game" placeholder="Game">
+<textarea id="reason" placeholder="Why join?"></textarea>
 
-<input type="text" id="region" placeholder="Region" required>
-
-<input type="text" id="ign" placeholder="In-Game Name" required>
-
-<input type="text" id="platform" placeholder="Platform (PC / Console / Mobile)">
-
-<textarea id="help" placeholder="What can you do for NOX"></textarea>
-
-<textarea id="want" placeholder="What do you want from NOX"></textarea>
-
-<input type="text" id="social" placeholder="Social Links">
-
-<textarea id="about" placeholder="About You"></textarea>
-
-<button type="submit">Submit Application</button>
+<button type="submit">Send Application</button>
 
 </form>
-
-</div>
 
 </section>
 
@@ -686,64 +480,28 @@ animate();
 
 /* DISCORD WEBHOOK */
 
-<script>
-
-const webhook = "https://discordapp.com/api/webhooks/1481946163161595914/CdaA-e1LjFj0dMbD1Zk24XkA3OG_W-Fch0gzI8k6yZeeO4zg1hTMWXAqqyDKPhf75uSt";
-
-document.getElementById("applicationForm").addEventListener("submit", function(e){
+document.getElementById("joinForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-const region = document.getElementById("region").value;
-const ign = document.getElementById("ign").value;
-const platform = document.getElementById("platform").value;
-const help = document.getElementById("help").value;
-const want = document.getElementById("want").value;
-const social = document.getElementById("social").value;
-const about = document.getElementById("about").value;
+const webhook="PASTE_WEBHOOK";
 
-fetch(webhook, {
-
-method: "POST",
-
-headers: {
-"Content-Type": "application/json"
-},
-
-body: JSON.stringify({
-
+const data={
 content:
-"📥 **New NOX Application**\n\n" +
+"New Team Nox Application\n"+
+"Username: "+username.value+
+"\nAge: "+age.value+
+"\nGame: "+game.value+
+"\nReason: "+reason.value
+};
 
-"🌍 **Region:** " + region + "\n" +
-"🎮 **IGN:** " + ign + "\n" +
-"🖥 **Platform:** " + platform + "\n\n" +
-
-"💪 **What they can do:**\n" + help + "\n\n" +
-"🎯 **What they want:**\n" + want + "\n\n" +
-
-"🔗 **Social Links:** " + social + "\n\n" +
-"👤 **About:**\n" + about
-
-})
-
-})
-
-.then(response => {
-
-if(response.ok){
-alert("Application sent!");
-document.getElementById("applicationForm").reset();
-} else {
-alert("Error sending application.");
-}
-
-})
-
-.catch(error => {
-console.error(error);
-alert("Webhook failed.");
+fetch(webhook,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
 });
+
+alert("Application sent!");
 
 });
 
