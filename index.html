@@ -107,7 +107,39 @@ margin:10px;
 .hero-buttons a:hover{
 box-shadow:0 0 20px #a855f7;
 }
+.hero-title{
+font-size:70px;
+letter-spacing:6px;
+}
 
+.hero-title span{
+opacity:0;
+display:inline-block;
+animation:heroIntro 0.6s forwards;
+}
+
+.hero-title span:nth-child(1){animation-delay:0.1s;}
+.hero-title span:nth-child(2){animation-delay:0.2s;}
+.hero-title span:nth-child(3){animation-delay:0.3s;}
+.hero-title span:nth-child(4){animation-delay:0.4s;}
+.hero-title span:nth-child(6){animation-delay:0.6s;}
+.hero-title span:nth-child(7){animation-delay:0.7s;}
+.hero-title span:nth-child(8){animation-delay:0.8s;}
+
+@keyframes heroIntro{
+0%{
+opacity:0;
+transform:translateY(40px);
+text-shadow:none;
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+text-shadow:0 0 25px #a855f7;
+}
+}
+  
 /* SECTIONS */
 
 section{
@@ -276,7 +308,11 @@ background:#050505;
 
 <!-- HERO -->
 
-<section id="home" class="hero">
+<h1 class="hero-title">
+<span>T</span><span>E</span><span>A</span><span>M</span>
+<span>&nbsp;</span>
+<span>N</span><span>O</span><span>X</span>
+</h1>
 
 <h1>TEAM NOX</h1>
 
