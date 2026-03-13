@@ -414,43 +414,51 @@ opacity:0.7;
 
 <!-- JOIN -->
 
-<section id="join" class="reveal">
+<section id="join">
 
-<h2>Team Application Form</h2>
+<h2>Team Application</h2>
 
-<div class="application-box">
+<form id="applicationForm">
 
-<p><strong>Region:</strong></p>
-<p><strong>In-Game Name:</strong></p>
-<p><strong>Gadget:</strong></p>
-<p><strong>Platform (PC / Console / Mobile)</strong></p>
-<p><strong>Tournament Experience:</strong></p>
-<p><strong>How Often Do You Play</strong></p>
-<p><strong>What Makes You Different From Other Players</strong></p>
-<p><strong>Weekly Practice Availability</strong></p>
-<p><strong>Content Experience</strong></p>
-<p><strong>How Do You Handle Losing</strong></p>
-<p><strong>How Do You Handle Toxic Teammate</strong></p>
-<p><strong>Can You Record Gameplay</strong></p>
-<p><strong>Previous Teams:</strong></p>
-<p><strong>What Can You Do For Us:</strong></p>
-<p><strong>What Do You Want From Us:</strong></p>
-<p><strong>Social Links:</strong></p>
-<p><strong>About You:</strong></p>
+<input type="text" id="region" placeholder="Region" required>
 
-<br>
+<input type="text" id="ign" placeholder="In-Game Name" required>
 
-<p class="application-note">
-Once completed, submit this form in your ticket. A staff member will review it and contact you as soon as possible.
-</p>
+<input type="text" id="gadget" placeholder="Gadget">
 
-<br>
+<input type="text" id="platform" placeholder="Platform (PC / Console / Mobile)">
 
-<p><strong>Thank you for choosing NOX</strong></p>
+<textarea id="experience" placeholder="Tournament Experience"></textarea>
 
-<p class="application-footer">
-NOT ONLY A TEAM BUT A FAMILY
-</p>
+<textarea id="playtime" placeholder="How Often Do You Play"></textarea>
+
+<textarea id="different" placeholder="What Makes You Different"></textarea>
+
+<textarea id="practice" placeholder="Weekly Practice Availability"></textarea>
+
+<textarea id="content" placeholder="Content Experience"></textarea>
+
+<textarea id="losing" placeholder="How Do You Handle Losing"></textarea>
+
+<textarea id="toxic" placeholder="How Do You Handle Toxic Teammates"></textarea>
+
+<textarea id="record" placeholder="Can You Record Gameplay"></textarea>
+
+<textarea id="teams" placeholder="Previous Teams"></textarea>
+
+<textarea id="help" placeholder="What Can You Do For Us"></textarea>
+
+<textarea id="want" placeholder="What Do You Want From Us"></textarea>
+
+<input type="text" id="social" placeholder="Social Links">
+
+<textarea id="about" placeholder="About You"></textarea>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</section>
 
 </div>
 
