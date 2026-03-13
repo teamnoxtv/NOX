@@ -255,54 +255,17 @@ padding:30px;
 text-align:center;
 background:#050505;
 }
-  .hero-title{
-font-size:70px;
-letter-spacing:8px;
-}
-
-.hero-title span{
-opacity:0;
-display:inline-block;
-animation:heroReveal 0.6s forwards;
-}
-
-.hero-title span:nth-child(1){animation-delay:0.1s;}
-.hero-title span:nth-child(2){animation-delay:0.2s;}
-.hero-title span:nth-child(3){animation-delay:0.3s;}
-.hero-title span:nth-child(4){animation-delay:0.4s;}
-.hero-title span:nth-child(6){animation-delay:0.6s;}
-.hero-title span:nth-child(7){animation-delay:0.7s;}
-.hero-title span:nth-child(8){animation-delay:0.8s;}
-
-@keyframes heroReveal{
-0%{
-opacity:0;
-transform:translateY(40px) scale(0.9);
-text-shadow:none;
-}
-
-100%{
-opacity:1;
-transform:translateY(0) scale(1);
-text-shadow:0 0 30px #a855f7;
-}
-}
 
 </style>
 
 </head>
 
 <body>
-
-<video autoplay muted loop playsinline id="bg-video">
+  <video autoplay muted loop playsinline id="bg-video">
 <source src="teamvideo.mp4" type="video/mp4">
 </video>
 
 <canvas id="particles"></canvas>
-
-<nav>...</nav>
-
-<section id="home">...</section>
 
 <nav>
 
@@ -323,11 +286,7 @@ text-shadow:0 0 30px #a855f7;
 
 <!-- HERO -->
 
-<h1 class="hero-title">
-<span>T</span><span>E</span><span>A</span><span>M</span>
-<span>&nbsp;</span>
-<span>N</span><span>O</span><span>X</span>
-</h1>
+<section id="home" class="hero">
 
 <h1>TEAM NOX</h1>
 
