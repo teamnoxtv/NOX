@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+
+<title>Team Nox</title>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+padding:10px 30px;
+position:sticky;
+top:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.logo img{
+height:40px;
+margin-right:10px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+
+.nav-links a:hover{
+color:#00c3ff;
+}
+
+section{
+padding:80px 20px;
+text-align:center;
+}
+
+.hero{
+padding:150px 20px;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.buttons a{
+background:#00c3ff;
+padding:15px 25px;
+margin:10px;
+display:inline-block;
+color:black;
+text-decoration:none;
+border-radius:6px;
+}
+
+.roster-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.player{
+background:#1b1b1b;
+padding:15px;
+border-radius:8px;
+}
+
+.player img{
+width:100%;
+border-radius:6px;
+}
+
+.timeline{
+max-width:700px;
+margin:auto;
+}
+
+.timeline div{
+background:#1b1b1b;
+margin:20px 0;
+padding:15px;
+border-radius:6px;
+}
+
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,textarea{
+padding:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+background:#00c3ff;
+padding:12px;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:#111;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<img src="logo.png">
+Team Nox
+</div>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#roster">Roster</a>
+<a href="#about">About</a>
+<a href="#join">Join</a>
+<a href="#tournaments">Tournaments</a>
+<a href="#shop">Shop</a>
+</div>
+
+</nav>
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+<h1>Welcome To Team Nox</h1>
+
+<p>Competitive gaming team built for champions.</p>
+
+<div class="buttons">
+<a href="#roster">Roster</a>
+<a href="#about">About Us</a>
+<a href="#tournaments">Tournaments</a>
+</div>
+
+</section>
+
+<!-- ROSTER -->
+
+<section id="roster">
+
+<h1>Team Roster</h1>
+
+<div class="roster-grid">
+
+<div class="player"><img src="player1.jpg"><h3>Player 1</h3></div>
+<div class="player"><img src="player2.jpg"><h3>Player 2</h3></div>
+<div class="player"><img src="player3.jpg"><h3>Player 3</h3></div>
+<div class="player"><img src="player4.jpg"><h3>Player 4</h3></div>
+<div class="player"><img src="player5.jpg"><h3>Player 5</h3></div>
+<div class="player"><img src="player6.jpg"><h3>Player 6</h3></div>
+<div class="player"><img src="player7.jpg"><h3>Player 7</h3></div>
+<div class="player"><img src="player8.jpg"><h3>Player 8</h3></div>
+<div class="player"><img src="player9.jpg"><h3>Player 9</h3></div>
+<div class="player"><img src="player10.jpg"><h3>Player 10</h3></div>
+<div class="player"><img src="player11.jpg"><h3>Player 11</h3></div>
+<div class="player"><img src="player12.jpg"><h3>Player 12</h3></div>
+<div class="player"><img src="player13.jpg"><h3>Player 13</h3></div>
+<div class="player"><img src="player14.jpg"><h3>Player 14</h3></div>
+<div class="player"><img src="player15.jpg"><h3>Player 15</h3></div>
+<div class="player"><img src="player16.jpg"><h3>Player 16</h3></div>
+<div class="player"><img src="player17.jpg"><h3>Player 17</h3></div>
+<div class="player"><img src="player18.jpg"><h3>Player 18</h3></div>
+<div class="player"><img src="player19.jpg"><h3>Player 19</h3></div>
+<div class="player"><img src="player20.jpg"><h3>Player 20</h3></div>
+<div class="player"><img src="player21.jpg"><h3>Player 21</h3></div>
+<div class="player"><img src="player22.jpg"><h3>Player 22</h3></div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h1>About Team Nox</h1>
+
+<p>Team Nox is a competitive esports organization focused on teamwork and winning.</p>
+
+<div class="timeline">
+
+<div>
+<h3>2023</h3>
+<p>Team Nox was founded.</p>
+</div>
+
+<div>
+<h3>2024</h3>
+<p>First tournaments played.</p>
+</div>
+
+<div>
+<h3>2025</h3>
+<p>Expanded roster to 22 members.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- JOIN -->
+
+<section id="join">
+
+<h1>Join Team Nox</h1>
+
+<form>
+
+<input type="text" placeholder="Username" required>
+
+<input type="text" placeholder="Age">
+
+<input type="text" placeholder="Game">
+
+<textarea placeholder="Why do you want to join?"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</section>
+
+<!-- TOURNAMENTS -->
+
+<section id="tournaments">
+
+<h1>Upcoming Tournaments</h1>
+
+<p>No tournaments announced yet.</p>
+
+<h2>Played Tournaments</h2>
+
+<p>Coming soon...</p>
+
+</section>
+
+<!-- SHOP -->
+
+<section id="shop">
+
+<h1>Shop</h1>
+
+<h2>Coming Soon</h2>
+
+<p>Team Nox merchandise will appear here.</p>
+
+</section>
+
+<footer>
+
+<p>Team Nox © 2026</p>
+
+</footer>
+
+</body>
+
+</html>
