@@ -1,1 +1,29 @@
+async function submitApplication(){
 
+const webhook = "https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU"
+
+const data = {
+
+content:
+`NEW NOX APPLICATION
+
+Name: ${name}
+Discord: ${discord}
+Game: ${game}
+Role: ${role}
+Rank: ${rank}
+
+Message:
+${message}`
+
+}
+
+await fetch(webhook,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+})
+
+alert("Application sent!")
+
+}
