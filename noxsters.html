@@ -427,5 +427,35 @@ z-index:999;
 
 </section>
 <script src="scripts/main.js"></script>
+
+<div id="rosterGrid"></div>
+
+<script>
+
+const players = JSON.parse(localStorage.getItem("noxPlayers")) || []
+
+const roster = document.getElementById("rosterGrid")
+
+players.forEach(player=>{
+
+const card = document.createElement("div")
+
+card.className="player-card"
+
+card.innerHTML = `
+
+<img src="${player.image}" class="player-img">
+
+<h3>${player.name}</h3>
+
+<p>${player.role}</p>
+
+`
+
+roster.appendChild(card)
+
+})
+
+</script>
 </body>
 </html>
