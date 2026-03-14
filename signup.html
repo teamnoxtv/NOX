@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Join NOX</title>
+
+<style>
+
+/* PAGE */
+
+body{
+background:#050008;
+color:white;
+font-family:Arial;
+margin:0;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:15px;
+background:black;
+border-bottom:2px solid #7a00ff;
+}
+
+.logo{
+position:absolute;
+left:20px;
+height:35px;
+}
+
+/* PAGE */
+
+.signup-page{
+padding-top:120px;
+text-align:center;
+}
+
+/* TITLE */
+
+.signup-title{
+font-size:60px;
+text-shadow:0 0 25px #7a00ff;
+margin-bottom:40px;
+}
+
+/* FORM PANEL */
+
+.signup-container{
+max-width:600px;
+margin:auto;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:16px;
+
+padding:40px;
+}
+
+/* INPUTS */
+
+.signup-container input,
+.signup-container select,
+.signup-container textarea{
+
+width:100%;
+padding:12px;
+margin-bottom:15px;
+
+border-radius:6px;
+border:1px solid #7a00ff;
+
+background:#0a0a0a;
+color:white;
+}
+
+/* TEXTAREA */
+
+.signup-container textarea{
+height:120px;
+resize:none;
+}
+
+/* BUTTON */
+
+.signup-btn{
+
+padding:12px 25px;
+
+border:1px solid #7a00ff;
+background:transparent;
+
+color:white;
+
+border-radius:6px;
+
+cursor:pointer;
+transition:.3s;
+}
+
+.signup-btn:hover{
+
+background:#7a00ff;
+
+box-shadow:0 0 20px #7a00ff;
+}
+
+.success{
+margin-top:20px;
+color:#a64dff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<a href="index.html">
+<img src="assets/logo.png" class="logo">
+</a>
+
+</nav>
+
+
+<section class="signup-page">
+
+<h1 class="signup-title">Join NOX</h1>
+
+
+<div class="signup-container">
+
+<form id="signupForm">
+
+<input id="name" type="text" placeholder="Name / Gamer Tag" required>
+
+<input id="discord" type="text" placeholder="Discord Username" required>
+
+<select id="game" required>
+<option value="">Game</option>
+<option>Valorant</option>
+<option>Fortnite</option>
+<option>Warzone</option>
+<option>Other</option>
+</select>
+
+<select id="role" required>
+<option value="">Role</option>
+<option>Competitive Player</option>
+<option>Content Creator</option>
+<option>Editor</option>
+<option>Community Member</option>
+</select>
+
+<input id="rank" type="text" placeholder="Current Rank">
+
+<textarea id="message" placeholder="Why do you want to join NOX?"></textarea>
+
+<button class="signup-btn" type="submit">Submit Application</button>
+
+</form>
+
+<p id="status" class="success"></p>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* PASTE YOUR DISCORD WEBHOOK HERE */
+
+const webhookURL = "https://discordapp.com/api/webhooks/1481934571149852672/ApzD0XiQO2IxvtOWRKhRxBfTTyQManEaaP2HxCAaDfH2VmNzaWGQc41X8jf4V2LekDqU"
+
+
+document.getElementById("signupForm").addEventListener("submit", async function(e){
+
+e.preventDefault()
+
+const name = document.getElementById("name").value
+const discord = document.getElementById("discord").value
+const game = document.getElementById("game").value
+const role = document.getElementById("role").value
+const rank = document.getElementById("rank").value
+const message = document.getElementById("message").value
+
+
+const data = {
+
+content:
+`🔥 **NEW NOX APPLICATION**
+
+👤 Name: ${name}
+💬 Discord: ${discord}
+🎮 Game: ${game}
+🎯 Role: ${role}
+🏆 Rank: ${rank}
+
+📝 Application:
+${message}`
+
+}
+
+await fetch(webhookURL,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+})
+
+document.getElementById("status").innerText="Application sent to NOX staff!"
+
+document.getElementById("signupForm").reset()
+
+})
+
+</script>
+
+</body>
+</html>
