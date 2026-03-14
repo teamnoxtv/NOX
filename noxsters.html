@@ -7,23 +7,139 @@
 
 <link rel="stylesheet" href="styles/styles.css">
 
+<style>
+
+/* PAGE */
+
+.roster-page{
+padding-top:140px;
+text-align:center;
+}
+
+.page-title{
+font-size:60px;
+margin-bottom:40px;
+text-shadow:0 0 25px #7a00ff;
+}
+
+/* SECTION TITLES */
+
+.team-section{
+margin-top:60px;
+margin-bottom:30px;
+font-size:28px;
+text-shadow:0 0 12px #7a00ff;
+}
+
+/* GRID */
+
+.roster-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+/* PLAYER CARD */
+
+.player-card{
+position:relative;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:14px;
+
+padding:20px;
+
+text-align:center;
+
+transition:.3s;
+overflow:hidden;
+}
+
+/* IMAGE */
+
+.player-img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+/* NAME */
+
+.player-card h3{
+margin:6px 0;
+font-size:20px;
+}
+
+/* HOVER PANEL */
+
+.hover-info{
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.9);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+transition:.3s;
+
+padding:20px;
+text-align:center;
+}
+
+/* ROLE */
+
+.role{
+font-weight:bold;
+color:#a64dff;
+margin-bottom:8px;
+}
+
+/* HOVER EFFECT */
+
+.player-card:hover{
+transform:translateY(-8px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px #7a00ff;
+}
+
+.player-card:hover .hover-info{
+opacity:1;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <nav class="navbar">
 
-<a href="index.html" class="logo-link">
+<a href="index.html">
 <img src="assets/logo.png" class="logo">
 </a>
 
 <ul class="nav-links">
-
 <li><a href="about.html">About</a></li>
 <li><a href="watch.html">Watch</a></li>
 <li><a href="noxsters.html">Noxsters</a></li>
 <li><a href="tournaments.html">Tournaments</a></li>
-
 </ul>
 
 </nav>
@@ -41,133 +157,64 @@
 <div class="roster-grid">
 
 <div class="player-card">
+<img src="assets/players/nordicadropz.png" class="player-img">
 <h3>NordicaDropz</h3>
 <div class="hover-info">
-<p>Owner</p>
-<p>Leads the organization and team strategy.</p>
+<p class="role">Owner</p>
+<p>Founder and leader of NOX.</p>
 </div>
 </div>
 
 <div class="player-card">
+<img src="assets/players/silence.png" class="player-img">
 <h3>Silence</h3>
 <div class="hover-info">
-<p>Owner</p>
-<p>Helps manage competitive and community operations.</p>
+<p class="role">Owner</p>
+<p>Helps manage the organization.</p>
 </div>
 </div>
 
 <div class="player-card">
+<img src="assets/players/raeanne.png" class="player-img">
 <h3>Raeanne</h3>
 <div class="hover-info">
-<p>Owner</p>
-<p>Supports management and team coordination.</p>
+<p class="role">Owner</p>
+<p>Team management and coordination.</p>
 </div>
 </div>
 
 </div>
 
 
-<!-- COMP TEAM -->
+<!-- COMPETITIVE TEAM -->
 
 <h2 class="team-section">Competitive Team</h2>
 
 <div class="roster-grid">
 
-<div class="player-card">
-<h3>Bipolar</h3>
-<div class="hover-info">
-<p>Competitive Leader</p>
-<p>Organizes scrims and leads matches.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/bipolar.png" class="player-img"><h3>Bipolar</h3><div class="hover-info"><p class="role">Competitive Leader</p><p>Leads scrims and tournaments.</p></div></div>
 
-<div class="player-card">
-<h3>Jess</h3>
-<div class="hover-info">
-<p>Competitive Leader</p>
-<p>Strategic player and team coordinator.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/jess.png" class="player-img"><h3>Jess</h3><div class="hover-info"><p class="role">Competitive Leader</p><p>Strategic team leader.</p></div></div>
 
-<div class="player-card">
-<h3>Shy</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Core competitive roster member.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/shy.png" class="player-img"><h3>Shy</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Slappin</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>High mechanical skill player.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/slappin.png" class="player-img"><h3>Slappin</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Silence</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Flexible team player.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/silence.png" class="player-img"><h3>Silence</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Grey</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Support role and team play specialist.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/grey.png" class="player-img"><h3>Grey</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Hero</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Aggressive gameplay style.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/hero.png" class="player-img"><h3>Hero</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Milo</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Strong aim and game awareness.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/milo.png" class="player-img"><h3>Milo</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Zyn</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Reliable tournament player.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/zyn.png" class="player-img"><h3>Zyn</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Krispy</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Strategic team support.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/krispy.png" class="player-img"><h3>Krispy</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Raeanne</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Team coordination support.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/raeanne.png" class="player-img"><h3>Raeanne</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
-<div class="player-card">
-<h3>Celestial</h3>
-<div class="hover-info">
-<p>Competitive Player</p>
-<p>Strong scrim performance.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/celestial.png" class="player-img"><h3>Celestial</h3><div class="hover-info"><p class="role">Competitive Player</p></div></div>
 
 </div>
 
@@ -178,77 +225,23 @@
 
 <div class="roster-grid">
 
-<div class="player-card">
-<h3>NordicaDropz</h3>
-<div class="hover-info">
-<p>Content Leader</p>
-<p>Leads video and social media content.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/nordicadropz.png" class="player-img"><h3>NordicaDropz</h3><div class="hover-info"><p class="role">Content Leader</p></div></div>
 
-<div class="player-card">
-<h3>Peanut</h3>
-<div class="hover-info">
-<p>Content Leader</p>
-<p>Organizes creators and uploads.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/peanut.png" class="player-img"><h3>Peanut</h3><div class="hover-info"><p class="role">Content Leader</p></div></div>
 
-<div class="player-card">
-<h3>Travis</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Streams and gameplay clips.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/travis.png" class="player-img"><h3>Travis</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>Kjc</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Highlights and montages.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/kjc.png" class="player-img"><h3>Kjc</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>Chrizz</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Short form video editing.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/chrizz.png" class="player-img"><h3>Chrizz</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>BloodHunter</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Gameplay highlights.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/bloodhunter.png" class="player-img"><h3>BloodHunter</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>Luvxrk</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Streams and clips.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/luvwrk.png" class="player-img"><h3>Luvxrk</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>Shadow</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Social media videos.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/shadow.png" class="player-img"><h3>Shadow</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
-<div class="player-card">
-<h3>Chloe</h3>
-<div class="hover-info">
-<p>Content Creator</p>
-<p>Community clips.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/chloe.png" class="player-img"><h3>Chloe</h3><div class="hover-info"><p class="role">Content Creator</p></div></div>
 
 </div>
 
@@ -259,21 +252,9 @@
 
 <div class="roster-grid">
 
-<div class="player-card">
-<h3>MrsGotYourBack</h3>
-<div class="hover-info">
-<p>Moderator</p>
-<p>Keeps community safe and organized.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/mrsgotyourback.png" class="player-img"><h3>MrsGotYourBack</h3><div class="hover-info"><p class="role">Moderator</p></div></div>
 
-<div class="player-card">
-<h3>Barbie</h3>
-<div class="hover-info">
-<p>Moderator</p>
-<p>Helps manage Discord and events.</p>
-</div>
-</div>
+<div class="player-card"><img src="assets/players/barbie.png" class="player-img"><h3>Barbie</h3><div class="hover-info"><p class="role">Moderator</p></div></div>
 
 </div>
 
