@@ -43,8 +43,8 @@ flashing = true
 let i = 0
 
 const messages = [
-"👀 Family!",
-"🔥 Friends",
+"👀 Come back!",
+"🔥 NOX is waiting",
 originalTitle
 ]
 
@@ -67,6 +67,5 @@ flashing = false
 document.title = originalTitle
 
 }
-<script>
 
-
+})
