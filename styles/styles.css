@@ -287,3 +287,20 @@ box-shadow:
 0 0 60px #7a00ff;
 
 }
+.team-title{
+
+font-size:120px;        /* controls size */
+font-weight:800;
+
+text-align:center;
+
+color:white;
+
+text-shadow:
+0 0 20px #a64dff,
+0 0 40px #7a00ff,
+0 0 80px #7a00ff;
+
+margin-bottom:40px;
+
+}
