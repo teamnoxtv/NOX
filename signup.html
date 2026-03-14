@@ -257,11 +257,36 @@ filter:drop-shadow(0 0 10px #7a00ff);
 }
 
 }
+/* CUSTOM CURSOR */
+
+.cursor{
+
+position:fixed;
+
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+background:#7a00ff;
+
+box-shadow:
+0 0 10px #7a00ff,
+0 0 25px #7a00ff;
+
+pointer-events:none;
+
+transform:translate(-50%, -50%);
+
+z-index:999;
+
+}
 </style>
 
 </head>
 
 <body>
+<div class="cursor"></div>
 <div id="loader">
 
 <img src="assets/logo.png" class="loader-logo">
