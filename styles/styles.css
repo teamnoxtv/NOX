@@ -530,3 +530,61 @@ transition:.3s;
 box-shadow:0 0 20px #7a00ff;
 transform:translateY(-5px);
 }
+/* GLASS PANEL */
+
+.glass-panel{
+
+max-width:1000px;
+
+margin:60px auto;
+
+padding:40px;
+
+background:rgba(0,0,0,0.35);
+
+backdrop-filter:blur(12px);
+
+border:2px solid #7a00ff;
+
+border-radius:16px;
+
+box-shadow:
+0 0 10px #7a00ff;
+
+transition:.3s;
+
+}
+
+/* HOVER EFFECT */
+
+.glass-panel:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px #7a00ff;
+
+}
+
+/* PANEL TITLE */
+
+.glass-panel h2{
+
+font-size:32px;
+
+margin-bottom:20px;
+
+text-shadow:0 0 15px #7a00ff;
+
+}
+
+/* PANEL TEXT */
+
+.glass-panel p{
+
+color:#ccc;
+
+line-height:1.6;
+
+}
