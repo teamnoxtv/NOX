@@ -342,6 +342,34 @@ z-index:999;
 </div>
 
 </section>
+<div id="clip-container"></div>
+
+<script>
+
+const clips = JSON.parse(localStorage.getItem("noxClips")) || []
+
+const container = document.getElementById("clip-container")
+
+clips.forEach(clip => {
+
+const card = document.createElement("div")
+
+card.className = "clip-card"
+
+card.innerHTML = `
+<video controls>
+<source src="${clip.url}">
+</video>
+
+<h3>${clip.title}</h3>
+<p>${clip.player}</p>
+`
+
+container.appendChild(card)
+
+})
+
+</script>
 <script src="scripts/main.js"></script>
 </body>
 </html>
