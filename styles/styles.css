@@ -1,9 +1,9 @@
 body{
 
+margin:0;
+font-family:Arial;
 background:#050008;
 color:white;
-font-family:Arial;
-margin:0;
 
 }
 
@@ -12,40 +12,26 @@ margin:0;
 .navbar{
 
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:center;
 
-padding:15px 40px;
+padding:15px;
 
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.6);
 
 border-bottom:1px solid #8b00ff;
 
-position:sticky;
-top:0;
-
-}
-
-/* LOGO */
-
-.logo-container{
-
-display:flex;
-align-items:center;
-gap:10px;
+position:fixed;
+width:100%;
 
 }
 
 .logo{
 
+position:absolute;
+left:20px;
+
 width:40px;
-
-}
-
-.logo-text{
-
-font-weight:bold;
-font-size:20px;
 
 }
 
@@ -54,16 +40,15 @@ font-size:20px;
 .nav-links{
 
 display:flex;
-gap:30px;
+gap:40px;
 list-style:none;
 
 }
 
 .nav-links a{
 
-text-decoration:none;
 color:white;
-font-size:16px;
+text-decoration:none;
 
 }
 
@@ -78,10 +63,11 @@ text-shadow:0 0 10px #c56cff;
 
 .hero{
 
-height:70vh;
+height:100vh;
 
 display:flex;
 flex-direction:column;
+
 justify-content:center;
 align-items:center;
 
@@ -91,112 +77,117 @@ text-align:center;
 
 .hero h1{
 
-font-size:90px;
+font-size:50px;
 
-text-shadow:
-0 0 20px #a64dff,
-0 0 40px #7a00ff;
+text-shadow:0 0 20px #a64dff;
 
 }
 
-.hero p{
+/* VIDEO BACKGROUND */
 
-font-size:20px;
-margin-bottom:30px;
+.video-container{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:-1;
+
+overflow:hidden;
 
 }
 
-/* HERO BUTTONS */
+.bg-video{
 
-.hero-buttons{
+width:100%;
+height:100%;
 
-display:flex;
-gap:20px;
+object-fit:cover;
 
 }
 
-.hero-btn{
+/* BUTTON */
 
-padding:12px 25px;
+.btn{
 
-background:rgba(0,0,0,0.4);
+padding:10px 20px;
 
 border:1px solid #7a00ff;
 
-border-radius:6px;
-
-text-decoration:none;
 color:white;
 
-transition:0.3s;
+text-decoration:none;
+
+margin:10px;
+
+display:inline-block;
 
 }
 
-.hero-btn:hover{
+.btn:hover{
 
 box-shadow:0 0 15px #7a00ff;
-transform:translateY(-3px);
 
 }
 
-/* STATS */
+/* PAGE */
 
-.stats{
+.page{
+
+padding-top:120px;
+
+max-width:1000px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+/* CLIPS */
+
+.clip-grid{
 
 display:flex;
+gap:30px;
 justify-content:center;
 
+}
+
+.clip-card{
+
+background:#111;
+padding:20px;
+
+}
+
+/* ROSTER */
+
+.roster{
+
+display:flex;
 gap:40px;
-
-flex-wrap:wrap;
-
-padding:60px;
+justify-content:center;
 
 }
 
-/* STAT CARDS */
+.player-card{
 
-.stat-card{
-
-background:rgba(0,0,0,0.5);
-
-padding:30px 40px;
-
-border-radius:10px;
-
-border:1px solid #7a00ff;
-
-text-align:center;
-
-min-width:180px;
-
-transition:0.3s;
+background:#111;
+padding:20px;
 
 }
 
-.stat-card:hover{
+/* TOURNAMENTS */
 
-transform:translateY(-5px);
+.tournament-grid{
 
-box-shadow:0 0 20px #7a00ff;
-
-}
-
-.stat-card h2{
-
-font-size:40px;
-
-color:#c56cff;
-
-}
-
-/* FOOTER */
-
-footer{
-
-text-align:center;
-padding:40px;
-
-border-top:1px solid #5500aa;
+display:flex;
+gap:40px;
+justify-content:center;
 
 }
