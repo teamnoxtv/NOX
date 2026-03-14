@@ -432,3 +432,82 @@ color:#ccc;
 font-size:16px;
 
 }
+.roster-page{
+padding-top:140px;
+text-align:center;
+}
+
+.team-section{
+margin-top:60px;
+margin-bottom:30px;
+font-size:28px;
+text-shadow:0 0 10px #7a00ff;
+}
+
+.roster-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+max-width:1000px;
+margin:auto;
+}
+
+.player-card{
+
+position:relative;
+
+padding:40px 20px;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:14px;
+
+transition:.3s;
+overflow:hidden;
+}
+
+.player-card h3{
+margin:0;
+font-size:20px;
+}
+
+/* HOVER INFO */
+
+.hover-info{
+
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.85);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+
+transition:.3s;
+
+padding:20px;
+text-align:center;
+
+}
+
+.player-card:hover .hover-info{
+opacity:1;
+}
+
+.player-card:hover{
+transform:translateY(-8px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px #7a00ff;
+}
