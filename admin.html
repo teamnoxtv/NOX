@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NOX Admin Dashboard</title>
+<title>NOX Admin</title>
 
 <style>
 
@@ -32,27 +32,30 @@ left:20px;
 height:40px;
 }
 
-/* PAGE TITLE */
+/* TITLE */
 
 .title{
 text-align:center;
 margin-top:110px;
-font-size:48px;
+font-size:42px;
 text-shadow:0 0 15px #7a00ff;
 }
 
-/* DASHBOARD GRID */
+/* GRID */
 
 .dashboard{
+
 max-width:1100px;
 margin:40px auto;
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
 gap:25px;
+
 }
 
-/* PANELS */
+/* PANEL */
 
 .panel{
 
@@ -69,17 +72,16 @@ backdrop-filter:blur(10px);
 
 /* INPUTS */
 
-.panel input,
-.panel textarea{
+.panel input{
 
 width:100%;
-
 padding:10px;
-
-margin-bottom:12px;
+margin-bottom:10px;
 
 background:#0a0a0a;
+
 border:1px solid #7a00ff;
+
 color:white;
 
 }
@@ -91,7 +93,9 @@ color:white;
 padding:10px 18px;
 
 border:1px solid #7a00ff;
+
 background:transparent;
+
 color:white;
 
 cursor:pointer;
@@ -103,13 +107,14 @@ transition:.3s;
 .btn:hover{
 
 background:#7a00ff;
+
 box-shadow:0 0 20px #7a00ff;
 
 }
 
-/* ITEM LIST */
+/* LIST ITEMS */
 
-.list-item{
+.item{
 
 display:flex;
 justify-content:space-between;
@@ -136,11 +141,13 @@ cursor:pointer;
 
 
 <script>
-/* PROTECT PAGE */
+
+/* ADMIN PROTECTION */
 
 if(localStorage.getItem("noxAdmin") !== "true"){
 window.location.href="login.html"
 }
+
 </script>
 
 
@@ -158,15 +165,18 @@ window.location.href="login.html"
 
 <div class="dashboard">
 
-<!-- CLIPS -->
+
+<!-- UPLOAD CLIPS -->
 
 <div class="panel">
 
 <h3>Upload Clip</h3>
 
 <input id="clipTitle" placeholder="Clip Title">
+
 <input id="clipPlayer" placeholder="Player Name">
-<input id="clipURL" placeholder="Clip Video URL">
+
+<input id="clipURL" placeholder="Video URL">
 
 <button class="btn" onclick="addClip()">Upload</button>
 
@@ -175,13 +185,14 @@ window.location.href="login.html"
 </div>
 
 
-<!-- ROSTER -->
+<!-- ADD ROSTER PLAYER -->
 
 <div class="panel">
 
-<h3>Add Player</h3>
+<h3>Add Player to Roster</h3>
 
 <input id="playerName" placeholder="Player Name">
+
 <input id="playerRole" placeholder="Role">
 
 <button class="btn" onclick="addPlayer()">Add Player</button>
@@ -191,40 +202,7 @@ window.location.href="login.html"
 </div>
 
 
-<!-- TOURNAMENTS -->
-
-<div class="panel">
-
-<h3>Add Tournament</h3>
-
-<input id="tournamentName" placeholder="Tournament Name">
-<input id="tournamentGame" placeholder="Game">
-<input id="tournamentDate" placeholder="Date">
-
-<button class="btn" onclick="addTournament()">Add</button>
-
-<div id="tournamentList"></div>
-
-</div>
-
-
-<!-- NEWS -->
-
-<div class="panel">
-
-<h3>Post News</h3>
-
-<input id="newsTitle" placeholder="News Title">
-<textarea id="newsText" placeholder="News content"></textarea>
-
-<button class="btn" onclick="addNews()">Post</button>
-
-<div id="newsList"></div>
-
-</div>
-
-
-<!-- APPLICATIONS -->
+<!-- VIEW APPLICATIONS -->
 
 <div class="panel">
 
@@ -244,8 +222,6 @@ window.location.href="login.html"
 
 let clips = JSON.parse(localStorage.getItem("noxClips")) || []
 let players = JSON.parse(localStorage.getItem("noxPlayers")) || []
-let tournaments = JSON.parse(localStorage.getItem("noxTournaments")) || []
-let news = JSON.parse(localStorage.getItem("noxNews")) || []
 let applications = JSON.parse(localStorage.getItem("noxApplications")) || []
 
 
@@ -259,7 +235,7 @@ list.innerHTML=""
 clips.forEach((clip,i)=>{
 
 const div=document.createElement("div")
-div.className="list-item"
+div.className="item"
 
 div.innerHTML=`
 ${clip.title} - ${clip.player}
@@ -307,7 +283,7 @@ list.innerHTML=""
 players.forEach((p,i)=>{
 
 const div=document.createElement("div")
-div.className="list-item"
+div.className="item"
 
 div.innerHTML=`
 ${p.name} - ${p.role}
@@ -344,112 +320,17 @@ renderPlayers()
 }
 
 
-/* TOURNAMENTS */
-
-function renderTournaments(){
-
-const list=document.getElementById("tournamentList")
-list.innerHTML=""
-
-tournaments.forEach((t,i)=>{
-
-const div=document.createElement("div")
-div.className="list-item"
-
-div.innerHTML=`
-${t.name} (${t.game})
-<button class="delete" onclick="deleteTournament(${i})">X</button>
-`
-
-list.appendChild(div)
-
-})
-
-}
-
-function addTournament(){
-
-const name=document.getElementById("tournamentName").value
-const game=document.getElementById("tournamentGame").value
-const date=document.getElementById("tournamentDate").value
-
-tournaments.push({name,game,date})
-
-localStorage.setItem("noxTournaments",JSON.stringify(tournaments))
-
-renderTournaments()
-
-}
-
-function deleteTournament(i){
-
-tournaments.splice(i,1)
-
-localStorage.setItem("noxTournaments",JSON.stringify(tournaments))
-
-renderTournaments()
-
-}
-
-
-/* NEWS */
-
-function renderNews(){
-
-const list=document.getElementById("newsList")
-list.innerHTML=""
-
-news.forEach((n,i)=>{
-
-const div=document.createElement("div")
-div.className="list-item"
-
-div.innerHTML=`
-${n.title}
-<button class="delete" onclick="deleteNews(${i})">X</button>
-`
-
-list.appendChild(div)
-
-})
-
-}
-
-function addNews(){
-
-const title=document.getElementById("newsTitle").value
-const text=document.getElementById("newsText").value
-
-news.push({title,text})
-
-localStorage.setItem("noxNews",JSON.stringify(news))
-
-renderNews()
-
-}
-
-function deleteNews(i){
-
-news.splice(i,1)
-
-localStorage.setItem("noxNews",JSON.stringify(news))
-
-renderNews()
-
-}
-
-
 /* APPLICATIONS */
 
 function renderApplications(){
 
 const list=document.getElementById("applicationList")
-list.innerHTML=""
 
 applications.forEach(app=>{
 
 const div=document.createElement("div")
-div.className="list-item"
+
+div.className="item"
 
 div.innerHTML=`
 ${app.name} - ${app.game}
@@ -466,8 +347,6 @@ list.appendChild(div)
 
 renderClips()
 renderPlayers()
-renderTournaments()
-renderNews()
 renderApplications()
 
 </script>
