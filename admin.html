@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NOX Admin</title>
+<title>NOX Admin Panel</title>
 
 <style>
 
@@ -36,43 +36,63 @@ height:40px;
 
 .title{
 text-align:center;
-margin-top:110px;
-font-size:42px;
-text-shadow:0 0 15px #7a00ff;
+margin-top:100px;
+font-size:40px;
+text-shadow:0 0 20px #7a00ff;
 }
 
-/* GRID */
+/* TABS */
 
-.dashboard{
+.tabs{
 
-max-width:1100px;
-margin:40px auto;
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-
-gap:25px;
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:30px;
 
 }
 
-/* PANEL */
+.tab{
+
+padding:10px 18px;
+
+border:1px solid #7a00ff;
+background:rgba(0,0,0,.4);
+
+cursor:pointer;
+
+}
+
+.tab.active{
+background:#7a00ff;
+}
+
+/* PANELS */
 
 .panel{
+
+display:none;
+
+max-width:900px;
+margin:30px auto;
 
 background:rgba(0,0,0,.35);
 
 border:2px solid #7a00ff;
-border-radius:14px;
 
 padding:25px;
 
-backdrop-filter:blur(10px);
+border-radius:12px;
 
+}
+
+.panel.active{
+display:block;
 }
 
 /* INPUTS */
 
-.panel input{
+input{
 
 width:100%;
 padding:10px;
@@ -88,9 +108,9 @@ color:white;
 
 /* BUTTON */
 
-.btn{
+button{
 
-padding:10px 18px;
+padding:10px 16px;
 
 border:1px solid #7a00ff;
 
@@ -100,19 +120,17 @@ color:white;
 
 cursor:pointer;
 
-transition:.3s;
-
 }
 
-.btn:hover{
+button:hover{
 
 background:#7a00ff;
 
-box-shadow:0 0 20px #7a00ff;
+box-shadow:0 0 15px #7a00ff;
 
 }
 
-/* LIST ITEMS */
+/* LIST */
 
 .item{
 
@@ -126,11 +144,23 @@ margin-top:8px;
 
 }
 
-.delete{
+/* APPROVAL */
+
+.approve{
+background:green;
+border:none;
+}
+
+.reject{
 background:red;
 border:none;
-color:white;
-cursor:pointer;
+}
+
+/* VIDEO PREVIEW */
+
+.preview video{
+width:100%;
+margin-top:10px;
 }
 
 </style>
@@ -139,79 +169,76 @@ cursor:pointer;
 
 <body>
 
-
 <script>
-
-/* ADMIN PROTECTION */
-
 if(localStorage.getItem("noxAdmin") !== "true"){
 window.location.href="login.html"
 }
-
 </script>
 
-
 <nav class="navbar">
-
 <a href="index.html">
 <img src="assets/logo.png" class="logo">
 </a>
-
 </nav>
-
 
 <h1 class="title">NOX Admin Dashboard</h1>
 
 
-<div class="dashboard">
+<!-- TABS -->
+
+<div class="tabs">
+
+<div class="tab active" onclick="openTab('clips')">🎥 Clips</div>
+<div class="tab" onclick="openTab('roster')">👤 Roster</div>
+<div class="tab" onclick="openTab('applications')">📄 Applications</div>
+
+</div>
 
 
-<!-- UPLOAD CLIPS -->
+<!-- CLIPS PANEL -->
 
-<div class="panel">
+<div id="clips" class="panel active">
 
 <h3>Upload Clip</h3>
 
 <input id="clipTitle" placeholder="Clip Title">
-
 <input id="clipPlayer" placeholder="Player Name">
-
 <input id="clipURL" placeholder="Video URL">
 
-<button class="btn" onclick="addClip()">Upload</button>
+<button onclick="previewClip()">Preview</button>
+
+<div class="preview" id="clipPreview"></div>
+
+<button onclick="addClip()">Upload Clip</button>
 
 <div id="clipList"></div>
 
 </div>
 
 
-<!-- ADD ROSTER PLAYER -->
+<!-- ROSTER PANEL -->
 
-<div class="panel">
+<div id="roster" class="panel">
 
-<h3>Add Player to Roster</h3>
+<h3>Add Player</h3>
 
 <input id="playerName" placeholder="Player Name">
-
 <input id="playerRole" placeholder="Role">
 
-<button class="btn" onclick="addPlayer()">Add Player</button>
+<button onclick="addPlayer()">Add Player</button>
 
 <div id="playerList"></div>
 
 </div>
 
 
-<!-- VIEW APPLICATIONS -->
+<!-- APPLICATIONS PANEL -->
 
-<div class="panel">
+<div id="applications" class="panel">
 
 <h3>Join Applications</h3>
 
 <div id="applicationList"></div>
-
-</div>
-
 
 </div>
 
@@ -225,28 +252,33 @@ let players = JSON.parse(localStorage.getItem("noxPlayers")) || []
 let applications = JSON.parse(localStorage.getItem("noxApplications")) || []
 
 
-/* CLIPS */
+/* TAB SYSTEM */
 
-function renderClips(){
+function openTab(id){
 
-const list=document.getElementById("clipList")
-list.innerHTML=""
+document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"))
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"))
 
-clips.forEach((clip,i)=>{
+document.getElementById(id).classList.add("active")
 
-const div=document.createElement("div")
-div.className="item"
-
-div.innerHTML=`
-${clip.title} - ${clip.player}
-<button class="delete" onclick="deleteClip(${i})">X</button>
-`
-
-list.appendChild(div)
-
-})
+event.target.classList.add("active")
 
 }
+
+
+/* CLIP PREVIEW */
+
+function previewClip(){
+
+const url=document.getElementById("clipURL").value
+
+document.getElementById("clipPreview").innerHTML=
+`<video controls><source src="${url}"></video>`
+
+}
+
+
+/* ADD CLIP */
 
 function addClip(){
 
@@ -262,6 +294,32 @@ renderClips()
 
 }
 
+
+/* CLIP LIST */
+
+function renderClips(){
+
+const list=document.getElementById("clipList")
+list.innerHTML=""
+
+clips.forEach((clip,i)=>{
+
+const div=document.createElement("div")
+
+div.className="item"
+
+div.innerHTML=`
+${clip.title} - ${clip.player}
+<button onclick="deleteClip(${i})">X</button>
+`
+
+list.appendChild(div)
+
+})
+
+}
+
+
 function deleteClip(i){
 
 clips.splice(i,1)
@@ -275,27 +333,6 @@ renderClips()
 
 /* PLAYERS */
 
-function renderPlayers(){
-
-const list=document.getElementById("playerList")
-list.innerHTML=""
-
-players.forEach((p,i)=>{
-
-const div=document.createElement("div")
-div.className="item"
-
-div.innerHTML=`
-${p.name} - ${p.role}
-<button class="delete" onclick="deletePlayer(${i})">X</button>
-`
-
-list.appendChild(div)
-
-})
-
-}
-
 function addPlayer(){
 
 const name=document.getElementById("playerName").value
@@ -308,6 +345,31 @@ localStorage.setItem("noxPlayers",JSON.stringify(players))
 renderPlayers()
 
 }
+
+
+function renderPlayers(){
+
+const list=document.getElementById("playerList")
+
+list.innerHTML=""
+
+players.forEach((p,i)=>{
+
+const div=document.createElement("div")
+
+div.className="item"
+
+div.innerHTML=`
+${p.name} - ${p.role}
+<button onclick="deletePlayer(${i})">X</button>
+`
+
+list.appendChild(div)
+
+})
+
+}
+
 
 function deletePlayer(i){
 
@@ -326,7 +388,7 @@ function renderApplications(){
 
 const list=document.getElementById("applicationList")
 
-applications.forEach(app=>{
+applications.forEach((app,i)=>{
 
 const div=document.createElement("div")
 
@@ -334,6 +396,11 @@ div.className="item"
 
 div.innerHTML=`
 ${app.name} - ${app.game}
+
+<div>
+<button class="approve">Approve</button>
+<button class="reject">Reject</button>
+</div>
 `
 
 list.appendChild(div)
@@ -350,7 +417,6 @@ renderPlayers()
 renderApplications()
 
 </script>
-
 
 </body>
 </html>
