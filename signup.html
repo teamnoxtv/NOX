@@ -150,12 +150,71 @@ box-shadow:0 0 20px #7a00ff;
 margin-top:20px;
 color:#a64dff;
 }
+/* VIDEO BACKGROUND */
 
+.video-background{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-2;
+
+}
+
+/* VIDEO */
+
+.video-background video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+}
+
+/* PURPLE OVERLAY */
+
+.video-background::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+rgba(10,0,25,.75),
+rgba(0,0,0,.9)
+);
+
+}
 </style>
 
 </head>
 
 <body>
+<div class="video-background">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/sign.mp4" type="video/mp4">
+
+</video>
+
+</div>
 
 <nav class="navbar">
 
