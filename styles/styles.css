@@ -174,14 +174,44 @@ transform:translateY(-2px);
 }
 
 /* SOCIAL VIDEO PANELS */
+/* VIDEO BACKGROUND */
+
+.video-bg{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:-2;
+
+overflow:hidden;
+
+}
+
+.video-bg video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+}
+
+/* SOCIAL PANELS CONTAINER */
 
 .social-panels{
 
-margin-top:120px;   /* pushes panels lower */
+margin-top:180px; /* pushes panels further down */
 
 display:flex;
 justify-content:center;
-gap:35px;
+
+gap:45px;
 flex-wrap:wrap;
 
 }
@@ -190,8 +220,8 @@ flex-wrap:wrap;
 
 .social-panel{
 
-width:160px;
-height:140px;
+width:200px;
+height:170px;
 
 display:flex;
 flex-direction:column;
@@ -199,10 +229,12 @@ align-items:center;
 justify-content:center;
 
 background:rgba(0,0,0,0.35);
+
 backdrop-filter:blur(12px);
 
-border:1px solid #7a00ff;
-border-radius:12px;
+border:2px solid #7a00ff;
+
+border-radius:14px;
 
 text-decoration:none;
 color:white;
@@ -213,18 +245,18 @@ overflow:hidden;
 
 }
 
-/* VIDEO */
+/* VIDEO ICON */
 
 .social-panel video{
 
-width:70px;
-height:70px;
+width:85px;
+height:85px;
 
 object-fit:cover;
 
-margin-bottom:8px;
+margin-bottom:12px;
 
-border-radius:8px;
+border-radius:10px;
 
 }
 
@@ -232,18 +264,18 @@ border-radius:8px;
 
 .social-panel span{
 
-font-size:14px;
+font-size:16px;
 
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 
 .social-panel:hover{
 
-transform:translateY(-6px);
+transform:translateY(-8px);
 
 box-shadow:
-0 0 15px #7a00ff,
-0 0 35px #7a00ff;
+0 0 20px #7a00ff,
+0 0 50px #7a00ff;
 
 }
