@@ -588,3 +588,33 @@ color:#ccc;
 line-height:1.6;
 
 }
+/* VIDEO BACKGROUND */
+
+.video-background{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-2;
+
+}
+
+/* VIDEO */
+
+.video-background video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+}
