@@ -1,11 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
 <meta charset="UTF-8">
-<title>NOX Clips</title>
+<title>Watch NOX</title>
 
 <link rel="stylesheet" href="styles/styles.css">
+
+<style>
+
+/* PAGE */
+
+.watch-page{
+padding-top:140px;
+text-align:center;
+}
+
+/* TITLE */
+
+.watch-title{
+font-size:60px;
+text-shadow:0 0 25px #7a00ff;
+margin-bottom:40px;
+}
+
+/* FEATURED VIDEO */
+
+.featured-video{
+max-width:900px;
+margin:0 auto 70px auto;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:16px;
+
+padding:20px;
+}
+
+.featured-video video{
+width:100%;
+border-radius:12px;
+}
+
+/* GRID */
+
+.clip-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+
+max-width:1100px;
+margin:auto;
+}
+
+/* CLIP CARD */
+
+.clip-card{
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:16px;
+
+padding:15px;
+
+transition:.3s;
+}
+
+.clip-card video{
+width:100%;
+border-radius:12px;
+margin-bottom:10px;
+}
+
+/* TEXT */
+
+.clip-card h3{
+margin:5px 0;
+font-size:18px;
+}
+
+.clip-card p{
+font-size:14px;
+color:#bbb;
+}
+
+/* HOVER EFFECT */
+
+.clip-card:hover{
+transform:translateY(-8px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px #7a00ff;
+}
+
+</style>
 
 </head>
 
@@ -13,49 +106,89 @@
 
 <nav class="navbar">
 
-<a href="index.html" class="logo-link">
+<a href="index.html">
 <img src="assets/logo.png" class="logo">
 </a>
 
 <ul class="nav-links">
-
 <li><a href="about.html">About</a></li>
 <li><a href="watch.html">Watch</a></li>
 <li><a href="noxsters.html">Noxsters</a></li>
 <li><a href="tournaments.html">Tournaments</a></li>
-
 </ul>
 
 </nav>
 
-<section class="page">
 
-<h1>NOX Clips</h1>
+<section class="watch-page">
+
+<h1 class="watch-title">NOX Highlights</h1>
+
+
+<!-- FEATURED VIDEO -->
+
+<div class="featured-video">
+
+<video controls>
+<source src="assets/clips/featured.mp4" type="video/mp4">
+</video>
+
+<h3>Featured Highlight</h3>
+<p>Best NOX Play of the Week</p>
+
+</div>
+
+
+<!-- CLIP GRID -->
 
 <div class="clip-grid">
 
 <div class="clip-card">
-
 <video controls>
-
 <source src="assets/clips/clip1.mp4">
-
 </video>
-
-<p>Player: Shadow</p>
-
+<h3>Insane Ace</h3>
+<p>Player: Bipolar</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
-
 <source src="assets/clips/clip2.mp4">
-
 </video>
+<h3>Clutch Round</h3>
+<p>Player: Shy</p>
+</div>
 
-<p>Player: Nova</p>
+<div class="clip-card">
+<video controls>
+<source src="assets/clips/clip3.mp4">
+</video>
+<h3>1v4 Comeback</h3>
+<p>Player: Jess</p>
+</div>
 
+<div class="clip-card">
+<video controls>
+<source src="assets/clips/clip4.mp4">
+</video>
+<h3>Scrim Domination</h3>
+<p>Player: Grey</p>
+</div>
+
+<div class="clip-card">
+<video controls>
+<source src="assets/clips/clip5.mp4">
+</video>
+<h3>Perfect Play</h3>
+<p>Player: Hero</p>
+</div>
+
+<div class="clip-card">
+<video controls>
+<source src="assets/clips/clip6.mp4">
+</video>
+<h3>Insane Shot</h3>
+<p>Player: Milo</p>
 </div>
 
 </div>
