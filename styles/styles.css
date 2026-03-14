@@ -191,3 +191,88 @@ gap:40px;
 justify-content:center;
 
 }
+/* MAIN HERO BUTTONS */
+
+.hero-buttons{
+
+display:flex;
+gap:20px;
+
+justify-content:center;
+
+margin-top:30px;
+
+}
+
+.main-btn{
+
+padding:14px 30px;
+
+border:2px solid #7a00ff;
+
+background:rgba(0,0,0,0.5);
+
+color:white;
+
+text-decoration:none;
+
+font-size:18px;
+
+border-radius:6px;
+
+transition:0.3s;
+
+}
+
+.main-btn:hover{
+
+background:#7a00ff;
+
+box-shadow:
+0 0 10px #7a00ff,
+0 0 30px #7a00ff;
+
+transform:translateY(-3px);
+
+}
+
+
+/* SOCIAL BUTTONS */
+
+.social-buttons{
+
+display:flex;
+
+gap:15px;
+
+justify-content:center;
+
+margin-top:40px;
+
+}
+
+.social-btn{
+
+padding:10px 18px;
+
+border:1px solid #a64dff;
+
+background:rgba(0,0,0,0.4);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:5px;
+
+transition:0.3s;
+
+}
+
+.social-btn:hover{
+
+background:#a64dff;
+
+box-shadow:0 0 15px #a64dff;
+
+}
