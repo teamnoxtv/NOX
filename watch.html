@@ -97,6 +97,57 @@ box-shadow:
 0 0 20px #7a00ff,
 0 0 60px #7a00ff;
 }
+/* VIDEO BACKGROUND */
+
+.video-background{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:-2;
+
+overflow:hidden;
+
+}
+
+/* VIDEO */
+
+.video-background video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+}
+
+/* OVERLAY */
+
+.video-background::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+rgba(10,0,20,.7),
+rgba(0,0,0,.9)
+);
+
+}
 
 </style>
 
