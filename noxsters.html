@@ -175,12 +175,71 @@ rgba(0,0,0,.9)
 );
 
 }
+/* LOADER SCREEN */
+
+#loader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#050008;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+transition:opacity .6s ease;
+
+}
+
+/* LOGO ANIMATION */
+
+.loader-logo{
+
+width:120px;
+
+animation:logoPulse 2s infinite ease-in-out;
+
+}
+
+/* PULSE EFFECT */
+
+@keyframes logoPulse{
+
+0%{
+transform:scale(1);
+filter:drop-shadow(0 0 10px #7a00ff);
+}
+
+50%{
+transform:scale(1.1);
+filter:drop-shadow(0 0 25px #7a00ff);
+}
+
+100%{
+transform:scale(1);
+filter:drop-shadow(0 0 10px #7a00ff);
+}
+
+}
 
 </style>
 
 </head>
 
 <body>
+<div id="loader">
+
+<img src="assets/logo.png" class="loader-logo">
+
+</div>
 <div class="video-background">
 
 <video autoplay muted loop playsinline>
