@@ -43,8 +43,8 @@ flashing = true
 let i = 0
 
 const messages = [
-"👀 Come back!",
-"🔥 NOX is waiting",
+"👀 Family!",
+"🔥 Friends",
 originalTitle
 ]
 
@@ -69,67 +69,4 @@ document.title = originalTitle
 }
 <script>
 
-/* LOGIN STATUS */
-
-const loginBtn = document.getElementById("loginBtn")
-
-if(localStorage.getItem("noxUser")){
-
-loginBtn.innerText = "Account"
-
-}
-
-
-/* CART SYSTEM */
-
-let cart = JSON.parse(localStorage.getItem("noxCart")) || []
-
-function updateCart(){
-
-document.getElementById("cartCount").innerText = cart.length
-
-const container = document.getElementById("cartItems")
-
-container.innerHTML=""
-
-cart.forEach(item => {
-
-const div = document.createElement("div")
-
-div.innerText = item
-
-container.appendChild(div)
-
-})
-
-localStorage.setItem("noxCart",JSON.stringify(cart))
-
-}
-
-function addToCart(item){
-
-cart.push(item)
-
-updateCart()
-
-}
-
-function clearCart(){
-
-cart = []
-
-updateCart()
-
-}
-
-function toggleCart(){
-
-document.getElementById("cartPanel").classList.toggle("open")
-
-}
-
-updateCart()
-
-</script>
-})
 
