@@ -289,18 +289,19 @@ box-shadow:
 }
 .team-title{
 
-font-size:120px;        /* controls size */
-font-weight:800;
+font-size:10vw;
+
+font-weight:900;
+
+letter-spacing:6px;
 
 text-align:center;
 
 color:white;
 
 text-shadow:
-0 0 20px #a64dff,
-0 0 40px #7a00ff,
-0 0 80px #7a00ff;
-
-margin-bottom:40px;
+0 0 30px #a64dff,
+0 0 60px #7a00ff,
+0 0 120px #7a00ff;
 
 }
