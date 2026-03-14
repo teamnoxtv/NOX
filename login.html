@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>NOX Admin Panel</title>
+<title>NOX Admin Login</title>
 
 <style>
 
@@ -36,40 +36,45 @@ left:20px;
 height:40px;
 }
 
-/* PAGE TITLE */
+/* LOGIN PANEL */
 
-.admin-title{
-text-align:center;
-margin-top:120px;
+.login-container{
 
-font-size:50px;
+max-width:420px;
 
-text-shadow:0 0 20px #7a00ff;
-}
-
-/* PANEL */
-
-.admin-panel{
-
-max-width:800px;
-margin:40px auto;
+margin:150px auto;
 
 background:rgba(0,0,0,0.35);
 
 border:2px solid #7a00ff;
 border-radius:14px;
 
-padding:30px;
+padding:40px;
+
+text-align:center;
 
 backdrop-filter:blur(10px);
 
 }
 
+/* TITLE */
+
+.login-title{
+
+font-size:36px;
+
+margin-bottom:30px;
+
+text-shadow:0 0 15px #7a00ff;
+
+}
+
 /* INPUTS */
 
-.admin-panel input{
+.login-container input{
 
 width:100%;
+
 padding:12px;
 
 margin-bottom:15px;
@@ -79,13 +84,14 @@ background:#0a0a0a;
 border:1px solid #7a00ff;
 
 color:white;
+
 }
 
 /* BUTTON */
 
-.admin-btn{
+.login-btn{
 
-padding:10px 20px;
+padding:12px 25px;
 
 border:1px solid #7a00ff;
 
@@ -99,64 +105,28 @@ transition:.3s;
 
 }
 
-.admin-btn:hover{
+.login-btn:hover{
 
 background:#7a00ff;
 
-box-shadow:0 0 20px #7a00ff;
+box-shadow:
+0 0 10px #7a00ff,
+0 0 25px #7a00ff;
 
 }
 
-/* CLIP LIST */
+/* ERROR */
 
-.clip-list{
-margin-top:40px;
-}
-
-.clip-item{
-
-display:flex;
-justify-content:space-between;
-
-background:rgba(0,0,0,.4);
-
-border:1px solid #7a00ff;
-
-padding:10px;
-margin-bottom:10px;
-
-}
-
-.delete-btn{
-
-background:red;
-border:none;
-
-color:white;
-
-padding:6px 10px;
-
-cursor:pointer;
-
+.error{
+color:red;
+margin-top:10px;
 }
 
 </style>
 
 </head>
 
-
 <body>
-
-
-<script>
-
-/* PROTECT PAGE */
-
-if(localStorage.getItem("noxAdmin") !== "true"){
-window.location.href="login.html"
-}
-
-</script>
 
 
 <nav class="navbar">
@@ -168,103 +138,49 @@ window.location.href="login.html"
 </nav>
 
 
-<h1 class="admin-title">NOX Admin Panel</h1>
+<div class="login-container">
 
+<h1 class="login-title">Admin Login</h1>
 
-<div class="admin-panel">
+<input id="username" placeholder="Username">
 
-<h3>Upload Clip</h3>
+<input id="password" type="password" placeholder="Password">
 
-<input id="clipTitle" placeholder="Clip Title">
+<button class="login-btn" onclick="login()">Login</button>
 
-<input id="playerName" placeholder="Player Name">
-
-<input id="clipURL" placeholder="Video URL (YouTube or MP4 link)">
-
-<button class="admin-btn" onclick="addClip()">Upload Clip</button>
-
-
-<div class="clip-list" id="clipList"></div>
-
-<br>
-
-<button class="admin-btn" onclick="logout()">Logout</button>
+<p id="error" class="error"></p>
 
 </div>
 
 
 <script>
 
-/* CLIP STORAGE */
+/* LOGIN FUNCTION */
 
-let clips = JSON.parse(localStorage.getItem("noxClips")) || []
+function login(){
+
+const user = document.getElementById("username").value
+const pass = document.getElementById("password").value
+
+/* CHANGE THESE */
+
+const adminUser = "admin"
+const adminPass = "nox2026"
 
 
-function renderClips(){
+if(user === adminUser && pass === adminPass){
 
-const list = document.getElementById("clipList")
+localStorage.setItem("noxAdmin","true")
 
-list.innerHTML=""
+window.location.href = "admin.html"
 
-clips.forEach((clip,index)=>{
+}else{
 
-const div = document.createElement("div")
-
-div.className="clip-item"
-
-div.innerHTML = `
-<span>${clip.title} - ${clip.player}</span>
-<button class="delete-btn" onclick="deleteClip(${index})">Delete</button>
-`
-
-list.appendChild(div)
-
-})
+document.getElementById("error").innerText = "Invalid login"
 
 }
 
-
-function addClip(){
-
-const title = document.getElementById("clipTitle").value
-const player = document.getElementById("playerName").value
-const url = document.getElementById("clipURL").value
-
-if(!title || !player || !url) return
-
-clips.push({title,player,url})
-
-localStorage.setItem("noxClips",JSON.stringify(clips))
-
-renderClips()
-
-document.getElementById("clipTitle").value=""
-document.getElementById("playerName").value=""
-document.getElementById("clipURL").value=""
-
 }
-
-
-function deleteClip(index){
-
-clips.splice(index,1)
-
-localStorage.setItem("noxClips",JSON.stringify(clips))
-
-renderClips()
-
-}
-
-
-function logout(){
-
-localStorage.removeItem("noxAdmin")
-
-window.location.href="index.html"
-
-}
-
-renderClips()
 
 </script>
 
