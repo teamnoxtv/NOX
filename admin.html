@@ -162,7 +162,26 @@ border:none;
 width:100%;
 margin-top:10px;
 }
+#dropZone{
 
+border:2px dashed #7a00ff;
+
+padding:40px;
+
+text-align:center;
+
+margin-bottom:15px;
+
+cursor:pointer;
+
+}
+
+#clipPreview{
+
+width:100%;
+margin-top:10px;
+
+}
 </style>
 
 </head>
@@ -201,15 +220,14 @@ window.location.href="login.html"
 
 <h3>Upload Clip</h3>
 
+<div id="dropZone">Drag & Drop Clip Here</div>
+
 <input id="clipTitle" placeholder="Clip Title">
 <input id="clipPlayer" placeholder="Player Name">
-<input id="clipURL" placeholder="Video URL">
 
-<button onclick="previewClip()">Preview</button>
+<video id="clipPreview" controls></video>
 
-<div class="preview" id="clipPreview"></div>
-
-<button onclick="addClip()">Upload Clip</button>
+<button onclick="saveClip()">Save Clip</button>
 
 <div id="clipList"></div>
 
@@ -241,6 +259,13 @@ window.location.href="login.html"
 <div id="applicationList"></div>
 
 </div>
+
+#playerPreview{
+
+width:120px;
+margin-top:10px;
+
+}
 
 
 <script>
@@ -406,6 +431,93 @@ ${app.name} - ${app.game}
 list.appendChild(div)
 
 })
+
+}
+let clipFile = null
+
+const dropZone = document.getElementById("dropZone")
+
+dropZone.addEventListener("dragover", e=>{
+e.preventDefault()
+})
+
+dropZone.addEventListener("drop", e=>{
+
+e.preventDefault()
+
+clipFile = e.dataTransfer.files[0]
+
+const url = URL.createObjectURL(clipFile)
+
+document.getElementById("clipPreview").src = url
+
+})
+
+
+function saveClip(){
+
+const title = document.getElementById("clipTitle").value
+const player = document.getElementById("clipPlayer").value
+
+const reader = new FileReader()
+
+reader.onload = function(){
+
+const clips = JSON.parse(localStorage.getItem("noxClips")) || []
+
+clips.push({
+title:title,
+player:player,
+url:reader.result
+})
+
+localStorage.setItem("noxClips",JSON.stringify(clips))
+
+renderClips()
+
+}
+
+reader.readAsDataURL(clipFile)
+
+}
+
+const imgInput = document.getElementById("playerImage")
+
+imgInput.addEventListener("change", function(){
+
+const file = this.files[0]
+
+document.getElementById("playerPreview").src =
+URL.createObjectURL(file)
+
+})
+
+
+function addPlayer(){
+
+const name = document.getElementById("playerName").value
+const role = document.getElementById("playerRole").value
+const file = imgInput.files[0]
+
+const reader = new FileReader()
+
+reader.onload = function(){
+
+const players = JSON.parse(localStorage.getItem("noxPlayers")) || []
+
+players.push({
+name:name,
+role:role,
+image:reader.result
+})
+
+localStorage.setItem("noxPlayers",JSON.stringify(players))
+
+renderPlayers()
+
+}
+
+reader.readAsDataURL(file)
 
 }
 
