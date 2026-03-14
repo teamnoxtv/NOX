@@ -357,26 +357,45 @@ flex-wrap:wrap;
 
 
 /* STAT CARDS */
+/* STATS SECTION */
+
+.stats-section{
+
+margin-top:90px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+
+gap:40px;
+
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
+
+text-align:center;
+
+}
+
+
+/* STAT CARD */
 
 .stat-card{
 
-width:200px;
-height:140px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+padding:35px 20px;
 
 background:rgba(0,0,0,0.35);
-backdrop-filter:blur(10px);
 
 border:2px solid #7a00ff;
 border-radius:14px;
 
+backdrop-filter:blur(10px);
+
 transition:.3s;
 
 }
+
+
+/* HOVER */
 
 .stat-card:hover{
 
@@ -388,15 +407,28 @@ box-shadow:
 
 }
 
+
+/* NUMBER */
+
 .stat-card h2{
 
-font-size:45px;
+font-size:48px;
+
+margin-bottom:8px;
 
 color:white;
 
 text-shadow:
 0 0 15px #7a00ff;
 
-margin-bottom:5px;
+}
+
+
+/* LABEL */
+
+.stat-card p{
+
+color:#ccc;
+font-size:16px;
 
 }
