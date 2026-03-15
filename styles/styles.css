@@ -970,3 +970,91 @@ transition:0.25s;
 background:#7a00ff;
 
 }
+/* LEADERSHIP PANEL */
+
+.leadership-panel{
+
+max-width:1200px;
+margin:120px auto;
+padding:60px;
+
+border-radius:20px;
+
+border:2px solid #7a00ff;
+
+background:rgba(0,0,0,0.45);
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 0 25px #7a00ff,
+0 0 70px rgba(122,0,255,0.4);
+
+text-align:center;
+
+}
+
+/* Title */
+
+.leadership-panel h2{
+
+font-size:38px;
+margin-bottom:40px;
+
+text-shadow:0 0 12px #7a00ff;
+
+}
+
+/* Leadership Grid */
+
+.leadership-grid{
+
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+
+}
+
+/* Leader Cards */
+
+.leader-card{
+
+padding:25px 35px;
+
+border-radius:14px;
+
+border:1px solid #7a00ff;
+
+background:rgba(0,0,0,0.4);
+
+transition:0.3s;
+
+min-width:220px;
+
+}
+
+.leader-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 0 15px #7a00ff,
+0 0 40px rgba(122,0,255,0.5);
+
+}
+
+.leader-card h3{
+
+font-size:22px;
+margin-bottom:6px;
+
+}
+
+.leader-card p{
+
+color:#bfbfbf;
+
+font-size:15px;
+
+}
