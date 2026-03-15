@@ -341,7 +341,16 @@ text-align:center;
 color:#aaa;
 
 }
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s ease;
+}
 
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
 </style>
 </head>
 
@@ -374,13 +383,13 @@ color:#aaa;
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="section fade-in">
 
 <img src="assets/logo.png">
 
 <h2>Not just a team but a family</h2>
 
-<div class="main-buttons">
+<section class="section fade-in">
 
 <a href="tournaments.html">Tournaments</a>
 <a href="watch.html">Watch</a>
@@ -397,7 +406,7 @@ color:#aaa;
 
 <h2>Follow NOX</h2>
 
-<div class="social-grid">
+<section class="section fade-in">
 
 <a href="#" class="social-card">
 
@@ -449,7 +458,7 @@ color:#aaa;
 
 <!-- STATS -->
 
-<section class="section">
+<section class="section fade-in">
 
 <div class="stats">
 
@@ -480,7 +489,7 @@ color:#aaa;
 
 <!-- FEATURED CLIP -->
 
-<section class="section">
+<section class="section fade-in">
 
 <h2>Featured Highlight</h2>
 
@@ -497,7 +506,7 @@ color:#aaa;
 
 <!-- MEMBERS -->
 
-<section class="section">
+<section class="section fade-in">
 
 <h2>Featured Members</h2>
 
@@ -527,8 +536,8 @@ color:#aaa;
 
 
 <!-- TOURNAMENT -->
-
-<section class="section">
+  
+<section class="section fade-in">
 
 <h2>Next Tournament</h2>
 
@@ -560,6 +569,25 @@ frameborder="0">
 
 </section>
 
+<script>
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+
+})
+
+})
+
+document.querySelectorAll(".fade-in").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
 
 <footer>
 
