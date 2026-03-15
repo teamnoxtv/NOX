@@ -2,121 +2,449 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-<title>NOX</title>
-
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>NOX Esports</title>
 
 <link rel="stylesheet" href="styles/styles.css">
+
+<style>
+
+/* HERO */
+
+.hero{
+
+text-align:center;
+padding-top:140px;
+
+}
+
+.hero img{
+width:420px;
+margin-bottom:20px;
+}
+
+.hero h2{
+font-size:36px;
+text-shadow:0 0 15px #7a00ff;
+}
+
+/* MAIN BUTTONS */
+
+.main-buttons{
+
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+
+}
+
+.main-buttons a{
+
+padding:14px 28px;
+
+border:2px solid #7a00ff;
+border-radius:10px;
+
+text-decoration:none;
+color:white;
+
+transition:0.3s;
+
+}
+
+.main-buttons a:hover{
+
+background:#7a00ff;
+box-shadow:0 0 25px #7a00ff;
+
+}
+
+/* SOCIAL VIDEOS */
+
+.social-grid{
+
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:80px;
+flex-wrap:wrap;
+
+}
+
+.social-card{
+
+position:relative;
+
+width:230px;
+height:230px;
+
+border:2px solid #7a00ff;
+border-radius:16px;
+
+overflow:hidden;
+
+text-decoration:none;
+color:white;
+
+}
+
+.social-card video{
+
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+.social-overlay{
+
+position:absolute;
+
+bottom:0;
+width:100%;
+
+padding:12px;
+
+background:rgba(0,0,0,0.5);
+
+text-align:center;
+
+}
+
+/* STATS */
+
+.stats{
+
+display:flex;
+justify-content:center;
+gap:80px;
+
+margin-top:100px;
+
+}
+
+.stat{
+
+text-align:center;
+
+}
+
+.stat h2{
+
+font-size:40px;
+text-shadow:0 0 10px #7a00ff;
+
+}
+
+/* FEATURED CLIP */
+
+.featured{
+
+max-width:900px;
+margin:120px auto;
+text-align:center;
+
+}
+
+.featured video{
+
+width:100%;
+border-radius:12px;
+
+border:2px solid #7a00ff;
+
+}
+
+/* PLAYERS */
+
+.player-grid{
+
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:60px;
+
+}
+
+.player-card{
+
+text-align:center;
+
+border:2px solid #7a00ff;
+padding:20px;
+border-radius:14px;
+
+background:rgba(0,0,0,0.4);
+
+}
+
+/* TOURNAMENT */
+
+.tournament{
+
+text-align:center;
+margin-top:100px;
+
+}
+
+/* COMMUNITY */
+
+.community{
+
+text-align:center;
+margin-top:100px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+margin-top:120px;
+padding:40px;
+text-align:center;
+
+border-top:2px solid #7a00ff;
+
+}
+/* VIDEO BACKGROUND */
+
+#bg-video{
+
+position:fixed;
+
+right:0;
+bottom:0;
+
+min-width:100%;
+min-height:100%;
+
+object-fit:cover;
+
+z-index:-2;
+
+}
+
+/* DARK OVERLAY */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.65);
+
+z-index:-1;
+
+}
+
+</style>
 
 </head>
 
 <body>
-<div class="cursor"></div>
-<div id="loader">
-
-<img src="assets/logo.png" class="loader-logo">
-
-</div>
-  <div class="video-bg">
-
-<video autoplay muted loop playsinline>
+<video autoplay muted loop id="bg-video">
 
 <source src="assets/background.mp4" type="video/mp4">
 
 </video>
-
-</div>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-<a href="index.html" class="logo-link">
-<img src="assets/logo.png" class="logo">
-</a>
-
-<ul class="nav-links">
-
-<li><a href="about.html">About</a></li>
-<li><a href="watch.html">Watch</a></li>
-<li><a href="noxsters.html">Noxsters</a></li>
-<li><a href="tournaments.html">Tournaments</a></li>
-<li><a href="signup.html">Join</a></li>
-
-</ul>
-
-</nav>
-
-
-<!-- BACKGROUND -->
-
-<div class="background">
-
-<img src="assets/background.jpg" class="bg-image">
-
-</div>
 
 
 <!-- HERO -->
 
 <section class="hero">
 
-<h1 class="team-title">TEAM NOX</h1>
+<img src="assets/logo.png">
+
+<h2>Not just a team but a family</h2>
 
 <div class="main-buttons">
 
 <a href="tournaments.html">Tournaments</a>
-
 <a href="watch.html">Watch</a>
-
 <a href="noxsters.html">Noxsters</a>
 
 </div>
 
-<div class="social-panels">
+</section>
 
-<a href="#" class="social-panel">
+
+<!-- SOCIAL VIDEO PANELS -->
+
+<section class="social-grid">
+
+<a href="https://discord.gg/YOURINVITE" target="_blank" class="social-card">
 
 <video autoplay muted loop>
+
 <source src="assets/socials/discord.mp4">
+
 </video>
 
-<span>Discord</span>
+<div class="social-overlay">Discord</div>
 
 </a>
 
-<a href="#" class="social-panel">
+
+<a href="https://twitter.com/YOURACCOUNT" target="_blank" class="social-card">
 
 <video autoplay muted loop>
+
 <source src="assets/socials/twitter.mp4">
+
 </video>
 
-<span>Twitter</span>
+<div class="social-overlay">X / Twitter</div>
 
 </a>
 
-<a href="#" class="social-panel">
+
+<a href="https://youtube.com/YOURCHANNEL" target="_blank" class="social-card">
 
 <video autoplay muted loop>
+
 <source src="assets/socials/youtube.mp4">
+
 </video>
 
-<span>YouTube</span>
+<div class="social-overlay">YouTube</div>
 
 </a>
 
-<a href="#" class="social-panel">
+
+<a href="https://twitch.tv/YOURCHANNEL" target="_blank" class="social-card">
 
 <video autoplay muted loop>
+
 <source src="assets/socials/twitch.mp4">
+
 </video>
 
-<span>Twitch</span>
+<div class="social-overlay">Twitch</div>
 
 </a>
-<script src="scripts/main.js"></script>
+
+</section>
+
+
+<!-- TEAM STATS -->
+
+<section class="stats">
+
+<div class="stat">
+<h2>250+</h2>
+<p>Community Members</p>
 </div>
 
+<div class="stat">
+<h2>60+</h2>
+<p>Tournaments</p>
+</div>
 
+<div class="stat">
+<h2>120+</h2>
+<p>Scrims Played</p>
+</div>
+
+<div class="stat">
+<h2>18</h2>
+<p>Team Members</p>
+</div>
+
+</section>
+
+
+<!-- FEATURED CLIP -->
+
+<section class="featured">
+
+<h2>Featured Highlight</h2>
+
+<video controls>
+
+<source src="assets/clips/highlight.mp4">
+
+</video>
+
+</section>
+
+
+<!-- FEATURED PLAYERS -->
+
+<section>
+
+<h2 style="text-align:center">Featured Members</h2>
+
+<div class="player-grid">
+
+<div class="player-card">
+
+<img src="assets/players/nordica.png" width="120">
+
+<h3>NordicaDropz</h3>
+<p>Founder</p>
+
+</div>
+
+<div class="player-card">
+
+<img src="assets/players/silence.png" width="120">
+
+<h3>Silence</h3>
+<p>Co-Owner</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEXT TOURNAMENT -->
+
+<section class="tournament">
+
+<h2>Next Tournament</h2>
+
+<p>Valorant Weekly Cup</p>
+<p>Saturday – 7PM EST</p>
+
+<a href="tournaments.html">View Bracket</a>
+
+</section>
+
+
+<!-- DISCORD COMMUNITY -->
+
+<section class="community">
+
+<h2>Join Our Community</h2>
+
+<iframe
+src="https://discord.com/widget?id=YOURSERVERID&theme=dark"
+width="350"
+height="500"
+frameborder="0">
+</iframe>
+
+</section>
+
+
+<footer>
+
+<p>NOX 2026</p>
+
+</footer>
+
+
+</body>
+</html>
