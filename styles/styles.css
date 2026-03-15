@@ -1272,44 +1272,5 @@ font-size:18px;
 color:#cfcfcf;
 
 }
-.navbar{
 
-display:flex;
-align-items:center;
-justify-content:space-between;
 
-padding:18px 40px;
-
-border-bottom:2px solid #7a00ff;
-
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-
-}
-
-/* NAV ICONS */
-
-.nav-icons{
-
-display:flex;
-align-items:center;
-gap:18px;
-
-}
-
-.icon-btn{
-
-color:white;
-transition:0.25s;
-
-}
-
-.icon-btn:hover{
-
-color:#7a00ff;
-
-transform:scale(1.15);
-
-filter:drop-shadow(0 0 6px #7a00ff);
-
-}
