@@ -26,34 +26,54 @@ color:white;
 /* ---------- NAVBAR ---------- */
 
 .navbar{
-
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:center;
 
-padding:18px 40px;
+padding:15px;
+
+background:black;
 
 border-bottom:2px solid #7a00ff;
 
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+top:0;
+z-index:100;
+}
 
+.logo{
+
+position:absolute;
+left:20px;
+
+top:50%;
+transform:translateY(-50%);
+
+height:40px;
+
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+
+list-style:none;
+
+margin:0;
+padding:0;
 }
 
 .nav-links a{
-
-margin:0 18px;
 text-decoration:none;
 color:white;
-
 font-size:16px;
-
+transition:.3s;
 }
 
 .nav-links a:hover{
-
-color:#7a00ff;
-
+color:#a64dff;
+text-shadow:0 0 10px #7a00ff;
 }
 
 /* ---------- NAV ICONS ---------- */
