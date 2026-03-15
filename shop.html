@@ -1,6 +1,255 @@
-<section class="shop-section">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOX Store</title>
+
+<style>
+
+/* ---------- GLOBAL ---------- */
+
+body{
+
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+
+background:#050014;
+
+color:white;
+
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:18px 40px;
+
+border-bottom:2px solid #7a00ff;
+
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+
+}
+
+.nav-links a{
+
+margin:0 18px;
+text-decoration:none;
+color:white;
+
+font-size:16px;
+
+}
+
+.nav-links a:hover{
+
+color:#7a00ff;
+
+}
+
+/* ---------- NAV ICONS ---------- */
+
+.nav-icons{
+
+display:flex;
+gap:20px;
+
+}
+
+.icon-btn{
+
+color:white;
+
+transition:.25s;
+
+}
+
+.icon-btn:hover{
+
+color:#7a00ff;
+
+transform:scale(1.15);
+
+filter:drop-shadow(0 0 6px #7a00ff);
+
+}
+
+/* ---------- PAGE TITLE ---------- */
+
+.section-title{
+
+text-align:center;
+
+font-size:42px;
+
+margin-top:80px;
+
+text-shadow:0 0 12px #7a00ff;
+
+}
+
+/* ---------- SHOP GRID ---------- */
+
+.shop-grid{
+
+max-width:1200px;
+
+margin:60px auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:35px;
+
+padding:20px;
+
+}
+
+/* ---------- PRODUCT CARD ---------- */
+
+.shop-card{
+
+padding:22px;
+
+border-radius:18px;
+
+border:2px solid #7a00ff;
+
+background:rgba(0,0,0,0.45);
+
+backdrop-filter:blur(10px);
+
+text-align:center;
+
+transition:.25s;
+
+}
+
+.shop-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px rgba(122,0,255,0.5);
+
+}
+
+/* ---------- PRODUCT IMAGE ---------- */
+
+.shop-card img{
+
+width:100%;
+
+border-radius:10px;
+
+margin-bottom:14px;
+
+}
+
+/* ---------- PRODUCT TEXT ---------- */
+
+.shop-card h3{
+
+margin:10px 0;
+
+}
+
+.shop-card p{
+
+color:#cfcfcf;
+
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+
+text-align:center;
+
+margin-top:100px;
+
+padding:30px;
+
+border-top:2px solid #7a00ff;
+
+color:#bfbfbf;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+NOX
+</div>
+
+<div class="nav-links">
+
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/watch">Watch</a>
+<a href="/noxsters">Noxsters</a>
+<a href="/tournaments">Tournaments</a>
+<a href="/shop">Shop</a>
+
+</div>
+
+<div class="nav-icons">
+
+<a href="/login" class="icon-btn">
+
+<svg viewBox="0 0 24 24" width="26">
+
+<circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+<path d="M4 20c2-4 6-6 8-6s6 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/>
+
+</svg>
+
+</a>
+
+<a href="/cart" class="icon-btn">
+
+<svg viewBox="0 0 24 24" width="26">
+
+<circle cx="9" cy="21" r="1.5"/>
+<circle cx="17" cy="21" r="1.5"/>
+<path d="M2 3h3l3 12h10l3-8H6" fill="none" stroke="currentColor" stroke-width="2"/>
+
+</svg>
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- SHOP TITLE -->
 
 <h1 class="section-title">NOX Store</h1>
+
+
+<!-- PRODUCT GRID -->
 
 <div class="shop-grid">
 
@@ -48,7 +297,7 @@
 
 <div class="shop-card">
 <img src="assets/store/keychain.png">
-<h3>Keychain</h3>
+<h3>NOX Keychain</h3>
 <p>Coming Soon</p>
 </div>
 
@@ -66,4 +315,15 @@
 
 </div>
 
-</section>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+NOX 2026
+
+</div>
+
+
+</body>
+</html>
