@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -13,342 +12,291 @@
 /* ---------- GLOBAL ---------- */
 
 body{
-
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
-
-background:#050014;
-
+font-family:Arial, sans-serif;
+background:#060014;
 color:white;
-
 }
 
 /* ---------- NAVBAR ---------- */
 
 .navbar{
 display:flex;
+justify-content:space-between;
 align-items:center;
-justify-content:center;
-
-padding:15px;
-
-background:black;
-
+padding:18px 40px;
 border-bottom:2px solid #7a00ff;
-
-position:fixed;
-width:100%;
-top:0;
-z-index:100;
-}
-
-.logo{
-
-position:absolute;
-left:20px;
-
-top:50%;
-transform:translateY(-50%);
-
-height:40px;
-
-}
-
-.nav-links{
-display:flex;
-gap:40px;
-
-list-style:none;
-
-margin:0;
-padding:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 }
 
 .nav-links a{
+margin:0 18px;
 text-decoration:none;
 color:white;
-font-size:16px;
-transition:.3s;
 }
 
 .nav-links a:hover{
-color:#a64dff;
-text-shadow:0 0 10px #7a00ff;
+color:#7a00ff;
 }
 
-/* ---------- NAV ICONS ---------- */
+/* ---------- ICONS ---------- */
 
 .nav-icons{
-
 display:flex;
 gap:20px;
-
 }
 
 .icon-btn{
-
 color:white;
-
+cursor:pointer;
 transition:.25s;
-
 }
 
 .icon-btn:hover{
-
 color:#7a00ff;
-
-transform:scale(1.15);
-
+transform:scale(1.1);
 filter:drop-shadow(0 0 6px #7a00ff);
-
 }
 
-/* ---------- PAGE TITLE ---------- */
+/* ---------- TITLE ---------- */
 
 .section-title{
-
 text-align:center;
-
-font-size:42px;
-
+font-size:40px;
 margin-top:80px;
-
 text-shadow:0 0 12px #7a00ff;
-
 }
 
 /* ---------- SHOP GRID ---------- */
 
 .shop-grid{
-
 max-width:1200px;
-
 margin:60px auto;
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
 gap:35px;
-
 padding:20px;
-
 }
 
 /* ---------- PRODUCT CARD ---------- */
 
 .shop-card{
-
 padding:22px;
-
 border-radius:18px;
-
 border:2px solid #7a00ff;
-
 background:rgba(0,0,0,0.45);
-
 backdrop-filter:blur(10px);
-
 text-align:center;
-
 transition:.25s;
-
 }
 
 .shop-card:hover{
-
-transform:translateY(-6px);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 60px rgba(122,0,255,0.5);
-
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 0 25px #7a00ff,0 0 60px rgba(122,0,255,0.5);
 }
 
 /* ---------- PRODUCT IMAGE ---------- */
 
 .shop-card img{
-
 width:100%;
-
 border-radius:10px;
-
 margin-bottom:14px;
-
 }
 
-/* ---------- PRODUCT TEXT ---------- */
+/* ---------- ADD TO CART BUTTON ---------- */
 
-.shop-card h3{
-
-margin:10px 0;
-
+.add-btn{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+background:#7a00ff;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:.25s;
 }
 
-.shop-card p{
-
-color:#cfcfcf;
-
+.add-btn:hover{
+box-shadow:0 0 12px #7a00ff;
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- CART POPUP ---------- */
 
-.footer{
+.cart-popup{
+position:fixed;
+right:20px;
+top:80px;
+width:300px;
+background:#0b001c;
+border:2px solid #7a00ff;
+border-radius:12px;
+padding:15px;
+display:none;
+z-index:999;
+}
 
-text-align:center;
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin:6px 0;
+}
 
-margin-top:100px;
+/* ---------- CHECKOUT ---------- */
 
-padding:30px;
-
-border-top:2px solid #7a00ff;
-
-color:#bfbfbf;
-
+.checkout{
+margin-top:10px;
+padding:10px;
+width:100%;
+border:none;
+background:#7a00ff;
+color:white;
+border-radius:8px;
+cursor:pointer;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <!-- NAVBAR -->
 
-<nav class="navbar">
+<div class="navbar">
 
-<a href="index.html" class="logo-link">
-<img src="assets/logo.png" class="logo">
-</a>
+<div>NOX</div>
 
-<ul class="nav-links">
-
-<li><a href="about">About.</a></li>
-<li><a href="watch.html">Watch</a></li>
-<li><a href="tournaments.html">Tournaments</a></li>
-<li><a href="signup.html">Join</a></li>
-<li><a href="news.html">News</a></li>
-<li><a href="creators.html">Creators</a></li>
-<li><a href="shop.html">Shop</a></li>
-
-<div class="nav-right">
-
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/shop">Shop</a>
 </div>
-
-</nav>
 
 <div class="nav-icons">
 
-<a href="/login" class="icon-btn">
+<div class="icon-btn" onclick="toggleCart()">
 
 <svg viewBox="0 0 24 24" width="26">
-
-<circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-<path d="M4 20c2-4 6-6 8-6s6 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/>
-
-</svg>
-
-</a>
-
-<a href="/cart" class="icon-btn">
-
-<svg viewBox="0 0 24 24" width="26">
-
 <circle cx="9" cy="21" r="1.5"/>
 <circle cx="17" cy="21" r="1.5"/>
-<path d="M2 3h3l3 12h10l3-8H6" fill="none" stroke="currentColor" stroke-width="2"/>
-
+<path d="M2 3h3l3 12h10l3-8H6"
+fill="none" stroke="currentColor" stroke-width="2"/>
 </svg>
 
-</a>
-
 </div>
 
 </div>
 
+</div>
 
-<!-- SHOP TITLE -->
 
 <h1 class="section-title">NOX Store</h1>
 
-
-<!-- PRODUCT GRID -->
+<!-- SHOP GRID -->
 
 <div class="shop-grid">
 
 <div class="shop-card">
 <img src="assets/store/hoodie.png">
 <h3>NOX Hoodie</h3>
-<p>Coming Soon</p>
+<p>$60</p>
+<button class="add-btn" onclick="addToCart('NOX Hoodie',60)">Add to Cart</button>
 </div>
 
 <div class="shop-card">
 <img src="assets/store/jersey.png">
 <h3>Team Jersey</h3>
-<p>Coming Soon</p>
+<p>$75</p>
+<button class="add-btn" onclick="addToCart('Team Jersey',75)">Add to Cart</button>
 </div>
 
 <div class="shop-card">
 <img src="assets/store/mousepad.png">
 <h3>Gaming Mousepad</h3>
-<p>Coming Soon</p>
+<p>$25</p>
+<button class="add-btn" onclick="addToCart('Mousepad',25)">Add to Cart</button>
 </div>
 
 <div class="shop-card">
 <img src="assets/store/stickers.png">
 <h3>Sticker Pack</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/hat.png">
-<h3>NOX Hat</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/tshirt.png">
-<h3>Team T-Shirt</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/poster.png">
-<h3>Team Poster</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/keychain.png">
-<h3>NOX Keychain</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/wallpaper.png">
-<h3>Wallpaper Pack</h3>
-<p>Coming Soon</p>
-</div>
-
-<div class="shop-card">
-<img src="assets/store/limited.png">
-<h3>Limited Drop</h3>
-<p>Coming Soon</p>
+<p>$10</p>
+<button class="add-btn" onclick="addToCart('Sticker Pack',10)">Add to Cart</button>
 </div>
 
 </div>
 
 
-<!-- FOOTER -->
+<!-- CART POPUP -->
 
-<div class="footer">
+<div class="cart-popup" id="cart">
 
-NOX 2026
+<h3>Your Cart</h3>
+
+<div id="cart-items"></div>
+
+<hr>
+
+<p>Total: $<span id="total">0</span></p>
+
+<button class="checkout" onclick="checkout()">Checkout</button>
 
 </div>
 
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name,price){
+
+cart.push({name,price});
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCart();
+
+}
+
+function updateCart(){
+
+let items = document.getElementById("cart-items");
+let total = 0;
+
+items.innerHTML="";
+
+cart.forEach(item=>{
+
+items.innerHTML +=
+`<div class="cart-item">
+${item.name}
+<span>$${item.price}</span>
+</div>`;
+
+total += item.price;
+
+});
+
+document.getElementById("total").innerText = total;
+
+}
+
+function toggleCart(){
+
+let cartBox = document.getElementById("cart");
+
+cartBox.style.display =
+cartBox.style.display === "block" ? "none" : "block";
+
+updateCart();
+
+}
+
+function checkout(){
+
+alert("Checkout system coming soon!");
+
+}
+
+</script>
 
 </body>
 </html>
