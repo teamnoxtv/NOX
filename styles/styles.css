@@ -201,108 +201,87 @@ object-fit:cover;
 filter:brightness(.35);
 
 }
-/* SOCIAL PANEL CONTAINER */
+.socials{
 
-.social-panels{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:35px;
 
-margin-top:220px;  /* pushes panels lower */
-
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
+max-width:1200px;
+margin:120px auto;
+padding:20px;
 
 }
 
+/* SOCIAL CARD */
 
-/* PANEL */
+.social-card{
 
-.social-panel{
+position:relative;
 
-width:260px;
 height:220px;
 
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-end;
-
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(12px);
+border-radius:18px;
+overflow:hidden;
 
 border:2px solid #7a00ff;
-border-radius:16px;
+
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(10px);
 
 text-decoration:none;
 color:white;
 
-overflow:hidden;
-
-transition:.3s;
+transition:0.3s;
 
 }
 
-
 /* VIDEO */
 
-.social-panel video{
+.social-card video{
 
 position:absolute;
+
+top:0;
+left:0;
 
 width:100%;
 height:100%;
 
 object-fit:cover;
 
-top:0;
+opacity:0.65;
+
+}
+
+/* LABEL */
+
+.social-card span{
+
+position:absolute;
+
+bottom:18px;
 left:0;
-
-opacity:0.6;
-
-}
-
-
-/* TEXT */
-
-.social-panel span{
-
-position:relative;
-
-margin-bottom:18px;
-
-font-size:18px;
-font-weight:500;
-
-}
-
-
-/* HOVER EFFECT */
-
-.social-panel:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 60px #7a00ff;
-
-}
-.team-title{
-
-font-size:10vw;
-
-font-weight:900;
-
-letter-spacing:6px;
+right:0;
 
 text-align:center;
 
-color:white;
+font-size:20px;
+font-weight:600;
 
-text-shadow:
-0 0 30px #a64dff,
-0 0 60px #7a00ff,
-0 0 120px #7a00ff;
+text-shadow:0 0 12px #7a00ff;
+
+}
+
+/* HOVER EFFECT */
+
+.social-card:hover{
+
+transform:translateY(-10px) scale(1.05);
+
+box-shadow:
+0 0 25px #7a00ff,
+0 0 80px rgba(122,0,255,0.5);
 
 }
 /* ABOUT PAGE */
@@ -1270,130 +1249,5 @@ font-size:18px;
 .shop-card p{
 
 color:#cfcfcf;
-
-}
-.social-card{
-
-display:block;
-text-decoration:none;
-color:white;
-
-border:2px solid #7a00ff;
-border-radius:14px;
-
-padding:15px;
-
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(10px);
-
-transition:0.25s;
-
-}
-
-.social-card:hover{
-
-transform:translateY(-8px) scale(1.03);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 60px rgba(122,0,255,0.5);
-
-}
-
-/* SOCIAL GRID */
-
-.socials{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-max-width:1100px;
-
-margin:120px auto;
-
-padding:20px;
-
-}
-
-
-/* SOCIAL PANEL */
-
-.social-card{
-
-position:relative;
-
-border-radius:18px;
-
-overflow:hidden;
-
-border:2px solid #7a00ff;
-
-text-decoration:none;
-
-color:white;
-
-height:200px;
-
-background:rgba(0,0,0,0.4);
-
-backdrop-filter:blur(10px);
-
-transition:0.3s;
-
-}
-
-
-/* VIDEO */
-
-.social-card video{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-opacity:0.6;
-
-}
-
-
-/* LABEL */
-
-.social-label{
-
-position:absolute;
-
-bottom:20px;
-
-width:100%;
-
-text-align:center;
-
-font-size:20px;
-
-font-weight:600;
-
-text-shadow:0 0 10px #7a00ff;
-
-}
-
-
-/* HOVER EFFECT */
-
-.social-card:hover{
-
-transform:translateY(-10px) scale(1.05);
-
-box-shadow:
-
-0 0 20px #7a00ff,
-
-0 0 60px rgba(122,0,255,0.5);
 
 }
