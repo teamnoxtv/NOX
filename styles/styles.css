@@ -837,3 +837,16 @@ z-index:1000;
 #cartPanel.open{
 right:0;
 }
+.about-panel h2{
+
+text-align:center;
+
+font-size:36px;
+
+margin-bottom:25px;
+
+letter-spacing:1px;
+
+text-shadow:0 0 12px #7a00ff;
+
+}
