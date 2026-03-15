@@ -228,76 +228,33 @@ transform:translate(-50%, -50%);
 z-index:999;
 
 }
-.section-title{
-text-align:center;
-font-size:44px;
-margin-bottom:40px;
-text-shadow:0 0 12px #7a00ff;
-}
 
-.featured-video{
-
-max-width:1100px;
-margin:auto;
-
-padding:30px;
-
-border-radius:20px;
-border:2px solid #7a00ff;
-
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(10px);
-
-box-shadow:
-0 0 25px #7a00ff,
-0 0 60px rgba(122,0,255,0.4);
-
-text-align:center;
-
-}
-
-.featured-video video{
-width:100%;
-border-radius:14px;
-margin-bottom:18px;
-}
-
-.highlight-info h3{
-font-size:22px;
-margin-bottom:6px;
-}
-
-.highlight-info p{
-color:#bfbfbf;
-}
-.clips-grid{
-
-max-width:1200px;
-margin:80px auto;
+</s.streams-grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+
+max-width:1200px;
+margin:auto;
 
 }
 
-.clip-card{
+.stream-card{
 
-padding:20px;
-
-border-radius:16px;
 border:2px solid #7a00ff;
+border-radius:16px;
+
+padding:18px;
 
 background:rgba(0,0,0,0.4);
 backdrop-filter:blur(10px);
 
-transition:0.25s;
-
-text-align:center;
+transition:.25s;
 
 }
 
-.clip-card:hover{
+.stream-card:hover{
 
 transform:translateY(-6px);
 
@@ -307,28 +264,12 @@ box-shadow:
 
 }
 
-.clip-card video{
+.stream-card iframe{
 
-width:100%;
-border-radius:12px;
-margin-bottom:12px;
+border-radius:10px;
 
-}
-
-.clip-card h3{
-
-font-size:18px;
-margin-bottom:4px;
-
-}
-
-.clip-card p{
-
-color:#cfcfcf;
-font-size:14px;
-
-}
-</style>
+}tyle>
+  
 
 </head>
 
@@ -378,97 +319,112 @@ font-size:14px;
 
 <!-- FEATURED VIDEO -->
 
-<section class="featured-highlight">
-
-<h2 class="section-title">NOX Highlights</h2>
-
 <div class="featured-video">
 
 <video controls>
-<source src="assets/clips/highlight1.mp4" type="video/mp4">
+<source src="assets/clips/featured.mp4" type="video/mp4">
 </video>
 
-<div class="highlight-info">
 <h3>Featured Highlight</h3>
 <p>Best NOX HERO Play of the Week</p>
-</div>
 
 </div>
 
-</section>
+<div class="stream-card">
 
+<iframe
+src="https://player.twitch.tv/?channel=nordicadropz&parent=teamnox.org"
+height="300"
+width="100%"
+allowfullscreen>
+
+</iframe>
+
+<h3>Live Stream</h3>
+
+</div>
+
+<div class="stream-card">
+
+<iframe
+src="https://player.twitch.tv/?channel=nordicadropz&parent=teamnox.org"
+height="300"
+width="100%"
+allowfullscreen>
+
+</iframe>
+
+<h3>Live Stream</h3>
+
+</div>
+
+<div class="stream-card">
+
+<iframe
+src="https://player.twitch.tv/?channel=nordicadropz&parent=teamnox.org"
+height="300"
+width="100%"
+allowfullscreen>
+
+</iframe>
+
+<h3>Live Stream</h3>
+
+</div>
 
 <!-- CLIP GRID -->
 
-<section class="clips-grid">
+<div class="clip-grid">
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip1.mp4">
 </video>
-
 <h3>NO AIM</h3>
-<p>Player: Raeanne</p>
-
+<p>Player: RAEANNE</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip2.mp4">
 </video>
-
 <h3>EASY ACE</h3>
-<p>Player: Shy</p>
-
+<p>Player: SHY</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip3.mp4">
 </video>
-
 <h3>NO BOMB</h3>
-<p>Player: Chrizz</p>
-
+<p>Player: CHRIZZ</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip4.mp4">
 </video>
-
 <h3>EASY TIGER</h3>
-<p>Player: Nordica</p>
-
+<p>Player: NORDICA</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip5.mp4">
 </video>
-
 <h3>POPCORN ON BBQ</h3>
-<p>Player: Travis</p>
-
+<p>Player: TRAVIS</p>
 </div>
 
 <div class="clip-card">
-
 <video controls>
 <source src="assets/clips/clip6.mp4">
 </video>
-
 <h3>I LIKE CHICKEN</h3>
-<p>Player: Krispy</p>
-
+<p>Player: KRISPY</p>
 </div>
 
-</section>
+</div>
 
 </section>
 <div id="clip-container"></div>
