@@ -185,11 +185,51 @@ color:white;
 border-radius:8px;
 cursor:pointer;
 }
+/* VIDEO BACKGROUND */
+
+#bg-video{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+z-index:-2;
+
+}
+
+/* DARK OVERLAY */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.65);
+
+z-index:-1;
+
+}
 
 </style>
 </head>
 
 <body>
+<video autoplay muted loop id="bg-video">
+  <source src="assets/background.mp4" type="video/mp4">
+</video>
 
 <!-- NAVBAR -->
 
