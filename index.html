@@ -1,88 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>NOX Esports</title>
 
-<link rel="stylesheet" href="styles/styles.css">
-
 <style>
 
-/* HERO */
+/* GLOBAL */
 
-.hero{
-
-text-align:center;
-padding-top:140px;
-
+body{
+margin:0;
+font-family:Arial;
+color:white;
+overflow-x:hidden;
 }
 
-.hero img{
-width:420px;
-margin-bottom:20px;
+/* VIDEO BACKGROUND */
+
+#bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
 }
 
-.hero h2{
-font-size:36px;
-text-shadow:0 0 15px #7a00ff;
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
 }
 
-/* MAIN BUTTONS */
+/* NAVBAR */
 
-.main-buttons{
+.navbar{
+
+position:fixed;
+top:0;
+width:100%;
 
 display:flex;
 justify-content:center;
-gap:30px;
-margin-top:40px;
+align-items:center;
+
+padding:18px;
+
+background:rgba(0,0,0,0.6);
+
+border-bottom:2px solid #7a00ff;
+
+backdrop-filter:blur(10px);
+
+z-index:100;
 
 }
 
-.main-buttons a{
+.logo{
+position:absolute;
+left:25px;
+}
 
-padding:14px 28px;
+.logo img{
+height:40px;
+}
 
-border:2px solid #7a00ff;
-border-radius:10px;
+.nav-links{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.nav-links a{
 
 text-decoration:none;
 color:white;
-
+font-size:18px;
 transition:0.3s;
 
 }
 
-.main-buttons a:hover{
+.nav-links a:hover{
 
-background:#7a00ff;
-box-shadow:0 0 25px #7a00ff;
+color:#c084fc;
+text-shadow:0 0 10px #7a00ff;
 
 }
 
-/* SOCIAL VIDEOS */
+/* PAGE CONTAINER */
+
+.page{
+max-width:1200px;
+margin:auto;
+padding-top:120px;
+text-align:center;
+}
+
+/* SOCIAL PANELS */
 
 .social-grid{
 
 display:flex;
 justify-content:center;
 gap:40px;
-margin-top:80px;
+margin-top:60px;
 flex-wrap:wrap;
 
 }
 
 .social-card{
 
-position:relative;
-
-width:230px;
-height:230px;
+width:220px;
+height:220px;
 
 border:2px solid #7a00ff;
 border-radius:16px;
 
 overflow:hidden;
+
+position:relative;
 
 text-decoration:none;
 color:white;
@@ -101,15 +143,10 @@ object-fit:cover;
 .social-overlay{
 
 position:absolute;
-
 bottom:0;
 width:100%;
-
 padding:12px;
-
 background:rgba(0,0,0,0.5);
-
-text-align:center;
 
 }
 
@@ -120,81 +157,97 @@ text-align:center;
 display:flex;
 justify-content:center;
 gap:80px;
-
-margin-top:100px;
-
-}
-
-.stat{
-
-text-align:center;
+margin:80px 0;
 
 }
 
 .stat h2{
 
 font-size:40px;
+color:#c084fc;
 text-shadow:0 0 10px #7a00ff;
 
 }
 
-/* FEATURED CLIP */
+.stat p{
+
+color:#ccc;
+
+}
+
+/* FEATURED VIDEO */
 
 .featured{
 
 max-width:900px;
-margin:120px auto;
-text-align:center;
+margin:60px auto;
+
+border:2px solid #7a00ff;
+border-radius:14px;
+
+overflow:hidden;
 
 }
 
 .featured video{
-
 width:100%;
-border-radius:12px;
-
-border:2px solid #7a00ff;
-
 }
 
 /* PLAYERS */
+
+.players{
+
+margin-top:100px;
+
+}
 
 .player-grid{
 
 display:flex;
 justify-content:center;
 gap:40px;
-margin-top:60px;
+margin-top:30px;
 
 }
 
 .player-card{
 
-text-align:center;
+width:200px;
 
 border:2px solid #7a00ff;
-padding:20px;
 border-radius:14px;
 
 background:rgba(0,0,0,0.4);
 
+padding:20px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.player-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
 }
 
 /* TOURNAMENT */
 
 .tournament{
+margin-top:100px;
+}
 
-text-align:center;
+/* DISCORD */
+
+.discord{
+
 margin-top:100px;
 
 }
 
-/* COMMUNITY */
+.discord iframe{
 
-.community{
-
-text-align:center;
-margin-top:100px;
+margin-top:20px;
 
 }
 
@@ -203,59 +256,34 @@ margin-top:100px;
 footer{
 
 margin-top:120px;
+
 padding:40px;
-text-align:center;
 
 border-top:2px solid #7a00ff;
 
-}
-/* VIDEO BACKGROUND */
-
-#bg-video{
-
-position:fixed;
-
-right:0;
-bottom:0;
-
-min-width:100%;
-min-height:100%;
-
-object-fit:cover;
-
-z-index:-2;
-
-}
-
-/* DARK OVERLAY */
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,0.65);
-
-z-index:-1;
+color:#aaa;
 
 }
 
 </style>
-
 </head>
 
 <body>
+
+
+<!-- VIDEO BACKGROUND -->
+
+<video autoplay muted loop id="bg-video">
+<source src="assets/background.mp4">
+</video>
+
+
+<!-- NAVBAR -->
+
 <nav class="navbar">
 
-<a href="index.html" class="logo-link">
-<img src="assets/logo.png" class="logo">
+<a href="index.html" class="logo">
+<img src="assets/logo.png">
 </a>
 
 <ul class="nav-links">
@@ -266,47 +294,22 @@ z-index:-1;
 <li><a href="tournaments.html">Tournaments</a></li>
 <li><a href="signup.html">Join</a></li>
 
-<div class="nav-right">
-<video autoplay muted loop id="bg-video">
-
-<source src="assets/background.mp4" type="video/mp4">
-
-</div>
+</ul>
 
 </nav>
 
-</video>
+
+<div class="page">
 
 
-<!-- HERO -->
+<!-- SOCIAL PANELS -->
 
-<section class="hero">
-
-<img src="assets/logo.png">
-
-<h2>Not just a team but a family</h2>
-
-<div class="main-buttons">
-
-<a href="tournaments.html">Tournaments</a>
-<a href="watch.html">Watch</a>
-<a href="noxsters.html">Noxsters</a>
-
-</div>
-
-</section>
-
-
-<!-- SOCIAL VIDEO PANELS -->
-
-<section class="social-grid">
+<div class="social-grid">
 
 <a href="https://discord.gg/YOURINVITE" target="_blank" class="social-card">
 
 <video autoplay muted loop>
-
 <source src="assets/socials/discord.mp4">
-
 </video>
 
 <div class="social-overlay">Discord</div>
@@ -317,9 +320,7 @@ z-index:-1;
 <a href="https://twitter.com/YOURACCOUNT" target="_blank" class="social-card">
 
 <video autoplay muted loop>
-
 <source src="assets/socials/twitter.mp4">
-
 </video>
 
 <div class="social-overlay">X / Twitter</div>
@@ -330,9 +331,7 @@ z-index:-1;
 <a href="https://youtube.com/YOURCHANNEL" target="_blank" class="social-card">
 
 <video autoplay muted loop>
-
 <source src="assets/socials/youtube.mp4">
-
 </video>
 
 <div class="social-overlay">YouTube</div>
@@ -343,21 +342,19 @@ z-index:-1;
 <a href="https://twitch.tv/YOURCHANNEL" target="_blank" class="social-card">
 
 <video autoplay muted loop>
-
 <source src="assets/socials/twitch.mp4">
-
 </video>
 
 <div class="social-overlay">Twitch</div>
 
 </a>
 
-</section>
+</div>
 
 
-<!-- TEAM STATS -->
+<!-- STATS -->
 
-<section class="stats">
+<div class="stats">
 
 <div class="stat">
 <h2>250+</h2>
@@ -379,14 +376,14 @@ z-index:-1;
 <p>Team Members</p>
 </div>
 
-</section>
+</div>
 
 
 <!-- FEATURED CLIP -->
 
-<section class="featured">
-
 <h2>Featured Highlight</h2>
+
+<div class="featured">
 
 <video controls>
 
@@ -394,20 +391,20 @@ z-index:-1;
 
 </video>
 
-</section>
+</div>
 
 
-<!-- FEATURED PLAYERS -->
+<!-- PLAYERS -->
 
-<section>
+<div class="players">
 
-<h2 style="text-align:center">Featured Members</h2>
+<h2>Featured Members</h2>
 
 <div class="player-grid">
 
 <div class="player-card">
 
-<img src="assets/players/nordica.png" width="120">
+<img src="assets/players/nordica.png">
 
 <h3>NordicaDropz</h3>
 <p>Founder</p>
@@ -416,7 +413,7 @@ z-index:-1;
 
 <div class="player-card">
 
-<img src="assets/players/silence.png" width="120">
+<img src="assets/players/silence.png">
 
 <h3>Silence</h3>
 <p>Co-Owner</p>
@@ -425,12 +422,12 @@ z-index:-1;
 
 </div>
 
-</section>
+</div>
 
 
 <!-- NEXT TOURNAMENT -->
 
-<section class="tournament">
+<div class="tournament">
 
 <h2>Next Tournament</h2>
 
@@ -439,12 +436,12 @@ z-index:-1;
 
 <a href="tournaments.html">View Bracket</a>
 
-</section>
+</div>
 
 
-<!-- DISCORD COMMUNITY -->
+<!-- DISCORD -->
 
-<section class="community">
+<div class="discord">
 
 <h2>Join Our Community</h2>
 
@@ -453,9 +450,10 @@ src="https://discord.com/widget?id=YOURSERVERID&theme=dark"
 width="350"
 height="500"
 frameborder="0">
+
 </iframe>
 
-</section>
+</div>
 
 
 <footer>
@@ -463,6 +461,8 @@ frameborder="0">
 <p>NOX 2026</p>
 
 </footer>
+
+</div>
 
 
 </body>
