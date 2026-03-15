@@ -1,371 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>NOX Esports</title>
+<title>NOX</title>
 
-<style>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 
-/* GLOBAL */
+<link rel="stylesheet" href="styles/styles.css">
 
-body{
-margin:0;
-font-family:Arial;
-color:white;
-overflow-x:hidden;
-background:black;
-}
-
-/* VIDEO BACKGROUND */
-
-#bg-video{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-}
-
-body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.65);
-z-index:-1;
-}
-
-/* NAVBAR */
-
-.navbar{
-
-position:fixed;
-top:0;
-width:100%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:20px;
-
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-
-border-bottom:2px solid #7a00ff;
-
-z-index:100;
-
-}
-
-.logo{
-position:absolute;
-left:30px;
-}
-
-.logo img{
-height:40px;
-}
-
-.nav-links{
-display:flex;
-gap:40px;
-list-style:none;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:18px;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:#c084fc;
-text-shadow:0 0 12px #7a00ff;
-}
-
-/* HERO */
-
-.hero{
-
-height:100vh;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-}
-
-.hero img{
-width:450px;
-margin-bottom:20px;
-}
-
-.hero h2{
-font-size:38px;
-text-shadow:0 0 20px #7a00ff;
-}
-
-/* MAIN BUTTONS */
-
-.main-buttons{
-
-display:flex;
-gap:30px;
-margin-top:40px;
-
-}
-
-.main-buttons a{
-
-padding:14px 30px;
-
-border:2px solid #7a00ff;
-border-radius:12px;
-
-text-decoration:none;
-color:white;
-
-transition:0.3s;
-
-}
-
-.main-buttons a:hover{
-
-background:#7a00ff;
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 50px rgba(122,0,255,0.7);
-
-}
-
-/* SECTIONS */
-
-.section{
-
-max-width:1200px;
-margin:120px auto;
-text-align:center;
-
-}
-
-/* SOCIAL PANELS */
-
-.social-grid{
-
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-
-}
-
-.social-card{
-
-width:220px;
-height:220px;
-
-border:2px solid #7a00ff;
-border-radius:16px;
-
-overflow:hidden;
-
-position:relative;
-
-text-decoration:none;
-color:white;
-
-transition:0.3s;
-
-}
-
-.social-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 70px rgba(122,0,255,0.7);
-
-}
-
-.social-card video{
-
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-
-}
-
-.social-overlay{
-
-position:absolute;
-bottom:0;
-width:100%;
-padding:12px;
-background:rgba(0,0,0,0.5);
-
-}
-
-/* STATS */
-
-.stats{
-
-display:flex;
-justify-content:center;
-gap:90px;
-
-margin-top:80px;
-
-}
-
-.stat h2{
-
-font-size:42px;
-
-color:#c084fc;
-
-text-shadow:0 0 12px #7a00ff;
-
-}
-
-/* FEATURED VIDEO */
-
-.featured{
-
-max-width:900px;
-margin:60px auto;
-
-border:2px solid #7a00ff;
-border-radius:14px;
-overflow:hidden;
-
-}
-
-.featured video{
-width:100%;
-}
-
-/* PLAYERS */
-
-.player-grid{
-
-display:flex;
-justify-content:center;
-gap:40px;
-margin-top:40px;
-
-}
-
-.player-card{
-
-width:220px;
-
-border:2px solid #7a00ff;
-border-radius:16px;
-
-padding:20px;
-
-background:rgba(0,0,0,0.4);
-
-backdrop-filter:blur(10px);
-
-transition:0.3s;
-
-}
-
-.player-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 70px rgba(122,0,255,0.6);
-
-}
-
-.player-card img{
-
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-
-}
-
-/* TOURNAMENT */
-
-.tournament{
-
-border:2px solid #7a00ff;
-border-radius:14px;
-
-padding:30px;
-
-max-width:500px;
-
-margin:40px auto;
-
-background:rgba(0,0,0,0.4);
-
-}
-
-/* DISCORD */
-
-.discord iframe{
-
-margin-top:20px;
-
-}
-
-/* FOOTER */
-
-footer{
-
-margin-top:120px;
-padding:40px;
-
-border-top:2px solid #7a00ff;
-
-text-align:center;
-
-color:#aaa;
-
-}
-.fade-in{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s ease;
-}
-
-.fade-in.show{
-opacity:1;
-transform:translateY(0);
-}
-</style>
 </head>
 
 <body>
+<div class="cursor"></div>
+<div id="loader">
 
+<img src="assets/logo.png" class="loader-logo">
 
-<video autoplay muted loop id="bg-video">
-<source src="assets/background.mp4">
+</div>
+  <div class="video-bg">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/background.mp4" type="video/mp4">
+
 </video>
 
+</div>
+
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
-<a href="index.html" class="logo">
-<img src="assets/logo.png">
+<a href="index.html" class="logo-link">
+<img src="assets/logo.png" class="logo">
 </a>
 
 <ul class="nav-links">
@@ -381,219 +50,71 @@ transform:translateY(0);
 </nav>
 
 
+<!-- BACKGROUND -->
+
+<div class="background">
+
+<img src="assets/background.jpg" class="bg-image">
+
+</div>
+
+
 <!-- HERO -->
 
-<section class="section fade-in">
+<section class="hero">
 
-<img src="assets/logo.png">
+<h1 class="team-title">TEAM NOX</h1>
 
-<h2>Not just a team but a family</h2>
-
-<section class="section fade-in">
+<div class="main-buttons">
 
 <a href="tournaments.html">Tournaments</a>
+
 <a href="watch.html">Watch</a>
+
 <a href="noxsters.html">Noxsters</a>
 
 </div>
 
-</section>
+<div class="social-panels">
 
-
-<!-- SOCIAL -->
-
-<section class="section">
-
-<h2>Follow NOX</h2>
-
-<section class="section fade-in">
-
-<a href="#" class="social-card">
+<a href="#" class="social-panel">
 
 <video autoplay muted loop>
 <source src="assets/socials/discord.mp4">
 </video>
 
-<div class="social-overlay">Discord</div>
+<span>Discord</span>
 
 </a>
 
-
-<a href="#" class="social-card">
+<a href="#" class="social-panel">
 
 <video autoplay muted loop>
 <source src="assets/socials/twitter.mp4">
 </video>
 
-<div class="social-overlay">X / Twitter</div>
+<span>Twitter</span>
 
 </a>
 
-
-<a href="#" class="social-card">
+<a href="#" class="social-panel">
 
 <video autoplay muted loop>
 <source src="assets/socials/youtube.mp4">
 </video>
 
-<div class="social-overlay">YouTube</div>
+<span>YouTube</span>
 
 </a>
 
-
-<a href="#" class="social-card">
+<a href="#" class="social-panel">
 
 <video autoplay muted loop>
 <source src="assets/socials/twitch.mp4">
 </video>
 
-<div class="social-overlay">Twitch</div>
+<span>Twitch</span>
 
 </a>
-
+<script src="scripts/main.js"></script>
 </div>
-
-</section>
-
-
-<!-- STATS -->
-
-<section class="section fade-in">
-
-<div class="stats">
-
-<div class="stat">
-<h2>250+</h2>
-<p>Community Members</p>
-</div>
-
-<div class="stat">
-<h2>60+</h2>
-<p>Tournaments</p>
-</div>
-
-<div class="stat">
-<h2>120+</h2>
-<p>Scrims Played</p>
-</div>
-
-<div class="stat">
-<h2>18</h2>
-<p>Team Members</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURED CLIP -->
-
-<section class="section fade-in">
-
-<h2>Featured Highlight</h2>
-
-<div class="featured">
-
-<video controls>
-<source src="assets/clips/highlight.mp4">
-</video>
-
-</div>
-
-</section>
-
-
-<!-- MEMBERS -->
-
-<section class="section fade-in">
-
-<h2>Featured Members</h2>
-
-<div class="player-grid">
-
-<div class="player-card">
-
-<img src="assets/players/nordica.png">
-
-<h3>NordicaDropz</h3>
-<p>Founder</p>
-
-</div>
-
-<div class="player-card">
-
-<img src="assets/players/silence.png">
-
-<h3>Silence</h3>
-<p>Co-Owner</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TOURNAMENT -->
-  
-<section class="section fade-in">
-
-<h2>Next Tournament</h2>
-
-<div class="tournament">
-
-<h3>Valorant Weekly Cup</h3>
-<p>Saturday – 7PM EST</p>
-
-<a href="tournaments.html">View Bracket</a>
-
-</div>
-
-</section>
-
-
-<!-- DISCORD -->
-
-<section class="section">
-
-<h2>Join Our Community</h2>
-
-<iframe
-src="https://discord.com/widget?id=YOURSERVERID&theme=dark"
-width="350"
-height="500"
-frameborder="0">
-
-</iframe>
-
-</section>
-
-<script>
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-entry.target.classList.add("show")
-}
-
-})
-
-})
-
-document.querySelectorAll(".fade-in").forEach(el=>{
-observer.observe(el)
-})
-
-</script>
-
-<footer>
-
-<p>NOX 2026</p>
-
-</footer>
-
-</body>
-</html>
