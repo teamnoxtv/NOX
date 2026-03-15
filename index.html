@@ -13,6 +13,7 @@ margin:0;
 font-family:Arial;
 color:white;
 overflow-x:hidden;
+background:black;
 }
 
 /* VIDEO BACKGROUND */
@@ -50,13 +51,12 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-padding:18px;
+padding:20px;
 
 background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
 
 border-bottom:2px solid #7a00ff;
-
-backdrop-filter:blur(10px);
 
 z-index:100;
 
@@ -64,7 +64,7 @@ z-index:100;
 
 .logo{
 position:absolute;
-left:25px;
+left:30px;
 }
 
 .logo img{
@@ -78,28 +78,84 @@ list-style:none;
 }
 
 .nav-links a{
-
 text-decoration:none;
 color:white;
 font-size:18px;
 transition:0.3s;
-
 }
 
 .nav-links a:hover{
-
 color:#c084fc;
-text-shadow:0 0 10px #7a00ff;
+text-shadow:0 0 12px #7a00ff;
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
 
 }
 
-/* PAGE CONTAINER */
+.hero img{
+width:450px;
+margin-bottom:20px;
+}
 
-.page{
+.hero h2{
+font-size:38px;
+text-shadow:0 0 20px #7a00ff;
+}
+
+/* MAIN BUTTONS */
+
+.main-buttons{
+
+display:flex;
+gap:30px;
+margin-top:40px;
+
+}
+
+.main-buttons a{
+
+padding:14px 30px;
+
+border:2px solid #7a00ff;
+border-radius:12px;
+
+text-decoration:none;
+color:white;
+
+transition:0.3s;
+
+}
+
+.main-buttons a:hover{
+
+background:#7a00ff;
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 50px rgba(122,0,255,0.7);
+
+}
+
+/* SECTIONS */
+
+.section{
+
 max-width:1200px;
-margin:auto;
-padding-top:120px;
+margin:120px auto;
 text-align:center;
+
 }
 
 /* SOCIAL PANELS */
@@ -109,7 +165,6 @@ text-align:center;
 display:flex;
 justify-content:center;
 gap:40px;
-margin-top:60px;
 flex-wrap:wrap;
 
 }
@@ -128,6 +183,18 @@ position:relative;
 
 text-decoration:none;
 color:white;
+
+transition:0.3s;
+
+}
+
+.social-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 70px rgba(122,0,255,0.7);
 
 }
 
@@ -156,22 +223,19 @@ background:rgba(0,0,0,0.5);
 
 display:flex;
 justify-content:center;
-gap:80px;
-margin:80px 0;
+gap:90px;
+
+margin-top:80px;
 
 }
 
 .stat h2{
 
-font-size:40px;
+font-size:42px;
+
 color:#c084fc;
-text-shadow:0 0 10px #7a00ff;
 
-}
-
-.stat p{
-
-color:#ccc;
+text-shadow:0 0 12px #7a00ff;
 
 }
 
@@ -184,7 +248,6 @@ margin:60px auto;
 
 border:2px solid #7a00ff;
 border-radius:14px;
-
 overflow:hidden;
 
 }
@@ -195,55 +258,68 @@ width:100%;
 
 /* PLAYERS */
 
-.players{
-
-margin-top:100px;
-
-}
-
 .player-grid{
 
 display:flex;
 justify-content:center;
 gap:40px;
-margin-top:30px;
+margin-top:40px;
 
 }
 
 .player-card{
 
-width:200px;
+width:220px;
 
 border:2px solid #7a00ff;
-border-radius:14px;
-
-background:rgba(0,0,0,0.4);
+border-radius:16px;
 
 padding:20px;
 
+background:rgba(0,0,0,0.4);
+
 backdrop-filter:blur(10px);
+
+transition:0.3s;
+
+}
+
+.player-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 70px rgba(122,0,255,0.6);
 
 }
 
 .player-card img{
+
 width:100%;
 border-radius:10px;
 margin-bottom:10px;
+
 }
 
 /* TOURNAMENT */
 
 .tournament{
-margin-top:100px;
+
+border:2px solid #7a00ff;
+border-radius:14px;
+
+padding:30px;
+
+max-width:500px;
+
+margin:40px auto;
+
+background:rgba(0,0,0,0.4);
+
 }
 
 /* DISCORD */
-
-.discord{
-
-margin-top:100px;
-
-}
 
 .discord iframe{
 
@@ -256,10 +332,11 @@ margin-top:20px;
 footer{
 
 margin-top:120px;
-
 padding:40px;
 
 border-top:2px solid #7a00ff;
+
+text-align:center;
 
 color:#aaa;
 
@@ -271,14 +348,10 @@ color:#aaa;
 <body>
 
 
-<!-- VIDEO BACKGROUND -->
-
 <video autoplay muted loop id="bg-video">
 <source src="assets/background.mp4">
 </video>
 
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -299,14 +372,34 @@ color:#aaa;
 </nav>
 
 
-<div class="page">
+<!-- HERO -->
+
+<section class="hero">
+
+<img src="assets/logo.png">
+
+<h2>Not just a team but a family</h2>
+
+<div class="main-buttons">
+
+<a href="tournaments.html">Tournaments</a>
+<a href="watch.html">Watch</a>
+<a href="noxsters.html">Noxsters</a>
+
+</div>
+
+</section>
 
 
-<!-- SOCIAL PANELS -->
+<!-- SOCIAL -->
+
+<section class="section">
+
+<h2>Follow NOX</h2>
 
 <div class="social-grid">
 
-<a href="https://discord.gg/YOURINVITE" target="_blank" class="social-card">
+<a href="#" class="social-card">
 
 <video autoplay muted loop>
 <source src="assets/socials/discord.mp4">
@@ -317,7 +410,7 @@ color:#aaa;
 </a>
 
 
-<a href="https://twitter.com/YOURACCOUNT" target="_blank" class="social-card">
+<a href="#" class="social-card">
 
 <video autoplay muted loop>
 <source src="assets/socials/twitter.mp4">
@@ -328,7 +421,7 @@ color:#aaa;
 </a>
 
 
-<a href="https://youtube.com/YOURCHANNEL" target="_blank" class="social-card">
+<a href="#" class="social-card">
 
 <video autoplay muted loop>
 <source src="assets/socials/youtube.mp4">
@@ -339,7 +432,7 @@ color:#aaa;
 </a>
 
 
-<a href="https://twitch.tv/YOURCHANNEL" target="_blank" class="social-card">
+<a href="#" class="social-card">
 
 <video autoplay muted loop>
 <source src="assets/socials/twitch.mp4">
@@ -351,8 +444,12 @@ color:#aaa;
 
 </div>
 
+</section>
+
 
 <!-- STATS -->
+
+<section class="section">
 
 <div class="stats">
 
@@ -378,25 +475,29 @@ color:#aaa;
 
 </div>
 
+</section>
+
 
 <!-- FEATURED CLIP -->
+
+<section class="section">
 
 <h2>Featured Highlight</h2>
 
 <div class="featured">
 
 <video controls>
-
 <source src="assets/clips/highlight.mp4">
-
 </video>
 
 </div>
 
+</section>
 
-<!-- PLAYERS -->
 
-<div class="players">
+<!-- MEMBERS -->
+
+<section class="section">
 
 <h2>Featured Members</h2>
 
@@ -422,26 +523,30 @@ color:#aaa;
 
 </div>
 
-</div>
+</section>
 
 
-<!-- NEXT TOURNAMENT -->
+<!-- TOURNAMENT -->
 
-<div class="tournament">
+<section class="section">
 
 <h2>Next Tournament</h2>
 
-<p>Valorant Weekly Cup</p>
+<div class="tournament">
+
+<h3>Valorant Weekly Cup</h3>
 <p>Saturday – 7PM EST</p>
 
 <a href="tournaments.html">View Bracket</a>
 
 </div>
 
+</section>
+
 
 <!-- DISCORD -->
 
-<div class="discord">
+<section class="section">
 
 <h2>Join Our Community</h2>
 
@@ -453,7 +558,7 @@ frameborder="0">
 
 </iframe>
 
-</div>
+</section>
 
 
 <footer>
@@ -461,9 +566,6 @@ frameborder="0">
 <p>NOX 2026</p>
 
 </footer>
-
-</div>
-
 
 </body>
 </html>
