@@ -5,242 +5,96 @@
 <meta charset="UTF-8">
 <title>Watch NOX</title>
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
-
-<link rel="stylesheet" href="styles/styles.css">
-
 <style>
 
 /* PAGE */
 
-.watch-page{
-padding-top:140px;
-text-align:center;
-}
-
-/* TITLE */
-
-.watch-title{
-font-size:60px;
-text-shadow:0 0 25px #7a00ff;
-margin-bottom:40px;
-}
-
-/* FEATURED VIDEO */
-
-.featured-video{
-max-width:900px;
-margin:0 auto 70px auto;
-
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(10px);
-
-border:2px solid #7a00ff;
-border-radius:16px;
-
-padding:20px;
-}
-
-.featured-video video{
-width:100%;
-border-radius:12px;
-}
-
-/* GRID */
-
-.clip-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-
-max-width:1100px;
-margin:auto;
-}
-
-/* CLIP CARD */
-
-.clip-card{
-
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(10px);
-
-border:2px solid #7a00ff;
-border-radius:16px;
-
-padding:15px;
-
-transition:.3s;
-}
-
-.clip-card video{
-width:100%;
-border-radius:12px;
-margin-bottom:10px;
-}
-
-/* TEXT */
-
-.clip-card h3{
-margin:5px 0;
-font-size:18px;
-}
-
-.clip-card p{
-font-size:14px;
-color:#bbb;
-}
-
-/* HOVER EFFECT */
-
-.clip-card:hover{
-transform:translateY(-8px);
-
-box-shadow:
-0 0 20px #7a00ff,
-0 0 60px #7a00ff;
-}
-/* VIDEO BACKGROUND */
-
-.video-background{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-z-index:-2;
-
-overflow:hidden;
-
-}
-
-/* VIDEO */
-
-.video-background video{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-filter:brightness(.35);
-
-}
-
-/* OVERLAY */
-
-.video-background::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:linear-gradient(
-rgba(10,0,20,.7),
-rgba(0,0,0,.9)
-);
-
-}
-/* LOADER SCREEN */
-
-#loader{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
+body{
+margin:0;
+font-family:Arial;
 background:#050008;
+color:white;
+}
 
+/* NAVBAR */
+
+.navbar{
 display:flex;
 justify-content:center;
 align-items:center;
 
-z-index:9999;
+padding:18px;
 
-transition:opacity .6s ease;
+background:black;
+
+border-bottom:2px solid #7a00ff;
+}
+
+.logo{
+position:absolute;
+left:20px;
+height:40px;
+}
+
+/* HERO */
+
+.hero{
+
+text-align:center;
+
+padding:120px 20px 60px;
 
 }
 
-/* LOGO ANIMATION */
+.hero h1{
 
-.loader-logo{
+font-size:52px;
 
-width:120px;
-
-animation:logoPulse 2s infinite ease-in-out;
+text-shadow:0 0 20px #7a00ff;
 
 }
 
-/* PULSE EFFECT */
+/* SECTION */
 
-@keyframes logoPulse{
+.section{
 
-0%{
-transform:scale(1);
-filter:drop-shadow(0 0 10px #7a00ff);
-}
+max-width:1200px;
 
-50%{
-transform:scale(1.1);
-filter:drop-shadow(0 0 25px #7a00ff);
-}
+margin:auto;
 
-100%{
-transform:scale(1);
-filter:drop-shadow(0 0 10px #7a00ff);
-}
+padding:80px 20px;
 
 }
-/* CUSTOM CURSOR */
 
-.cursor{
+/* TITLES */
 
-position:fixed;
+.section h2{
 
-width:18px;
-height:18px;
+text-align:center;
 
-border-radius:50%;
+font-size:36px;
 
-background:#7a00ff;
+margin-bottom:40px;
 
-box-shadow:
-0 0 10px #7a00ff,
-0 0 25px #7a00ff;
-
-pointer-events:none;
-
-transform:translate(-50%, -50%);
-
-z-index:999;
+text-shadow:0 0 15px #7a00ff;
 
 }
-.stream-grid{
+
+/* GRID */
+
+.grid{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:30px;
 
-margin-top:40px;
-
 }
 
-.stream-card{
+/* GLASS PANEL */
+
+.panel{
 
 background:rgba(0,0,0,0.4);
 
@@ -252,159 +106,157 @@ padding:20px;
 
 backdrop-filter:blur(10px);
 
-box-shadow:0 0 20px #7a00ff;
+transition:.3s;
 
 }
 
-.stream-card h3{
+.panel:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 0 20px #7a00ff,
+0 0 60px rgba(122,0,255,0.5);
+
+}
+
+/* VIDEOS */
+
+video,
+iframe{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+/* PLAYER NAME */
+
+.stream-name{
 
 text-align:center;
 
-margin-bottom:15px;
+margin-bottom:12px;
+
+font-size:20px;
 
 }
+
+/* LIVE BADGE */
+
+.live{
+
+background:red;
+
+padding:3px 10px;
+
+border-radius:6px;
+
+font-size:12px;
+
+margin-left:10px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+border-top:2px solid #7a00ff;
+
+margin-top:80px;
+
+}
+
 </style>
 
 </head>
 
+
 <body>
-<div class="cursor"></div>
-<div id="loader">
-
-<img src="assets/logo.png" class="loader-logo">
-
-</div>
-
-<div class="video-background">
-
-<video autoplay muted loop playsinline>
-
-<source src="assets/watch.mp4" type="video/mp4">
-
-</video>
-
-</div>
 
 <nav class="navbar">
 
-<a href="index.html" class="logo-link">
+<a href="index.html">
 <img src="assets/logo.png" class="logo">
 </a>
 
-<ul class="nav-links">
-
-<li><a href="about.html">About</a></li>
-<li><a href="watch.html">Watch</a></li>
-<li><a href="noxsters.html">Noxsters</a></li>
-<li><a href="tournaments.html">Tournaments</a></li>
-<li><a href="signup.html">Join</a></li>
-
-</ul>
+<a href="about.html">About</a>
+<a href="watch.html">Watch</a>
+<a href="noxsters.html">Noxsters</a>
+<a href="tournaments.html">Tournaments</a>
+<a href="join.html">Join</a>
 
 </nav>
 
-<section class="watch-page">
 
-<h1 class="watch-title">NOX Highlights</h1>
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Watch NOX</h1>
+
+<p>Highlights, streams, and the best moments from our team.</p>
+
+</section>
 
 
-<!-- FEATURED VIDEO -->
+<!-- FEATURED CLIP -->
 
-<div class="featured-video">
+<section class="section">
+
+<h2>Featured Highlight</h2>
+
+<div class="panel">
 
 <video controls>
-<source src="assets/clips/featured.mp4" type="video/mp4">
+
+<source src="assets/clips/featured.mp4">
+
 </video>
-
-<h3>Featured Highlight</h3>
-<p>Best NOX HERO Play of the Week</p>
-
-</div>
-
-
-<!-- CLIP GRID -->
-
-<div class="clip-grid">
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip1.mp4">
-</video>
-<h3>NO AIM</h3>
-<p>Player: RAEANNE</p>
-</div>
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip2.mp4">
-</video>
-<h3>EASY ACE</h3>
-<p>Player: SHY</p>
-</div>
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip3.mp4">
-</video>
-<h3>NO BOMB</h3>
-<p>Player: CHRIZZ</p>
-</div>
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip4.mp4">
-</video>
-<h3>EASY TIGER</h3>
-<p>Player: NORDICA</p>
-</div>
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip5.mp4">
-</video>
-<h3>POPCORN ON BBQ</h3>
-<p>Player: TRAVIS</p>
-</div>
-
-<div class="clip-card">
-<video controls>
-<source src="assets/clips/clip6.mp4">
-</video>
-<h3>I LIKE CHICKEN</h3>
-<p>Player: KRISPY</p>
-</div>
 
 </div>
 
 </section>
 
-<section class="streams-section">
+
+<!-- LIVE STREAMS -->
+
+<section class="section">
 
 <h2>Live NOX Streams</h2>
 
-<div class="stream-grid">
+<div class="grid">
 
-<div class="stream-card">
+<div class="panel">
 
-<h3>NordicaDropz</h3>
+<div class="stream-name">
+NordicaDropz <span class="live">LIVE</span>
+</div>
 
 <iframe
-src="https://player.twitch.tv/?channel=nordicadropz&parent=yourdomain.com"
+src="https://player.twitch.tv/?channel=nordicadropz&parent=localhost"
 height="300"
-width="100%"
 allowfullscreen>
 </iframe>
 
 </div>
 
-<div class="stream-card">
 
-<h3>Silence</h3>
+<div class="panel">
+
+<div class="stream-name">
+Silence
+</div>
 
 <iframe
-src="https://player.twitch.tv/?channel=silence&parent=yourdomain.com"
+src="https://player.twitch.tv/?channel=silence&parent=localhost"
 height="300"
-width="100%"
 allowfullscreen>
 </iframe>
 
@@ -413,34 +265,113 @@ allowfullscreen>
 </div>
 
 </section>
-<div id="clip-container"></div>
 
-<script>
 
-const clips = JSON.parse(localStorage.getItem("noxClips")) || []
+<!-- TOURNAMENT CLIPS -->
 
-const container = document.getElementById("clip-container")
+<section class="section">
 
-clips.forEach(clip => {
+<h2>Tournament Clips</h2>
 
-const card = document.createElement("div")
+<div class="grid">
 
-card.className = "clip-card"
+<div class="panel">
 
-card.innerHTML = `
 <video controls>
-<source src="${clip.url}">
+
+<source src="assets/clips/tourney1.mp4">
+
 </video>
 
-<h3>${clip.title}</h3>
-<p>${clip.player}</p>
-`
+</div>
 
-container.appendChild(card)
+<div class="panel">
 
-})
+<video controls>
 
-</script>
-<script src="scripts/main.js"></script>
+<source src="assets/clips/tourney2.mp4">
+
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FUNNY MOMENTS -->
+
+<section class="section">
+
+<h2>Funny Moments</h2>
+
+<div class="grid">
+
+<div class="panel">
+
+<video controls>
+
+<source src="assets/clips/funny1.mp4">
+
+</video>
+
+</div>
+
+<div class="panel">
+
+<video controls>
+
+<source src="assets/clips/funny2.mp4">
+
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BEST PLAYS -->
+
+<section class="section">
+
+<h2>Best Plays</h2>
+
+<div class="grid">
+
+<div class="panel">
+
+<video controls>
+
+<source src="assets/clips/play1.mp4">
+
+</video>
+
+</div>
+
+<div class="panel">
+
+<video controls>
+
+<source src="assets/clips/play2.mp4">
+
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>NOX 2026</p>
+
+</footer>
+
 </body>
+
 </html>
