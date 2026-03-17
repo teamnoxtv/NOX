@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM NOX</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== PARTICLES CANVAS ===== */
+#particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+.video-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+/* ===== CURSOR ===== */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #a855f7;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px #a855f7;
+  z-index: 999;
+}
+
+/* ===== NAV ===== */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  border-bottom:1px solid #a855f7;
+}
+
+.nav-links { display:flex; gap:20px; }
+
+.nav-links a {
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.nav-links a:hover { color:#a855f7; }
+
+/* ===== HERO ===== */
+.hero {
+  text-align:center;
+  margin-top:100px;
+}
+
+.team-title {
+  font-size:3rem;
+  text-shadow:0 0 25px #a855f7;
+}
+
+.tagline {
+  margin-top:10px;
+  color:rgba(255,255,255,0.7);
+}
+
+/* ===== BUTTONS ===== */
+.main-buttons a {
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border:2px solid #a855f7;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.main-buttons a:hover {
+  background:#a855f7;
+  box-shadow:0 0 20px #a855f7;
+}
+
+/* ===== SOCIALS ===== */
+.social-panels {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin:80px 20px;
+  flex-wrap:wrap;
+}
+
+.social-panel {
+  width:200px;
+  padding:20px;
+  text-align:center;
+
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(168,85,247,0.4);
+  border-radius:15px;
+
+  transition:0.3s;
+}
+
+.social-panel:hover {
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 0 25px #a855f7;
+}
+
+.social-panel img {
+  width:70px;
+}
+
+.social-panel span {
+  display:block;
+  margin-top:15px;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding:80px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+
+.section.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== CARDS ===== */
+.card {
+  margin:20px auto;
+  padding:30px;
+  max-width:400px;
+
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(168,85,247,0.4);
+  border-radius:15px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align:center;
+  padding:30px;
+  color:rgba(255,255,255,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<div class="video-bg">
+  <video autoplay muted loop>
+    <source src="assets/welcome1.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div>NOX</div>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Watch</a>
+    <a href="#">Tournaments</a>
+    <a href="#">Signup</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="team-title">TEAM NOX</h1>
+  <p class="tagline">Compete. Create. Dominate.</p>
+
+  <div class="main-buttons">
+    <a href="#">Tournaments</a>
+    <a href="#">Watch</a>
+    <a href="#">Creators</a>
+  </div>
+</section>
+
+<!-- SOCIALS -->
+<div class="social-panels">
+  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Discord</span></a>
+  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Twitter</span></a>
+  <a href="#" class="social-panel"><img src="assets/logo.png"><span>YouTube</span></a>
+  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Twitch</span></a>
+</div>
+
+<!-- FEATURED -->
+<section class="section">
+  <h2>🔥 Featured</h2>
+  <div class="card">Latest Tournament: NOX Championship</div>
+</section>
+
+<!-- LIVE -->
+<section class="section">
+  <h2>🔴 Live Now</h2>
+  <div class="card">Streaming now on Twitch</div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <h2>📊 Stats</h2>
+  <div class="card">10K+ Members • 50+ Events • 1M+ Views</div>
+</section>
+
+<footer>© TEAM NOX</footer>
+
+<script>
+/* ===== CURSOR ===== */
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+/* ===== SCROLL ANIM ===== */
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* ===== PARTICLES ===== */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2,
+    speedX: Math.random() - 0.5,
+    speedY: Math.random() - 0.5
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    ctx.fillStyle = "#a855f7";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+</script>
+
+</body>
+</html>
