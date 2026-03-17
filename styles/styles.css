@@ -1272,3 +1272,8 @@ font-size:18px;
 color:#cfcfcf;
 
 }
+.tagline {
+  color: #aaa;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
