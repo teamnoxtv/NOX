@@ -134,39 +134,40 @@ body {
 }
 
 /* ===== SOCIALS (GLASS CARDS) ===== */
-.social-panels {
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  gap: 30px;
-  justify-content: center;
-  margin-top: 80px;
-}
-
+/* ===== CLEAN GLASS ===== */
 .social-panel {
-  width: 200px;
-  height: 180px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.social-panel,
+.glass,
+.feature-box {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 14px;
 
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(168,85,247,0.4);
-  border-radius: 15px;
-
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.social-panel span {
-  margin-top: 10px;
+/* subtle glow border */
+.social-panel::before,
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent, rgba(168,85,247,0.4), transparent);
+  opacity: 0;
+  transition: 0.4s;
 }
 
-.social-panel:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 30px #a855f7;
+.social-panel:hover::before,
+.glass:hover::before {
+  opacity: 1;
 }
 
 /* ===== SECTIONS ===== */
@@ -226,11 +227,28 @@ body {
     grid-template-columns: repeat(2, 150px);
   }
 }
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(168,85,247,0.2); }
+  50% { box-shadow: 0 0 25px rgba(168,85,247,0.5); }
+  100% { box-shadow: 0 0 10px rgba(168,85,247,0.2); }
+}
 
+.social-panel,
+.glass {
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+ #particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+}
 </style>
 </head>
 
 <body>
+<canvas id="particles"></canvas>
 
 <!-- VIDEO -->
 <div class="video-bg">
@@ -340,6 +358,65 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+<script>
+document.querySelectorAll(".social-panel").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = ((y / rect.height) - 0.5) * -10;
+    const rotateY = ((x / rect.width) - 0.5) * 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2,
+    speedX: Math.random() - 0.5,
+    speedY: Math.random() - 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    ctx.fillStyle = "#a855f7";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</script>
+
 
 </script>
 
