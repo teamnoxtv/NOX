@@ -281,6 +281,39 @@ transition:.3s;
 background:#9d2bff;
 box-shadow:0 0 10px #7a00ff;
 }
+.clip-actions{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.clip-actions button{
+
+flex:1;
+padding:8px;
+
+border:none;
+border-radius:10px;
+
+background:rgba(122,0,255,0.2);
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+/* HOVER EFFECT */
+.clip-actions button:hover{
+
+background:#7a00ff;
+
+box-shadow:
+0 0 10px #7a00ff,
+0 0 25px #7a00ff;
+
+transform:scale(1.05);
+}
 </style>
 
 </head>
@@ -477,12 +510,19 @@ card.innerHTML = `
 </video>
 
 <h3>${clip.title}</h3>
-
 <p>${clip.player}</p>
 
-<p>👁️ ${clip.views} views • ❤️ ${clip.likes}</p>
+<div class="clip-actions">
 
-<button onclick="likeClip(${index})">❤️ Like</button>
+<button onclick="addView(${index})">
+👁️ ${clip.views}
+</button>
+
+<button onclick="likeClip(${index})">
+❤️ ${clip.likes}
+</button>
+
+</div>
 
 `
 
