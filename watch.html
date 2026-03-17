@@ -524,40 +524,34 @@ width="100%">
 </section>
 <script>
 
-let clips = JSON.parse(localStorage.getItem("noxClips")) || [
+// 🚫 BANNED WORDS LIST
+const bannedWords = ["pedo","nigga2","nigger"]
 
+let clips = JSON.parse(localStorage.getItem("noxClips"))
+
+if(!clips){
+clips = [
 {
 url:"assets/clips/clip1.mp4",
 thumb:"assets/clips/thumb1.png",
 title:"NO AIM",
-player:"RAEANNE"
+player:"RAEANNE",
+likes:0,
+views:0,
+comments:[]
 },
 {
 url:"assets/clips/clip2.mp4",
 thumb:"assets/clips/thumb2.png",
 title:"EASY ACE",
-player:"SHY"
-},
-{
-url:"assets/clips/clip4.mp4",
-thumb:"assets/clips/thumb4.png",
-title:"EASY TIGER",
-player:"NORDICA"
-},
-{
-url:"assets/clips/clip5.mp4",
-thumb:"assets/clips/thumb5.png",
-title:"POPCORN ON BBQ",
-player:"TRAVIS"
-},
-{
-url:"assets/clips/clip3.mp4",
-thumb:"assets/clips/thumb3.png",
-title:"COMP MASTER CLASS",
-player:"SHY"
+player:"SHY",
+likes:0,
+views:0,
+comments:[]
 }
-
 ]
+save()
+}
 
 const container = document.getElementById("clip-container")
 
@@ -565,32 +559,48 @@ function save(){
 localStorage.setItem("noxClips", JSON.stringify(clips))
 }
 
+// ❤️ LIKE
 function likeClip(i){
-clips[i].likes = (clips[i].likes || 0) + 1
+clips[i].likes++
 save()
 render()
 }
 
+// 👁️ VIEW
 function addView(i){
-clips[i].views = (clips[i].views || 0) + 1
+clips[i].views++
 save()
 render()
 }
 
+// 🚫 CHECK BANNED WORDS
+function containsBanned(text){
+return bannedWords.some(word => 
+text.toLowerCase().includes(word)
+)
+}
+
+// 💬 COMMENT
 function addComment(i){
+
 const input = document.getElementById("comment-"+i)
+const text = input.value.trim()
 
-if(input.value.trim() === "") return
+if(!text) return
 
-clips[i].comments = clips[i].comments || []
-clips[i].comments.push(input.value)
+if(containsBanned(text)){
+alert("🚫 Comment contains banned words")
+return
+}
 
+clips[i].comments.push(text)
 input.value = ""
 
 save()
 render()
 }
 
+// 🎬 RENDER
 function render(){
 
 container.innerHTML = ""
