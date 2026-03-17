@@ -73,7 +73,43 @@ color:#a64dff;
 text-shadow:0 0 10px #7a00ff;
 }
 
+.video-bg{
 
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+z-index:-2;
+
+overflow:hidden;
+
+}
+
+.video-bg video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+}
+/* SOCIAL PANEL CONTAINER */
+
+.social-panels{
+
+margin-top:220px;  /* pushes panels lower */
+
+display:flex;
+justify-content:center;
+gap:60px;
+flex-wrap:wrap;
+
+}
 /* ===== SECTION BASE ===== */
 .section {
   padding: 100px 20px;
