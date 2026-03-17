@@ -369,18 +369,18 @@ flex-wrap:wrap;
 
   <div class="glass stats">
     <div class="stat">
-      <h3>10K+</h3>
+      <h3 class="counter" data-target="22">0</h3>
       <p>Members</p>
     </div>
 
     <div class="stat">
-      <h3>50+</h3>
+      <h3 class="counter" data-target="1">0</h3>
       <p>Events</p>
     </div>
 
     <div class="stat">
-      <h3>1M+</h3>
-      <p>Views</p>
+      <h3 class="counter" data-target="19325">0</h3>
+      <p>Combined Views</p>
     </div>
   </div>
 </section>
@@ -396,6 +396,91 @@ window.addEventListener("scroll", () => {
   });
 });
 </script>
+<script>
 
+/* ===== CURSOR ===== */
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+/* ===== PARTICLES ===== */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2,
+    speedX: Math.random() - 0.5,
+    speedY: Math.random() - 0.5
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+
+    ctx.fillStyle = "#a855f7";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+/* ===== 3D TILT ===== */
+document.querySelectorAll(".feature, .glass").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = ((y / rect.height) - 0.5) * -10;
+    const rotateY = ((x / rect.width) - 0.5) * 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+
+/* ===== COUNTERS ===== */
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute("data-target");
+    const current = +counter.innerText;
+
+    const increment = target / 100;
+
+    if (current < target) {
+      counter.innerText = Math.ceil(current + increment);
+      setTimeout(update, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  update();
+});
+
+</script>
 </body>
 </html>
