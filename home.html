@@ -258,13 +258,22 @@ flex-wrap:wrap;
     align-items: center;
   }
 
-  .stats {
-    flex-direction: column;
-    gap: 20px;
-  }
-
+.stat h3 {
+  animation: pulse 2s infinite;
 }
 
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px #a855f7; }
+  50% { text-shadow: 0 0 25px #a855f7; }
+  100% { text-shadow: 0 0 10px #a855f7; }
+}
+
+}
+.tournaments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
 </style>
 </head>
 
@@ -344,22 +353,47 @@ flex-wrap:wrap;
 <!-- FEATURED -->
 <section class="section">
   <h2> Featured</h2>
+<div class="tournaments">
 
-  <div class="glass">
+  <div class="glass tournament">
     <h3>NOX Championship</h3>
-    <p>Top teams battling for dominance in our biggest tournament.</p>
-    <small>Starts soon • Open registration</small>
+    <p>Prize Pool: $5,000</p>
+    <span>Starts: March 30</span>
   </div>
+
+  <div class="glass tournament">
+    <h3>Community Cup</h3>
+    <p>Open Entry</p>
+    <span>Weekly Event</span>
+  </div>
+
+</div>
 </section>
 
 <!-- LIVE -->
 <section class="section">
-  <h2> Live Now</h2>
+  <h2>🔴 NOX Live Now</h2>
 
   <div class="glass">
-    <h3>Live Stream Active</h3>
-    <p>Watch creators and teams streaming right now.</p>
-    <small>Streaming on Twitch</small>
+    <iframe 
+      src="https://player.twitch.tv/?channel=YOUR_CHANNEL&parent=localhost"
+      height="400"
+      width="100%"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🔴 NOX Live Now</h2>
+
+  <div class="glass">
+    <iframe 
+      src="https://player.twitch.tv/?channel=YOUR_CHANNEL&parent=localhost"
+      height="400"
+      width="100%"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
