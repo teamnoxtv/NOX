@@ -52,22 +52,58 @@ body {
 }
 
 /* ===== NAV ===== */
-.navbar {
-  display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
-  border-bottom:1px solid #a855f7;
+/* NAVBAR */
+.navbar{
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:15px;
+
+background:black;
+
+border-bottom:2px solid #7a00ff;
+
+position:fixed;
+width:100%;
+top:0;
+z-index:100;
 }
 
-.nav-links { display:flex; gap:20px; }
+.logo{
 
-.nav-links a {
-  color:white;
-  text-decoration:none;
-  transition:0.3s;
+position:absolute;
+left:20px;
+
+top:50%;
+transform:translateY(-50%);
+
+height:40px;
+
 }
 
-.nav-links a:hover { color:#a855f7; }
+.nav-links{
+display:flex;
+gap:40px;
+
+list-style:none;
+
+margin:0;
+padding:0;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:16px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#a64dff;
+text-shadow:0 0 10px #7a00ff;
+}
+
 
 /* ===== HERO ===== */
 .hero {
