@@ -314,6 +314,24 @@ box-shadow:
 
 transform:scale(1.05);
 }
+.comment-box{
+margin-top:10px;
+}
+
+.comment-box input{
+width:100%;
+padding:6px;
+border-radius:6px;
+border:none;
+margin-bottom:5px;
+}
+
+.comment{
+font-size:12px;
+color:#ccc;
+text-align:left;
+margin-top:4px;
+}
 </style>
 
 </head>
@@ -386,11 +404,11 @@ transform:scale(1.05);
 
 <div class="live-card">
 
+
 <iframe
-src="https://www.twitch.tv/noxraeanne&parent=https://www.teamnox.org/"
+src="https://player.twitch.tv/?channel=noxraeanne&parent=teamnox.org"
 frameborder="0"
-allowfullscreen="true"
-scrolling="no"
+allowfullscreen
 height="300"
 width="100%">
 </iframe>
@@ -403,10 +421,9 @@ width="100%">
 <div class="live-card">
 
 <iframe
-src="https://www.twitch.tv/muckleslappin&parent=https://www.teamnox.org/"
+src="https://player.twitch.tv/?channel=muckleslappin&parent=teamnox.org"
 frameborder="0"
-allowfullscreen="true"
-scrolling="no"
+allowfullscreen
 height="300"
 width="100%">
 </iframe>
@@ -423,7 +440,7 @@ width="100%">
 
 <!-- CLIP GRID -->
 
-<div class="clip-grid">
+<div class="clip-grid" id="clip-container"></div>
 
 <div class="clip-card">
 <video controls>
@@ -468,59 +485,103 @@ width="100%">
 </section>
   <script>
 
-let clips = JSON.parse(localStorage.getItem("noxClips")) || []
+<script>
+
+let clips = JSON.parse(localStorage.getItem("noxClips")) || [
+
+{
+url:"assets/clips/clip1.mp4",
+title:"NO AIM",
+player:"RAEANNE"
+},
+{
+url:"assets/clips/clip2.mp4",
+title:"EASY ACE",
+player:"SHY"
+},
+{
+url:"assets/clips/clip4.mp4",
+title:"EASY TIGER",
+player:"NORDICA"
+},
+{
+url:"assets/clips/clip5.mp4",
+title:"POPCORN ON BBQ",
+player:"TRAVIS"
+},
+{
+url:"assets/clips/clip3.mp4",
+title:"COMPETITIVE MASTER CLASS",
+player:"SHY"
+}
+
+]
 
 const container = document.getElementById("clip-container")
 
-// SAVE FUNCTION
-function saveClips(){
+function save(){
 localStorage.setItem("noxClips", JSON.stringify(clips))
 }
 
-// LIKE FUNCTION
-function likeClip(index){
-clips[index].likes = (clips[index].likes || 0) + 1
-saveClips()
-renderClips()
+function likeClip(i){
+clips[i].likes = (clips[i].likes || 0) + 1
+save()
+render()
 }
 
-// VIEW FUNCTION
-function addView(index){
-clips[index].views = (clips[index].views || 0) + 1
-saveClips()
+function addView(i){
+clips[i].views = (clips[i].views || 0) + 1
+save()
 }
 
-// RENDER FUNCTION
-function renderClips(){
+function addComment(i){
+const input = document.getElementById("comment-input-"+i)
+
+if(!input.value) return
+
+clips[i].comments = clips[i].comments || []
+clips[i].comments.push(input.value)
+
+input.value = ""
+
+save()
+render()
+}
+
+function render(){
 
 container.innerHTML = ""
 
-clips.forEach((clip, index) => {
+clips.forEach((clip, i) => {
 
 clip.likes = clip.likes || 0
 clip.views = clip.views || 0
+clip.comments = clip.comments || []
 
 const card = document.createElement("div")
 card.className = "clip-card"
 
 card.innerHTML = `
 
-<video controls onclick="addView(${index})">
+<video controls onclick="addView(${i})">
 <source src="${clip.url}">
 </video>
 
 <h3>${clip.title}</h3>
-<p>${clip.player}</p>
+<p>Player: ${clip.player}</p>
 
 <div class="clip-actions">
+<button onclick="addView(${i})">👁️ ${clip.views}</button>
+<button onclick="likeClip(${i})">❤️ ${clip.likes}</button>
+</div>
 
-<button onclick="addView(${index})">
-👁️ ${clip.views}
-</button>
+<div class="comment-box">
 
-<button onclick="likeClip(${index})">
-❤️ ${clip.likes}
-</button>
+<input id="comment-input-${i}" placeholder="Add comment...">
+
+<button onclick="addComment(${i})">Post</button>
+
+${clip.comments.map(c => `<div class="comment">💬 ${c}</div>`).join("")}
 
 </div>
 
@@ -532,7 +593,7 @@ container.appendChild(card)
 
 }
 
-renderClips()
+render()
 
 </script>
 
