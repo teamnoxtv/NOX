@@ -332,6 +332,45 @@ color:#ccc;
 text-align:left;
 margin-top:4px;
 }
+.comment-box{
+margin-top:10px;
+text-align:left;
+}
+
+.comment-box input{
+width:100%;
+padding:6px;
+border-radius:6px;
+border:none;
+margin-bottom:5px;
+}
+
+.comment{
+font-size:12px;
+color:#ccc;
+margin-top:4px;
+}
+
+.clip-actions{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.clip-actions button{
+flex:1;
+padding:8px;
+border:none;
+border-radius:10px;
+background:rgba(122,0,255,0.2);
+color:white;
+cursor:pointer;
+}
+
+.clip-actions button:hover{
+background:#7a00ff;
+}
+
 </style>
 
 </head>
@@ -483,35 +522,38 @@ width="100%">
 </div>
 
 </section>
-  <script>
-
 <script>
 
 let clips = JSON.parse(localStorage.getItem("noxClips")) || [
 
 {
 url:"assets/clips/clip1.mp4",
+thumb:"assets/clips/thumb1.jpg",
 title:"NO AIM",
 player:"RAEANNE"
 },
 {
 url:"assets/clips/clip2.mp4",
+thumb:"assets/clips/thumb2.jpg",
 title:"EASY ACE",
 player:"SHY"
 },
 {
 url:"assets/clips/clip4.mp4",
+thumb:"assets/clips/thumb4.jpg",
 title:"EASY TIGER",
 player:"NORDICA"
 },
 {
 url:"assets/clips/clip5.mp4",
+thumb:"assets/clips/thumb5.jpg",
 title:"POPCORN ON BBQ",
 player:"TRAVIS"
 },
 {
 url:"assets/clips/clip3.mp4",
-title:"COMPETITIVE MASTER CLASS",
+thumb:"assets/clips/thumb3.jpg",
+title:"COMP MASTER CLASS",
 player:"SHY"
 }
 
@@ -532,12 +574,13 @@ render()
 function addView(i){
 clips[i].views = (clips[i].views || 0) + 1
 save()
+render()
 }
 
 function addComment(i){
-const input = document.getElementById("comment-input-"+i)
+const input = document.getElementById("comment-"+i)
 
-if(!input.value) return
+if(input.value.trim() === "") return
 
 clips[i].comments = clips[i].comments || []
 clips[i].comments.push(input.value)
@@ -563,7 +606,7 @@ card.className = "clip-card"
 
 card.innerHTML = `
 
-<video controls onclick="addView(${i})">
+<video controls poster="${clip.thumb}" onclick="addView(${i})">
 <source src="${clip.url}">
 </video>
 
@@ -576,13 +619,10 @@ card.innerHTML = `
 </div>
 
 <div class="comment-box">
-
-<input id="comment-input-${i}" placeholder="Add comment...">
-
+<input id="comment-${i}" placeholder="Add comment...">
 <button onclick="addComment(${i})">Post</button>
 
 ${clip.comments.map(c => `<div class="comment">💬 ${c}</div>`).join("")}
-
 </div>
 
 `
@@ -598,7 +638,8 @@ render()
 </script>
 
 
-</script>
+
+
 <script src="scripts/main.js"></script>
 </body>
 </html>
