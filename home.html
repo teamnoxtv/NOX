@@ -208,15 +208,40 @@ filter:drop-shadow(0 0 6px #7a00ff);
 
 /* ===== GLASS PANELS ===== */
 .glass {
-  margin: 20px auto;
-  padding: 25px;
-  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px 40px;
+  max-width: 600px;
 
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(168,85,247,0.4);
-  border-radius: 15px;
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: 18px;
+
+  text-align: left;
+
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* glow border */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent, rgba(168,85,247,0.5), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+.glass:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(168,85,247,0.4);
 }
 
 /* ===== FEATURES ===== */
@@ -274,6 +299,41 @@ filter:drop-shadow(0 0 6px #7a00ff);
   height: 100%;
   z-index: -5;
 }
+.stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 1.8rem;
+  color: #a855f7;
+}
+
+.stat p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+.feature-box {
+  padding: 20px 30px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(168,85,247,0.25);
+
+  min-width: 220px;
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(168,85,247,0.4);
+}
+
 </style>
 </head>
 
@@ -347,13 +407,24 @@ filter:drop-shadow(0 0 6px #7a00ff);
 <section class="section">
   <h2>⚡ Why NOX?</h2>
 
-  <div class="features">
-    <div class="feature-box">🏆 Competitive Tournaments</div>
-    <div class="feature-box">🎥 Content Creators</div>
-    <div class="feature-box">🌍 Growing Community</div>
-  </div>
-</section>
+<div class="features">
 
+  <div class="feature-box">
+    <h3>🏆 Tournaments</h3>
+    <p>Compete in high-level events</p>
+  </div>
+
+  <div class="feature-box">
+    <h3>🎥 Creators</h3>
+    <p>Grow your audience with NOX</p>
+  </div>
+
+  <div class="feature-box">
+    <h3>🌍 Community</h3>
+    <p>Join a fast growing esports hub</p>
+  </div>
+
+</div>
 <section class="section">
   <h2>🚀 Join TEAM NOX</h2>
   <p>Become part of the next generation esports community.</p>
@@ -364,19 +435,43 @@ filter:drop-shadow(0 0 6px #7a00ff);
 
 <section class="section">
   <h2>🔥 Featured</h2>
-  <div class="glass">Latest Tournament: NOX Championship</div>
+
+  <div class="glass">
+    <h3>NOX Championship</h3>
+    <p>Our latest tournament featuring top competitive teams battling for dominance.</p>
+    <small>Starts soon • Open registration</small>
+  </div>
 </section>
 
 <section class="section">
   <h2>🔴 Live Now</h2>
-  <div class="glass">Streaming on Twitch</div>
-</section>
 
+  <div class="glass">
+    <h3>Live Stream Active</h3>
+    <p>Watch our creators and teams streaming competitive matches right now.</p>
+    <small>Streaming on Twitch</small>
+  </div>
+</section>
 <section class="section">
   <h2>📊 Stats</h2>
-  <div class="glass">10K+ Members • 50+ Events • 1M+ Views</div>
+
+  <div class="glass stats">
+    <div class="stat">
+      <h3>10K+</h3>
+      <p>Members</p>
+    </div>
+
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Events</p>
+    </div>
+
+    <div class="stat">
+      <h3>1M+</h3>
+      <p>Views</p>
+    </div>
+  </div>
 </section>
-<script>
 
 /* SCROLL ANIM */
 const sections = document.querySelectorAll(".section");
