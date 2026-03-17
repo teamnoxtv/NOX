@@ -106,19 +106,32 @@ text-shadow:0 0 10px #7a00ff;
 
 
 /* ===== HERO ===== */
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  min-height: 80vh;
+  padding: 40px;
+}
+
+/* HERO */
 .hero {
-  text-align:center;
-  margin-top:100px;
+  text-align: center;
 }
 
-.team-title {
-  font-size:3rem;
-  text-shadow:0 0 25px #a855f7;
+/* SOCIAL GRID */
+.social-panels {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 30px;
 }
 
-.tagline {
-  margin-top:10px;
-  color:rgba(255,255,255,0.7);
+/* FIX CARD SIZE */
+.social-panel {
+  width: 180px;
+  height: 180px;
+  padding: 20px;
 }
 
 /* ===== BUTTONS ===== */
@@ -245,23 +258,43 @@ footer {
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <h1 class="team-title">TEAM NOX</h1>
-  <p class="tagline">Compete. Create. Dominate.</p>
+<div class="main-layout">
 
-  <div class="main-buttons">
-    <a href="#">Tournaments</a>
-    <a href="#">Watch</a>
-    <a href="#">Creators</a>
+  <!-- LEFT SIDE -->
+  <section class="hero">
+    <h1 class="team-title">TEAM NOX</h1>
+    <p class="tagline">Compete. Create. Dominate.</p>
+
+    <div class="main-buttons">
+      <a href="tournaments.html">Tournaments</a>
+      <a href="watch.html">Watch</a>
+      <a href="creators.html">Creators</a>
+    </div>
+  </section>
+
+  <!-- RIGHT SIDE -->
+  <div class="social-panels">
+    <a href="#" class="social-panel">
+      <img src="assets/logo.png">
+      <span>Discord</span>
+    </a>
+
+    <a href="#" class="social-panel">
+      <img src="assets/logo.png">
+      <span>Twitter</span>
+    </a>
+
+    <a href="#" class="social-panel">
+      <img src="assets/logo.png">
+      <span>YouTube</span>
+    </a>
+
+    <a href="#" class="social-panel">
+      <img src="assets/logo.png">
+      <span>Twitch</span>
+    </a>
   </div>
-</section>
 
-<!-- SOCIALS -->
-<div class="social-panels">
-  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Discord</span></a>
-  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Twitter</span></a>
-  <a href="#" class="social-panel"><img src="assets/logo.png"><span>YouTube</span></a>
-  <a href="#" class="social-panel"><img src="assets/logo.png"><span>Twitch</span></a>
 </div>
 
 <!-- FEATURED -->
