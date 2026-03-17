@@ -228,6 +228,40 @@ transform:translate(-50%, -50%);
 z-index:999;
 
 }
+/* LIVE SECTION */
+
+.live-section{
+max-width:1100px;
+margin:80px auto;
+}
+
+.section-title{
+font-size:32px;
+margin-bottom:20px;
+text-shadow:0 0 15px #7a00ff;
+}
+
+.live-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.live-card{
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+
+border:2px solid #7a00ff;
+border-radius:16px;
+
+padding:15px;
+transition:.3s;
+}
+
+.live-card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px #7a00ff;
+}
 </style>
 
 </head>
@@ -289,6 +323,50 @@ z-index:999;
 <p>Best NOX HERO Play of the Week</p>
 
 </div>
+
+<!-- LIVE STREAM SECTION -->
+
+<section class="live-section">
+
+<h2 class="section-title">🔴 Live Now</h2>
+
+<div class="live-grid">
+
+<div class="live-card">
+
+<iframe
+src="https://www.twitch.tv/noxraeanne"
+frameborder="0"
+allowfullscreen="true"
+scrolling="no"
+height="300"
+width="100%">
+</iframe>
+
+<h3>Ninja Live</h3>
+<p>Playing NOX Ranked</p>
+
+</div>
+
+<div class="live-card">
+
+<iframe
+src="https://www.twitch.tv/muckleslappin"
+frameborder="0"
+allowfullscreen="true"
+scrolling="no"
+height="300"
+width="100%">
+</iframe>
+
+<h3>Shroud Live</h3>
+<p>Insane Aim Gameplay</p>
+
+</div>
+
+</div>
+
+</section>
 
 
 <!-- CLIP GRID -->
