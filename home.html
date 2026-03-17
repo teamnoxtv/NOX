@@ -49,34 +49,56 @@ body {
 }
 
 /* ===== NAV ===== */
+/* ===== NAVBAR FIXED ===== */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 20px 40px;
   border-bottom: 1px solid #a855f7;
 }
 
-.logo {
-  height: 40px;
+/* LOGO LEFT */
+.logo-link {
+  justify-self: start;
 }
 
+/* CENTER LINKS */
 .nav-links {
   display: flex;
-  gap: 25px;
+  justify-content: center;
+  gap: 30px;
   list-style: none;
 }
 
+/* RIGHT SIDE EMPTY (for future login etc) */
+.nav-right {
+  justify-self: end;
+}
+
+/* LINK STYLE */
 .nav-links a {
+  position: relative;
   color: white;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.nav-links a:hover {
-  color: #a855f7;
+/* UNDERLINE ANIMATION */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #a855f7;
+  transition: 0.3s;
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
 /* ===== HERO LAYOUT ===== */
 .hero {
   display: flex;
