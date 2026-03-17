@@ -5,61 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TEAM NOX</title>
 
-<link rel="stylesheet" href="styles/styles.css">
-
 <style>
 
-/* ===== RESET ===== */
+/* ===== GLOBAL ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 body {
+  background: black;
   color: white;
   overflow-x: hidden;
 }
 
-/* ===== VIDEO BG ===== */
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -3;
-}
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.3;
-}
-
-/* OVERLAY */
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  z-index: -2;
-}
-
-/* ===== NAV ===== */
-/* ===== GLOBAL ===== */
-body {
-  margin: 0;
-  color: white;
-  font-family: Arial;
-  overflow-x: hidden;
-}
-
-/* ===== NAVBAR ===== */
-/* ---------- NAVBAR ---------- */
-
+/* NAVBAR */
 .navbar{
 display:flex;
 align-items:center;
@@ -111,29 +73,23 @@ color:#a64dff;
 text-shadow:0 0 10px #7a00ff;
 }
 
-/* ---------- ICONS ---------- */
 
-.nav-icons{
-display:flex;
-gap:20px;
+/* ===== SECTION BASE ===== */
+.section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
-.icon-btn{
-color:white;
-cursor:pointer;
-transition:.25s;
-}
-
-.icon-btn:hover{
-color:#7a00ff;
-transform:scale(1.1);
-filter:drop-shadow(0 0 6px #7a00ff);
+/* ===== TITLES ===== */
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
 }
 
 /* ===== HERO ===== */
 .hero {
+  padding: 120px 20px 60px;
   text-align: center;
-  margin-top: 80px;
 }
 
 .team-title {
@@ -142,133 +98,18 @@ filter:drop-shadow(0 0 6px #7a00ff);
 }
 
 .tagline {
-  margin: 10px 0 25px;
-  color: rgba(255,255,255,0.7);
+  margin: 15px 0 30px;
+  color: rgba(255,255,255,0.6);
 }
 
-/* ===== BUTTONS ===== */
-.main-buttons a {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 25px;
+/* ===== BUTTON ===== */
+.cta-btn {
+  padding: 12px 30px;
   border: 2px solid #a855f7;
-  border-radius: 8px;
+  border-radius: 10px;
   color: white;
   text-decoration: none;
   transition: 0.3s;
-}
-
-.main-buttons a:hover {
-  background: #a855f7;
-  box-shadow: 0 0 20px #a855f7;
-}
-
-/* ===== SOCIALS (GLASS CARDS) ===== */
-/* ===== CLEAN GLASS ===== */
-.social-panel {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-.social-panel,
-.glass,
-.feature-box {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(168,85,247,0.25);
-  border-radius: 14px;
-
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* subtle glow border */
-.social-panel::before,
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent, rgba(168,85,247,0.4), transparent);
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.social-panel:hover::before,
-.glass:hover::before {
-  opacity: 1;
-}
-
-/* ===== SECTIONS ===== */
-.section {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-/* ===== GLASS PANELS ===== */
-.glass {
-  margin: 30px auto;
-  padding: 30px 40px;
-  max-width: 600px;
-
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(16px);
-
-  border: 1px solid rgba(168,85,247,0.25);
-  border-radius: 18px;
-
-  text-align: left;
-
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-/* glow border */
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent, rgba(168,85,247,0.5), transparent);
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.glass:hover::before {
-  opacity: 1;
-}
-
-.glass:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(168,85,247,0.4);
-}
-
-/* ===== FEATURES ===== */
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.feature-box {
-  padding: 20px 30px;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(168,85,247,0.4);
-}
-
-/* ===== CTA ===== */
-.cta-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: 2px solid #a855f7;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
 }
 
 .cta-btn:hover {
@@ -276,184 +117,207 @@ filter:drop-shadow(0 0 6px #7a00ff);
   box-shadow: 0 0 20px #a855f7;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 900px) {
-  .social-panels {
-    grid-template-columns: repeat(2, 150px);
-  }
-}
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(168,85,247,0.2); }
-  50% { box-shadow: 0 0 25px rgba(168,85,247,0.5); }
-  100% { box-shadow: 0 0 10px rgba(168,85,247,0.2); }
-}
-
-.social-panel,
-.glass {
-  animation: glowPulse 4s infinite ease-in-out;
-}
-
- #particles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -5;
-}
-.stats {
+/* ===== FEATURES ===== */
+.features {
   display: flex;
-  justify-content: space-between;
-  text-align: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-.stat h3 {
-  font-size: 1.8rem;
-  color: #a855f7;
-}
-
-.stat p {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
-}
-.feature-box {
+.feature {
   padding: 20px 30px;
-  border-radius: 14px;
+  min-width: 220px;
 
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(12px);
 
   border: 1px solid rgba(168,85,247,0.25);
-
-  min-width: 220px;
-  text-align: center;
+  border-radius: 14px;
 
   transition: 0.3s;
 }
 
-.feature-box:hover {
+.feature:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 20px rgba(168,85,247,0.4);
+}
+
+/* ===== GLASS PANELS ===== */
+.glass {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 30px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(168,85,247,0.25);
+
+  text-align: left;
+  transition: 0.3s;
+}
+
+.glass:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(168,85,247,0.4);
+}
+
+/* ===== TEXT STYLING ===== */
+.glass h3 {
+  margin-bottom: 10px;
+}
+
+.glass p {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 10px;
+}
+
+.glass small {
+  color: rgba(255,255,255,0.5);
+}
+
+/* ===== STATS ===== */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat h3 {
+  color: #a855f7;
+  font-size: 2rem;
+}
+
+.stat p {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  width: 60%;
+  height: 1px;
+  background: rgba(168,85,247,0.3);
+  margin: 80px auto;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
 }
 
 </style>
 </head>
 
 <body>
-<canvas id="particles"></canvas>
 
-<!-- VIDEO -->
-<div class="video-bg">
-  <video autoplay muted loop playsinline>
-    <source src="assets/welcome1.mp4" type="video/mp4">
-  </video>
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo-link">
+<img src="assets/logo.png" class="logo">
+</a>
+
+<ul class="nav-links">
+
+<li><a href="about">About</a></li>
+<li><a href="watch.html">Watch</a></li>
+<li><a href="tournaments.html">Tournaments</a></li>
+<li><a href="signup.html">Signup</a></li>
+<li><a href="news.html">News</a></li>
+<li><a href="creators.html">Creators</a></li>
+<li><a href="shop.html">Shop</a></li>
+
+<div class="nav-right">
+
 </div>
 
-<div class="overlay"></div>
+</div>
 
-<!-- NAV -->
-<nav class="navbar">
-  <a href="index.html">
-    <img src="assets/logo.png" class="logo">
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="watch.html">Watch</a></li>
-    <li><a href="tournaments.html">Tournaments</a></li>
-    <li><a href="signup.html">Signup</a></li>
-    <li><a href="news.html">News</a></li>
-    <li><a href="creators.html">Creators</a></li>
-    <li><a href="shop.html">Shop</a></li>
-  </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <h1 class="team-title">TEAM NOX</h1>
+  <p class="tagline">Compete. Create. Dominate.</p>
+  <a href="#" class="cta-btn">Get Started</a>
+</section>
 
-  <div class="hero-content">
-    <h1 class="team-title">TEAM NOX</h1>
-    <p class="tagline">Compete. Create. Dominate.</p>
+<div class="divider"></div>
 
-    <div class="main-buttons">
-      <a href="tournaments.html">Tournaments</a>
-      <a href="watch.html">Watch</a>
-      <a href="creators.html">Creators</a>
+<!-- WHY -->
+<section class="section">
+  <h2> Why NOX?</h2>
+
+  <div class="features">
+    <div class="feature">
+      <h3> Tournaments</h3>
+      <p>Compete in high-level events</p>
+    </div>
+
+    <div class="feature">
+      <h3> Creators</h3>
+      <p>Grow your audience</p>
+    </div>
+
+    <div class="feature">
+      <h3> Community</h3>
+      <p>Join a fast growing hub</p>
     </div>
   </div>
-
-  <!-- SOCIALS -->
-<div class="social-panels">
-
-  <a href="#" class="social-panel">
-    <span>Discord</span>
-  </a>
-
-  <a href="#" class="social-panel">
-    <span>Twitter</span>
-  </a>
-
-  <a href="#" class="social-panel">
-    <span>YouTube</span>
-  </a>
-
-  <a href="#" class="social-panel">
-    <span>Twitch</span>
-  </a>
-
-</div>
-
-  </div>
-
-</section>
-<section class="section">
-  <h2>⚡ Why NOX?</h2>
-
-<div class="features">
-
-  <div class="feature-box">
-    <h3>🏆 Tournaments</h3>
-    <p>Compete in high-level events</p>
-  </div>
-
-  <div class="feature-box">
-    <h3>🎥 Creators</h3>
-    <p>Grow your audience with NOX</p>
-  </div>
-
-  <div class="feature-box">
-    <h3>🌍 Community</h3>
-    <p>Join a fast growing esports hub</p>
-  </div>
-
-</div>
-<section class="section">
-  <h2>🚀 Join TEAM NOX</h2>
-  <p>Become part of the next generation esports community.</p>
-
-  <a href="signup.html" class="cta-btn">Get Started</a>
-</section>
 </section>
 
+<div class="divider"></div>
+
+<!-- FEATURED -->
 <section class="section">
-  <h2>🔥 Featured</h2>
+  <h2> Featured</h2>
 
   <div class="glass">
     <h3>NOX Championship</h3>
-    <p>Our latest tournament featuring top competitive teams battling for dominance.</p>
+    <p>Top teams battling for dominance in our biggest tournament.</p>
     <small>Starts soon • Open registration</small>
   </div>
 </section>
 
+<!-- LIVE -->
 <section class="section">
-  <h2>🔴 Live Now</h2>
+  <h2> Live Now</h2>
 
   <div class="glass">
     <h3>Live Stream Active</h3>
-    <p>Watch our creators and teams streaming competitive matches right now.</p>
+    <p>Watch creators and teams streaming right now.</p>
     <small>Streaming on Twitch</small>
   </div>
 </section>
+
+<!-- STATS -->
 <section class="section">
-  <h2>📊 Stats</h2>
+  <h2> Stats</h2>
 
   <div class="glass stats">
     <div class="stat">
@@ -473,7 +337,7 @@ filter:drop-shadow(0 0 6px #7a00ff);
   </div>
 </section>
 
-/* SCROLL ANIM */
+<script>
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
@@ -483,66 +347,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-<script>
-document.querySelectorAll(".social-panel").forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.5) * -10;
-    const rotateY = ((x / rect.width) - 0.5) * 10;
-
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "rotateX(0) rotateY(0)";
-  });
-});
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for (let i = 0; i < 60; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 2,
-    speedX: Math.random() - 0.5,
-    speedY: Math.random() - 0.5
-  });
-}
-
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  particles.forEach(p => {
-    p.x += p.speedX;
-    p.y += p.speedY;
-
-    ctx.fillStyle = "#a855f7";
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fill();
-
-    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-</script>
-</script>
-
-
 </script>
 
 </body>
